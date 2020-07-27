@@ -1,0 +1,112 @@
+{
+  "pages": [
+    "pages/launch/launch",
+    "pages/index/index",
+    
+    
+    "pages/pinpai/pinpai",
+    "pages/Gjlist/Gjlist",
+    "pages/infoxiangqin/infoxiangqin",
+    "pages/member/member",
+    "pages/train_list/train_list",
+    "pages/comparison/comparison",
+    "pages/pinpai_list/pinpai_list",
+    "pages/search_pinpai/search_pinpai",
+    "pages/mine/mine",
+    "pages/rights/rights",
+    "pages/collect/collect",
+    "pages/training/training",
+    "pages/train_search/train_search",
+    "pages/train/train",
+    "pages/search_youwan/search_youwan",
+    "pages/training_search/training_search",
+    "pages/search_peixun/search_peixun",
+    "pages/train_order/train_order",
+    "pages/training_apply/training_apply",
+    "pages/dealer/dealer",
+    "pages/search2/search2",
+    "pages/search/search",
+    "pages/information_list/information_list",
+    "pages/classify/classify",
+    "pages/information/information",
+    "pages/personage/personage",
+    "pages/perfect/perfect",
+    "pages/ma_ticket/ma_ticket",
+    "pages/Ticket_details/Ticket_details",
+    "pages/Orderdetail/Orderdetail",
+    "pages/address/address",
+    "pages/order/order",
+    "pages/information_details/information_details",
+    "pages/Hot_gift/Hot_gift",
+    "pages/Hot_activity/Hot_activity",
+    "pages/map/map",
+    "pages/reg/reg",
+    "pages/newly/newly",
+    "pages/select_brand/select_brand",
+    "pages/contrast/contrast",
+    "pages/select/select",
+    "pages/Active_line/Active_line",
+    "pages/address_a/address_a",
+    "pages/site/site",
+    "pages/list_particulars/list_particulars",
+    "pages/activity/activity",
+    "pages/training_details/training_details",
+    "pages/Brand_list/Brand_list",
+    "pages/Gift/Gift",
+    "pages/gzh/gzh",
+    "pages/searchShow/searchShow",
+    "pages/list/list",
+    "pages/brand/brand",
+    "pages/logs/logs",
+    "pages/confirm/confirm",
+    "pages/register/register",
+    "pages/close/close",
+    "pages/indent/indent",
+    "pages/enquiry/enquiry",
+    "pages/Gift_details/Gift_details"
+  ],
+  "tabBar": {
+    "color": "#c4c8cc",
+    "selectedColor": "#0D5EFF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/shouye.png",
+        "selectedIconPath": "img/shouye2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "img/fenlei.png",
+        "selectedIconPath": "img/fenlei2.png",
+        "text": "品牌"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "iconPath": "img/reban.png",
+        "selectedIconPath": "img/reban2.png",
+        "text": "热榜资讯"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "img/wode.png",
+        "selectedIconPath": "img/wode2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTitleText": "艇有趣",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

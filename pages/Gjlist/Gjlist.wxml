@@ -1,0 +1,88 @@
+<!--pages/Brand_list/Brand_list.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<!-- 导航栏 -->
+<view class="bul">
+  <view class="head">
+    <!-- <navigator class="head-c" hover-class="none" url="../search_pinpai/search_pinpai">
+      <view class="nav">
+        <view class="icon">
+          <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+        </view>
+        <input class="nav_seek" placeholder="上万种航海产品，等你来搜！" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+      </view>
+    </navigator> -->
+<!-- height:{{issd?'1100rpx':'220rpx'}} -->
+<view class="ddddd" style="" wx:if="{{article}}">
+<scroll-view scroll-y scroll-into-view='item2' class="tiem">
+    <view class="xianqingde" hidden="{{issd}}">
+      <image class="Pimg" src="{{HTTP}}{{brand.cover}}"></image>
+      <view class="ptext">
+      <!-- 德国Bavaria(巴伐利亚）船厂成立于1978年，多年来，Bavaria(巴伐利亚）的游艇因其出众的性能和合理的价格享誉全 -->
+       <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+    </view>
+
+  <view class="wxParse2" hidden="{{!issd}}">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+    </scroll-view>
+     <view class="xiala" bindtap="btnClick" >
+    <image class="Pimg2 {{issd? 'tra' : ''}}" src="../../img/xxll.png"></image>
+    </view>
+</view>
+ <view class="ccccc" style="" wx:if="{{issd}}"></view>
+
+    <!-- <scroll-view scroll-y style="height: 100%;"> -->
+      <view class="list" hidden="{{!flag}}" style="top:{{article?'220rpx':'0rpx'}}">
+        <view class="list_a">
+          <navigator hover-class="none" wx:for="{{brand_list}}" wx:key="{{item}}"  url="../list_particulars/list_particulars?id={{item.id}}" class="commodity ">
+            <image class="bb ripple"  mode='aspectFill' src="{{HTTP}}{{item.brand_list_img}}"></image>
+            <view class="h1 let">{{item.name}}</view>
+           <view class="bra let">{{item.model}}</view>
+            <view class="intext let">
+              <view style="height: 80rpx;" wx:if="{{item.price != 0 && item.member_price != 0}}">
+                <view class="money2" wx:if="{{item.price != 0}}">
+                  <text class="shichang">市场价</text>
+                  <text style="font-size: 18rpx;" wx:if="{{item.price >= 10000}}"> ￥</text>{{item.price/10000}}万
+                </view>
+                <view class="money" wx:if="{{item.member_price != 0}}">
+                  <text class="shichang">会员价</text>
+                  <text style="font-size: 20rpx;" wx:if="{{item.member_price >= 10000}}"> ￥</text>{{item.member_price/10000}}万
+                </view>
+              </view>
+              <view class="mone" wx:elif="{{item.price == 0 && item.member_price == 0}}">面议</view>
+
+              <view style="height: 80rpx; line-height: 80rpx;" wx:else>
+                <view class="money" wx:if="{{item.price != 0}}">
+                  <text class="shichang">价格</text>
+                  <text wx:if="{{item.price >= 10000}}"><text style="font-size: 20rpx;"> ￥</text>{{item.price/10000}}万</text>
+                  <text wx:if="{{item.price < 10000}}"><text style="font-size: 20rpx;"> ￥</text>{{item.price*1}}元</text>
+                </view>
+                <view class="money" wx:if="{{item.member_price != 0}}">
+                  <text class="shichang">价格</text>
+                  <text wx:if="{{item.member_price >= 10000}}"><text style="font-size: 20rpx;"> ￥</text>{{item.member_price/10000}}万</text>
+                  <text wx:if="{{item.member_price < 10000}}"><text style="font-size: 20rpx;"> ￥</text>{{item.price*1}}元</text>
+                </view>
+              </view>
+            </view>
+            
+            <image class="cc" src="{{HTTP}}{{item.brandImage}}"></image>
+          </navigator>
+
+        </view>
+      </view>
+
+    <!-- </scroll-view> -->
+
+
+  </view>
+</view>
+
+     <view class="address" hidden="{{flag}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无该国家产品~</view>
+  </view>
+  </view>

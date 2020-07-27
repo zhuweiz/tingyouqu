@@ -1,0 +1,54 @@
+<!--pages/contrast/contrast.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+
+<view class="nnmm" style='margin-top: {{height}}px;' hidden="{{show}}">
+  <view class="contrast">
+    <view class="h2">产品规格</view>
+    <!-- <view class="list2"> -->
+    <view class="list2_a">
+      <view wx:for="{{products}}" wx:for-index="key" wx:key="{{item.id}}">{{item.name}}</view>
+    </view>
+    <!-- </view> -->
+  </view>
+
+  <!-- <scroll-view class="cc" style="-webkit-overflow-scrolling:touch" scroll-x='true' style="  position: absolute;width:75%; display: flex;left:0;top:0"> -->
+  <view class="scroll-content">
+    <scroll-view class="cc" style="width:100%" scroll-x='true'>
+      <view class="biaotiQ">
+        <view class="list_b" wx:for="{{params}}" wx:key="{{item.id}}">
+          {{item}}
+        </view>
+      </view>
+      <view class="biaotiF">
+         <!-- <view class="biaotiF" wx:for="{{products}}" wx:key="{{item.id}}"> -->
+        <!-- <view class="name_sd"  wx:for="{{item.params}}" wx:key="{{item.id}}" wx:for-item="item2">
+      {{!item2?'--':(item2 =="null"?"--":item2 == 'undefined'?"--":item2)}}
+      </view> -->
+        <view class="list2_b" wx:for="{{productsParams}}" wx:key='key' wx:for-item="item2">
+          <view class="canshu" wx:for="{{item2}}" wx:key='{{item2}}' wx:for-item="item3">
+            <view class="canshu_a" >{{item3 == '' ?'--':(item3 =="null"?"--":item3 == undefined?"--":item3)}}</view>
+          </view>
+
+        </view>
+      </view>
+      <!-- <view class="xian"></view> -->
+    </scroll-view>
+  </view>
+</view>
+
+<van-dialog
+  use-slot
+  title=""
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:cancel="onClose2"
+  bind:getuserinfo="getUserInfo"
+>
+ <view class="tishi">
+ <view>{{msg}}</view>
+
+ <view><text class="vip">开通超级会员</text>可以对比无数次</view>
+ </view>
+</van-dialog>

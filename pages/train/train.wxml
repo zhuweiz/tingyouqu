@@ -1,0 +1,90 @@
+<!--pages/train/train.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<!-- <view class="list_particulars"> -->
+  
+<view class="hed">
+<previewImg id="previewComponent" previewImgList="{{imgs}}" previewImg="{{defImg}}" />
+  <!-- 文字 -->
+  <view class="img">
+    <swiper class='u-wrp-bnr' style="border-radius:20rpx;height: 420rpx;" bindchange="bindChange" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+      <!-- && product.video_url == null -->
+      <view class="remen-a">
+        <swiper-item wx:for='{{imgs}}' wx:key='index' wx:if="{{index<5}}">
+          <image class="re_img" data-index='{{index}}' catchtap='openpreviewImg' src="{{HTTP}}{{item}}" />
+        </swiper-item>
+      </view>
+    </swiper>
+    <view class="shulian">
+      <image src="../../img/tpp.png"></image>
+      <text class="shuzi" catchtap='openpreviewImg'>共{{imgs.length}}张</text>
+    </view>
+  </view>
+  <view class="list">
+
+    <view class="h1">{{train_list.name}}</view>
+    <view class="h2">{{train_list.cname}}</view>
+    <view class="h3">
+      <view class="list_n mone">
+        <text class="jin">￥</text>{{train_list.price}}</view>
+      <view class="list_n xiang" wx:if="{{train_list.member_price}}">VIP享</view>
+      <view class="list_n huiname" wx:if="{{train_list.member_price}}">¥{{train_list.member_price}}</view>
+      <view class="list_n shou">已售{{train_list.sell}}</view>
+    </view>
+
+    <view class="xian"></view>
+
+
+    <view class="jieshao">行程介绍</view>
+           <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+  </view>
+</view>
+<view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+<!-- 底部 -->
+<!-- 底部 -->
+<!-- 底部 -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+  <view class="but_a">
+    <view class="bt" bindtap="haveSave">
+      <image class="xhu" src="{{collection?'../../img/xin.png':'../../img/xin1.png'}}"></image>
+      <view class="sc">收藏</view>
+    </view>
+    <view class="bt2">
+      <!-- <image src="../../img/fenxiang.png"></image> -->
+      <!-- <view class="sc"></view> -->
+      <button open-type="share" style="  height: 80rpx;" class="fenxiang" style='border:0;background-color:#fff;font-size:20rpx;'>
+        <image class="xhu" src="../../img/fenxiang.png"></image>
+
+        <view class="fx">分享</view>
+      </button>
+    </view>
+    <van-action-sheet show="{{ show_list }}" title="选择游艇" bind:close="quxiao_list" safe-area-inset-bottom>
+
+      <view class="list_nei" wx:for="{{list_ting}}" wx:key="{{item}}">
+        <image class="list_img" src="{{HTTP}}{{item.images[0]}}"></image>
+        <view class="list_boy">
+          <view class="list_h1 list_mag">{{item.name}}</view>
+          <view class="list_h2 list_mag" style="height: 40rpx;">
+            <text class="lis_dd" wx:if="{{item.member_price}}">¥{{item.member_price*1}}</text>
+            <text class="lis_cc" wx:if="{{item.member_price}}">VIP享</text>
+          </view>
+          <view class="list_h3 list_mag">
+            <view class="lis_jj">
+              <text class="lis_mome">¥{{item.price*1}}</text>
+              <text class="lis_mome">起</text>
+            </view>
+            <view class="lis_mm" bindtap="onDisplay" data-cid="{{item.id}}">预定</view>
+          </view>
+        </view>
+      </view>
+
+
+  
+
+    </van-action-sheet>
+    <van-calendar show="{{ show }}" color="#2FAEFE" bind:close="onClose" bind:confirm="onConfirm" />
+    <button class="buy" bindtap="baoming" data-id="{{activity.id}}" wx:if="{{state != 2}}">立即报名</button>
+    <button class="buy2" wx:if="{{state == 2}}">以截止报名</button>
+  </view>
+</view>

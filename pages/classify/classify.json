@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nav-bar": "../../components/navbar2/index"
+  },
+  "navigationStyle": "custom",
+ "navigationBarTitleText": "品牌分类",
+ "navigationBarTextStyle": "black"
+}

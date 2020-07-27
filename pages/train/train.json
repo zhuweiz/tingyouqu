@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-calendar": "@vant/weapp/calendar/index",
+    "previewImg": "../../components/previewImg/previewImg",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
+  },
+    "navigationBarTitleText": "航线详情",
+    "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,36 @@
+.present{
+  width: 650rpx;
+  height: 100%;
+  margin: auto;
+  font-family:PingFang SC;
+  color:rgba(0,21,62,1);
+}
+.present_a{
+  overflow: hidden;
+  width: 650rpx;
+  /* height: 30rpx; */
+}
+.img image{
+  width: 650rpx;
+  height: 360rpx;
+}
+.img .tex1{
+  float: left;
+  font-size:26rpx;
+font-weight:500;
+line-height:55rpx;
+}
+.img .tex2{
+  float: right;
+  font-size:26rpx;
+font-weight:400;
+color:rgba(229,99,80,1);
+line-height:55rpx;
+}
+.img .tex3{
+  float: left;
+  font-size:22rpx;
+font-weight:400;
+color:#00153E;
+line-height:43rpx;
+}

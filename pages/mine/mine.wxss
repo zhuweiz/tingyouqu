@@ -1,0 +1,267 @@
+/* pages/reg/reg.wxss */
+.reg{
+  padding-top: 100rpx;
+  height: 100%;
+  position: relative;
+    color: #00153E;
+  font-family:PingFang SC;
+  width: 650rpx;
+   margin: auto;
+   text-align: center;
+}
+
+.ggdd{
+  width: 10rpx;
+  height: 16rpx;
+  vertical-align:middle;
+  margin-left: 10rpx;
+}
+.img{
+  margin: auto;
+  margin-top: 160rpx;
+  width: 430rpx;
+  height: 380rpx;
+}
+.img .ddll{
+  width: 430rpx;
+  height: 380rpx;
+}
+.text{
+  font-size:38rpx;
+font-weight:400;
+margin-top: 80rpx
+}
+.enter{
+    margin-top: 180rpx;
+  width: 650rpx;
+  height: 100rpx;
+  border-radius: 50rpx 50rpx;
+  font-size: 29rpx;
+  background: #f9f9f9;
+  color: #fff;
+ line-height: 100rpx;
+ text-align: center;
+   background-image: linear-gradient(to right, #0055ff , #8dd2fe);
+}
+.login{
+  margin-top: 40rpx;
+  color: #0D5EFF;
+  font-size:30rpx;
+font-weight:400;
+}
+
+/* mine */
+text {
+  font-family: PingFang SC;
+}
+
+.scroll-view-item {
+  position: relative;
+  width: 100%;
+  color: rgba(0, 21, 62, 1);
+}
+
+.hed {
+  width: 650rpx;
+  margin: auto;
+}
+
+/* 轮播图 */
+.u_www{
+  width: 100%;
+}
+.u-wrp-bnr {
+  /* overflow: hidden; */
+  height: 220rpx;
+  /* width: 650rpx; */
+  margin: auto;
+  margin-top: 30rpx;
+  position: relative;
+  background: url(http://m.qpic.cn/psb?/V13t2G4i0uprYL/XEFEoqbC0fnuyMcpzmK0IfX4no8xI5vq0Nb7kBwKDpc!/b/dL4AAAAAAAAA&bo=7QJxAQAAAAADB70!&rf=viewer_4);
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%;  */
+  background-size: cover;
+}
+.xufei{
+  color:rgba(62,96,255,1);
+}
+.backgroundimg {
+  /* position: relative; */
+  background-size: 100% 100%;
+  z-index: -999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.shezi {
+  width: 650rpx;
+  margin: auto;
+  height: 24rpx;
+  /* overflow: hidden; */
+}
+
+.shezi text {
+  margin-top: -6rpx;
+  float: right;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  opacity: 0.8;
+
+}
+
+.shezi image {
+  float: right;
+  width: 27rpx;
+  height: 24rpx;
+}
+
+.vip {
+  font-size: 24rpx;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 8rpx;
+}
+
+.touxian {
+
+  width: 140rpx;
+  margin: auto;
+  height: 140rpx;
+  border-radius:50%;
+
+}
+
+.touxian image {
+  height: 140rpx;
+  width: 140rpx;
+    margin-top: -40rpx;
+    border-radius: 50%;
+}
+
+.name {
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: 500;
+     margin-top: -30rpx;
+}
+.huiyuan {
+  overflow: hidden;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #fff6c2;
+  width: 650rpx;
+  border-radius: 0px 0px 20rpx 20rpx;
+  color:rgba(47,40,0,1);
+}
+.huiyuan_a{
+  margin-left: 30rpx;
+  float: left;
+  font-size:28rpx;
+font-weight:500;
+font-family:PingFang SC;
+color:rgba(47,40,0,1);
+}
+.huiyuan_b{
+  margin-right: 30rpx;
+  float: right;
+  font-size:24rpx;
+font-weight:400;
+}
+
+/* list */
+.list{
+ display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  height: 120rpx;
+  border-bottom: 1rpx solid #DEE3F0;
+  line-height: 120rpx;
+  font-size:28rpx;
+font-weight:400;
+color:rgba(0,21,62,1);
+}
+.list text{
+  margin-left: 20rpx;
+}
+.list image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.list2{
+  margin-top: 30rpx;
+  border-bottom: 30rpx solid #F4F7FF;
+}
+
+/* 推荐 */
+
+.hot-a{
+  margin-top: 70rpx;
+}
+.remen {
+  float: left;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(0, 21, 62, 1);
+   font-family: PingFang SC;
+   margin-left: 50rpx;
+}
+
+.genduo {
+  float: right;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(0, 21, 62, 1);
+  margin-right: 50rpx;
+}
+.buut{
+  margin: auto;
+  overflow: hidden;
+}
+.tuijian{
+  width: 100%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  font-size:24rpx;
+font-weight:400;
+color:rgba(0,21,62,1);
+overflow: hidden;
+}
+.remen-c{
+  display: inline-block;
+  width: 50%;
+    margin-top: 40rpx
+}
+.remen-c image{
+  width: 310rpx;
+  height: 200rpx;
+  border-radius:5rpx;
+}
+.love_name{
+font-size: 24rpx;
+width: 280rpx;
+font-weight: 400;
+padding-top: 20rpx;
+text-align: center;
+margin: auto;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+}
+.backgroundimg{
+  /* position: relative; */
+  background-size:100% 100%;
+  z-index: -999;
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

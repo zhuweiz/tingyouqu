@@ -1,0 +1,12 @@
+<!--pages/searchShow/searchShow.wxml-->
+<!-- 导航栏 -->
+<view class="present">
+  <navigator hover-class="none" wx:for ="{{gift_list}}" wx:key="{{item}}" url="../Gift_details/Gift_details?id={{item.id}}" class="img">
+    <image mode='aspectFill' src="{{HTTP}}{{item.gift_img}}"></image>
+    <view class="present_a">
+      <text class="tex1">{{item.name}}</text>
+       <text class="tex2">¥{{item.price}}</text>
+    </view>
+    <view class="tex3">{{item.dsescription}}</view>
+  </navigator>
+</view>

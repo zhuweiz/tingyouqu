@@ -1,0 +1,52 @@
+<!--pages/comparison/comparison.wxml-->
+<view class="comparison">
+<view class="hed_a">
+  <navigator hover-class="none" url="../select_brand/select_brand" class="tj" >添加+</navigator>
+  </view>
+  <view class="hed">
+
+  <view class="h1">最多可以同时对比10个产品</view>
+
+  <view class="cp" wx:for="{{comparison}}" wx:key="{{index}}" data-index="{{index}}" data-id="{{item.id}}" value="{{item.id}}"   bindtap="eec">
+
+    <view class="fl">
+      <view class="tex1">{{item.name}}</view>
+      <view class="tex2">{{item.brandName == null ?'':item.brandName}}</view>
+    </view>
+    <view class="fr">
+   <checkbox-group>
+  <label class="checkbox">
+    <checkbox data-index="{{index}}"   value="{{item.id}}"  checked="{{item.length}}"/>
+  </label>
+</checkbox-group>
+    </view>
+
+  </view>
+
+  <!-- butt -->
+<view class="but"  style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a" >
+   <button class="buy" bindtap="deletelist">删除</button>
+    <button class="buy2" bindtap="gotodb">去对比</button>
+    </view>
+  </view>
+
+
+  </view>
+</view>
+
+<van-dialog
+  use-slot
+  title=""
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+ <view class="tishi">
+ <view>普通会员只能对比{{numbers}}个产品</view>
+
+ <view><text class="vip">开通超级会员</text>可以对比10个产品</view>
+ </view>
+</van-dialog>

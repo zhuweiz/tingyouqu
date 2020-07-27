@@ -1,0 +1,78 @@
+<!--pages/register/register.wxml-->
+<view class="register">
+  <view class="bottomd">
+    <view class="h1">
+      <view class="fl img">
+        <image mode='aspectFill' src="{{HTTP}}{{activity.images[0]}}"></image>
+      </view>
+      <view class="fl img2">
+        <view class="tex1">{{activity.name}}</view>
+        <view class="tex2">
+          <view class="tex2_a">
+            <text class="province">{{activity.province}}</text>
+            <text class="city_a">{{activity.city}}</text>
+          </view>
+
+          <text class="tex2_b">{{activity.starttime}} {{activity.weekday}}</text>
+        </view>
+        <view class="tex3">
+          <!-- <text style="display:{{activity.price==null? 'none':'block'}}">¥{{activity.price}} 起</text> -->
+           <text wx:if="{{activity.price == ''}}">暂无报价</text>
+           <text wx:else ><text style="font-size: 20rpx;">￥</text>{{activity.price}} 起</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="body {{uhide==item.id?'aaa':'ccc'}}" bindtap="ShowState"  data-price="{{item.price}}" data-id="{{item.id}}" data-pic="{{cartData[item.id]}}" wx:for="{{tickets}}" wx:key="{{item.id}}">
+    <view class="body_a">
+      <view class="piao1">
+        <view>{{item.name}}</view>
+        <view style="color:{{item.price != 0?'#FF1F23':'#3ACB52' }}">¥{{item.price}}</view>
+      </view>
+
+      <view class="piao2 inventory"  wx:if="{{uhide==item.id}}">
+       <!-- <view class="piao2 inventory"  wx:if="{{item.price != 0 && uhide==item.id}}"> -->
+        <text class='del fl' type='number' style="color:{{cartData[item.id]==0?'#ccc':'#0D5EFF'}}" data-id="{{item.id}}" catchtap='bindMinus' data-max="{{item.max}}">-</text>
+        <block wx:for="{{cartData}}" wx:for-index="key" wx:key="item" wx:for-item="value">
+          <text class="fl itt" wx:if="{{item.id == key}}">{{value}}</text>
+        </block>
+        <text class="add fl" catchtap='bindPlus' data-max="{{item.max}}" data-id="{{item.id}}" data-index="{{index}}">+</text>
+      </view>
+
+    </view>
+    <view class="body_b">备注：{{item.dsescriptions}}</view>
+    <image class="body_img" style="display:{{uhide==item.id?'block':'none'}}" src="../../img/gou.png"></image>
+  </view>
+
+  <!-- <view class="body">
+        <view class="body_a">
+          <view class="piao1">
+            <view>正价票</view>
+            <view>¥ 180</view>
+          </view>
+           <view class="piao2 inventory">
+                  <text class='{{minusStatus}} del fl' type='number' bindtap='bindMinus'>-</text>
+      <input class="fl" bindinput='bindManual' value='{{num}}'></input>
+      <text class="add fl" bindtap='bindPlus'>+</text>
+           </view>
+         </view>
+         <view class="body_b">备注：门票+活动行定制帆布袋</view>
+    </view> -->
+
+  <!-- <view class="body">
+        <view class="body_a">
+          <view class="yewan">
+            <view>夜晚票</view>
+            <view class="mianfei">免费票</view>
+          </view>
+         </view>
+         <view class="body_b">备注：门票+活动行定制帆布袋</view>
+    </view> -->
+<view style="height: 100rpx;background: #F3F7FF; padding-bottom: {{getAppInfo}}rpx"></view>
+  <view class="butt" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+      <button class="buy" bindtap="gotodingdan">确定</button>
+    </view>
+  </view>
+
+</view>

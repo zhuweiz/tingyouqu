@@ -1,0 +1,211 @@
+<!--pages/list_particulars/list_particulars.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<!-- <view class="list_particulars"> -->
+       <previewImg id="previewComponent" previewImgList="{{product.images}}" previewImg="{{defImg}}" />
+       <!-- <previewImg id="previewComponent2" previewImgList="{{defImg}}" previewImg="{{defImg}}" /> -->
+<view class="list_particulars {{filtrate == false ? '':'none'}}">
+
+  <view class="hed">
+    <!-- 文字 -->
+    <view class="img">
+      <swiper class='u-wrp-bnr' style="border-radius:20rpx;" bindchange="bindChange" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+        <!-- && product.video_url == null -->
+        <view class="remen-a">
+          <swiper-item wx:for='{{product.images}}' wx:key='index' wx:if="{{index<5}}">
+          <!-- <image class="re_img" data-index='{{index}}' bindtap='previewImg' mode='aspectFill' src="{{HTTP}}{{item}}" /> -->
+            <image class="re_img" data-index='{{index}}' catchtap='openpreviewImg' mode='aspectFill' src="{{HTTP}}{{item}}" />
+            <!-- <image src="{{imgList[0]}}" catchtap="openpreviewImg" mode="widthFix"></image> -->
+     
+
+          </swiper-item>
+        </view>
+      </swiper>
+      <view class="shulian">
+        <image src="../../img/tpp.png"></image>
+        <text class="shuzi" catchtap='openpreviewImg'>共{{product.images.length}}张</text>
+      </view>
+      <image bindtap="bindplay" src="../../img/bff.png" mode="widthFix" class="video_play_icon" wx:if="{{product.video_url != null && product.video_url != '' && currentTab ==0}}"></image>
+    </view>
+
+    <view class="tex">
+      <view class="tex_a" wx:key="{{item}}" id="navbar">
+        <view class="tex1">{{product.name}}</view>
+        <view class="tex2">
+          <view wx:if="{{product.brandName != null}}">{{product.brandName}}</view>
+          <view style="display:{{product.origin== null ?'none':'block'}}">{{product.origin}}</view>
+        </view>
+      </view>
+      <view class="comparison" bindtap="handleClickShow" style="{{compare?'background:#99A1B2':'background:#0D5EFF'}};">
+        <text wx:if="{{!compare}}">加入对比</text>
+        <text wx:else>取消对比</text>
+      </view>
+    </view>
+    <view class="fixed" style="display:{{isFixedTop?'block':'none'}}">
+      <view class="tex_top ">
+        <view class="tex_a" wx:key="{{item}}">
+          <view class="tex1" style="padding-top: 25rpx">{{product.name}}</view>
+        </view>
+        <view class="comparison" bindtap="handleClickShow" style="margin-top: 22rpx; {{compare?'background:#99A1B2':'background:#0D5EFF'}};">
+          <text wx:if="{{!compare}}">加入对比</text>
+          <text wx:else>取消对比</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="nndes" wx:if="{{product.price != 0 && product.member_price != 0}}">
+      <view class="money2" style="float: left;padding-right: 20rpx;">
+        <text class="shichang">市场价</text>
+        <text wx:if="{{product.price >= 10000}}"><text style="font-size: 18rpx;">{{jin}}</text>{{product.price/10000}}万</text>
+        <text wx:if="{{product.price < 10000}}"><text style="font-size: 18rpx;">{{jin}}</text>{{product.price*1}}元</text>
+      </view>
+      <view class="money" style=" float: left;">
+        <text class="shichang">会员价</text>
+        <text wx:if="{{product.member_price >= 10000}}"><text style="font-size: 20rpx;">{{jin}}</text>{{product.member_price/10000}}万</text>
+        <text wx:if="{{product.member_price < 10000}}"><text style="font-size: 18rpx;">{{jin}}</text>{{product.member_price*1}}元</text>
+      </view>
+    </view>
+    <view class="nndes" wx:else>
+      <view class="money" wx:if="{{product.price != 0}}">
+        <text class="shichang">价格</text>
+        <text wx:if="{{product.price >= 10000}}"><text style="font-size: 18rpx;">{{jin}}</text>{{product.price/10000}}万</text>
+        <text wx:if="{{product.price < 10000}}"><text style="font-size: 18rpx;">{{jin}}</text>{{product.price*1}}元</text>
+      </view>
+      <view class="money" wx:if="{{product.member_price != 0}}">
+        <text class="shichang">价格</text>
+        <text wx:if="{{product.member_price >= 10000}}"><text style="font-size: 20rpx;">{{jin}}</text>{{product.member_price/10000}}万</text>
+        <text wx:if="{{product.member_price < 10000}}"><text style="font-size: 20rpx;">{{jin}}</text>{{product.member_price*1}}元</text>
+      </view>
+    </view>
+
+
+  </view>
+  <!-- 礼品参数 -->
+  <view class="parameter" wx:if="{{product.topSpeed || product.cruisingSpeed  || !isss }}">
+    <!-- <view class="tubiao" wx:if="{{product.topSpeed != '' && product.cruisingSpeed != '' && product.topSpeed != null && product.cruisingSpeed != null}}"> -->
+    <view class="tubiao" wx:if="{{product.topSpeed  || product.cruisingSpeed}}">
+      <view class="zuigao fl">
+        <view bindtap="animate">最高速度 ( 节 )</view>
+        <view class="zui_a">{{product.topSpeed == ''?'--': topSpeed}}</view>
+      </view>
+      <view class="shudujie fl">
+        <image class="yibiao" src="../../img/yibiao.gif"></image>
+      </view>
+      <view class="xunhan fr">
+        <view>巡航速度 ( 节 )</view>
+        <view class="zui_b">{{product.cruisingSpeed == ''?'--': cruisingSpeed}}</view>
+      </view>
+    </view>
+
+    <view class="tubiao2" wx:if="{{ product.rechargeMileage != '' && product.rechargeMileage != null}}">
+      <view class="xuhan">续航里程</view>
+      <view class="xuhan_a">
+        <image class="huadong" src="../../img/huadong.gif" bindload="onImageLoad"></image>
+        <view class="huadong_a" wx:if="{{licheng}}">
+          <text class="kz">最高</text>
+          <text class="km">{{product.rechargeMileage}}</text>
+          <text class="kc">NM</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="paa" wx:if="{{!isss}}">
+      <view class="pat1">
+        <view class="model">参数规格</view>
+
+      </view>
+      <view class="bode">
+        <view class="pat2" wx:for="{{params}}" style="display:{{uhide==1?'block':''}}" wx:for-index="key" wx:key="*this">
+          <view class="pat2_a">{{key}}</view>
+          <!-- <view class="pat2_a" wx:if="{{key== '价格'}}">{{key}}(万元)</view>
+               <view class="pat2_a" wx:else>{{key}}</view> -->
+          <view class="pat2_b">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="quanbu" bindtap="chakan" style="display:{{shulian<=7?'none':'block'}}"> {{quanbu}} >></view>
+      <view class="jianbian" wx:if="{{product.ismember == 1 && ismember == 0}}"></view>
+    </view>
+
+    <view class="zhankai" style="margin: auto;width: 690rpx;" wx:if="{{product.ismember == 1 && ismember == 0}}" bindtap="gotoVip">点击展开全文</view>
+
+  </view>
+
+  <!-- 产品介绍 -->
+  <view class="introduce">
+    <view class="int">
+      <view class="pat1">
+        <view class="changpinlet {{current==0 ? 'on' : 'leet'}}" data-idx="0" bindtap="onClickItem">
+          产品介绍
+          <view class="juxin" style="display:{{current==0 ? 'block' : 'none'}}"></view>
+        </view>
+        <view class="changpinrit {{current==1 ? 'on' : 'leet'}}" data-idx="1" bindtap="onClickItem" wx:if="{{article2}}">品牌介绍
+          <view class="juxin" style="display:{{current==1 ? 'block' : 'none'}}"></view>
+        </view>
+      </view>
+      <!-- <rich-text nodes="{{train_content}}"></rich-text> -->
+      <view class="wxParse {{product.ismember == 1 && ismember == 0?'yingchang':''}}" style="display:{{current==0 ? 'block' : 'none'}}">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        <view class="jianbian" style="width: 650rpx; margin-left: 0rpx;" wx:if="{{product.ismember == 1 && ismember == 0}}"></view>
+      </view>
+      <view class="zhankai" wx:if="{{product.ismember == 1 && ismember == 0}}" bindtap="gotoVip" style="display:{{current==0 ? 'block' : 'none'}}">试读已结束，如需继续阅读请升级VIP查看</view>
+
+      <view class="wxParse" style="display:{{current==1 ? 'block' : 'none'}}">
+        <template is="wxParse" data="{{wxParseData:article2.nodes}}" />
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <view class="love" wx:if="{{guess_love.length >= 1}}">
+    <view class="love_a">
+
+      <view class="pat1">猜你喜欢</view>
+      <navigator class="let" wx:for="{{guess_love}}" wx:key="{{item}}" wx:if="{{index<4}}" hover-class="none" url="../list_particulars/list_particulars?id={{item.id}}">
+        <image src="{{HTTP}}{{item.guess_love_img}}"></image>
+        <view class="love_cc">{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+  <view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+  <!-- 底部 -->
+  <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+      <view class="bt">
+        <image src="{{collection?'../../img/xin.png':'../../img/xin1.png'}}" bindtap="haveSave"></image>
+        <view class="sc">收藏</view>
+      </view>
+      <navigator hover-class="none" url="../comparison/comparison?id={{id}}" class="bt" style="margin-left:43rpx;">
+        <view style="height: 34rpx;">
+          <image src="../../img/PK2.png" style=" width: 45rpx;height: 23rpx;"></image>
+        </view>
+        <view class="sc" style="margin-top:9rpx;">对比</view>
+      </navigator>
+      <button class="buy1" bindtap="chaxun">经销商查询</button>
+      <button data-hi="WeChat" bindtap="tapName" class="buy">立即咨询</button>
+    </view>
+  </view>
+</view>
+
+
+<view class="vid {{filtrate != false ? '':'none'}}" style="display:{{filtrate != false ? 'flex':'none'}}">
+  <view class="v1" style="height: 32%; width: 100%;" catchtap="vido"></view>
+  <!-- style="height:{{videoHeight+'rpx'}}" -->
+  <video id="myVideo"  src="{{product.video_url}}" enable-danmu controls show-center-play-btn="{{false}}" auto-pause-if-navigate auto-pause-if-open-native enable-play-gesture="true" show-play-btn object-fit="fill" bindpause="bindpause" bindended="bindended">
+    <cover-view class="video_cover" wx:if="{{isShow}}">
+      <cover-image src="{{HTTP}}{{product.images[0]}}" mode="widthFix"></cover-image>
+      <cover-image bindtap="bindplay" src="../../img/bff.png" mode="widthFix" class="video_play_icon"></cover-image>
+
+    </cover-view>
+  </video>
+  <view class="v2" style="height: 32%; width: 100%;" catchtap="vido"></view>
+</view>
+
+<van-dialog use-slot title="" show="{{ show }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo">
+  <view class="tishi">
+    <view>当前账户无浏览权限，请
+      <text class="vip">升级VIP</text>查看</view>
+
+    <!-- <view><text class="vip">开通超级会员</text>可以对比10个产品</view> -->
+  </view>
+</van-dialog>

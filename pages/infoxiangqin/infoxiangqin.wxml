@@ -1,0 +1,10 @@
+<!--pages/train/train.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="hed">
+  <view class="jieshao">{{train_list.title}}</view>
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>
+<view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+<!-- 底部 -->

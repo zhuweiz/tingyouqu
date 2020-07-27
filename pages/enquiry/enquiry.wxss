@@ -1,0 +1,217 @@
+/* pages/enquiry/enquiry.wxss */
+.enquiry{
+  width: 100%;
+  height: 100%;
+  color:rgba(0,21,62,1);
+  font-family:PingFang SC;
+}
+.enquiry_a{
+  width: 650rpx;
+  margin: auto;
+}
+
+.h1{
+  font-size:46rpx;
+  font-weight:600;
+}
+.hei{
+  background: rgba(244,247,255,1);
+ color:rgba(0,21,62,1);
+}
+.bai{
+   background: #0D5EFF;
+   color:#fff;
+}
+.bode{
+  margin-top: 69rpx;
+  overflow: hidden;
+ /* position: absolute; */
+ height: 220rxp;
+}
+.texx{
+  height: 79rpx;
+  width:400rpx;
+  overflow:hidden;
+text-overflow:ellipsis; 
+white-space:nowrap;  
+}
+.img{
+  float: left;
+}
+.img2 image{
+  width: 120rpx;
+  height:37rpx;
+}
+.tex{
+  width: 372rpx;
+  float: left;
+  margin-left: 29rpx;
+  font-size:28rpx;
+font-weight:500;
+margin-top: 6rpx;
+}
+.tex2{
+  margin-top: 10rpx;
+}
+.img image{
+  width: 186rpx;
+  height: 120rpx;
+}
+
+.center{ 
+  height: 120rpx;
+  border-bottom: 1rpx solid #DEE3F0;
+
+}
+.center text{
+    margin-top: 40rpx;
+   /* float: left; */
+  display: inline-block;
+  margin-left: 30rpx;
+  width: 92rpx;
+  height: 50rpx;
+  /* background:rgba(244,247,255,1); */
+border-radius:25px;
+font-size:24rpx;
+font-weight:500;
+line-height: 50rpx;
+text-align: center;
+}
+
+input{
+  font-size: 28rpx;
+  /* color: #99A1B2; */
+    margin-top: 40rpx;
+    float: left;
+  width: 407rpx;
+     color:rgba(0,21,62,1);
+}
+.center2{
+  height: 262rpx;
+    border-bottom: 1rpx solid #DEE3F0;
+}
+.center2 textarea{
+   margin-top: 40rpx;
+  width: 650rpx;
+}
+.datum{
+  font-size:28rpx;
+font-weight:400;
+color:rgba(0,21,62,1);
+margin-top: 57rpx;
+}
+
+.inquire{
+    font-size:28rpx;
+font-weight:400;
+color:rgba(0,21,62,1);
+margin-top: 30rpx;  
+}
+.zil{
+  margin-left: 20rpx;
+  vertical-align:middle;
+}
+/* 底部 */
+.butt{
+  display: flex;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  height: 100rpx;
+
+  background: #fff;
+}
+.but_a{
+  width: 650rpx;
+  margin: auto;
+}
+.buy{
+  margin-top: 5rpx;
+
+  height: 90rpx;
+  line-height: 90rpx;
+background:linear-gradient(30deg,rgba(13,94,255,1),rgba(47,174,254,1));
+box-shadow:0px 2px 0px 0px rgba(255,255,255,1), 0px 20px 30px 0px rgba(13,94,255,0.16);
+  border: none;
+  border-radius: 45rpx;
+  font-size:28rpx;
+  color: #fff;
+font-weight:500;
+}
+checkbox{
+  width:40rpx;
+height:40rpx;
+background:rgba(255,255,255,1);
+border-radius:50%;
+}
+
+/* 设置背景遮罩层样式 */
+.mask {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+/* 设置遮罩内容样式 */
+.fs_img{
+  margin-top: 130rpx;
+    text-align: center;
+}
+.fs_img image{
+
+  width: 564rpx;
+  height: 470rpx;
+}
+.fs_img view{
+  margin-top: 80rpx;
+ font-size:38rpx;
+font-weight:400;
+color:rgba(0,21,62,1);
+}
+/* 设置关闭按钮图片的位置 */
+.closeImg {
+  width: 100%;
+  margin-top: 200rpx;
+}
+.guanbi{
+  width: 650rpx;
+  margin: auto;
+    height: 90rpx;
+  line-height: 90rpx;
+background:linear-gradient(30deg,rgba(13,94,255,1),rgba(47,174,254,1));
+box-shadow:0px 2px 0px 0px rgba(255,255,255,1), 0px 20px 30px 0px rgba(13,94,255,0.16);
+  border: none;
+  border-radius: 45rpx;
+  font-size:28rpx;
+  color: #fff;
+font-weight:500;
+}
+
+checkbox-group{
+  display: inline-block;
+background:rgba(255,255,255,1);
+  padding-top: -10rpx;
+}
+checkbox{
+      width: 34rpx;
+  height: 34rpx;
+  transform: scale(0.8,0.8);
+}
+.checkbox{
+      width: 34rpx;
+  height: 34rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #0D5EFF;
+  color: #fff;
+ 
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 34rpx;
+  height: 34rpx;
+
+}

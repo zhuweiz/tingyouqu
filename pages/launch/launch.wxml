@@ -1,0 +1,8 @@
+<!--pages/launch/launch.wxml-->
+<view style="  width: 100%;height: 100%" class="shouye">
+  <image class="juxin" src="{{HTTP}}{{image}}" bindtap="tiaozhuan" data-from="{{cid}}" data-goosid="{{gid}}"></image>
+  <view class="gg" bindtap="tiaoguo">
+  <view class="tg">跳过</view>
+  <view style="font-size: 23rpx;line-height: 19rpx">{{seconds}}s</view>
+  </view>
+</view>

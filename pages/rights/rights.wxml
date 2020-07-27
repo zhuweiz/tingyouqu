@@ -1,0 +1,26 @@
+<!--pages/rights/rights.wxml-->
+<view class="rights">
+<view class="nvv"> 
+    <input class="nav_seek" placeholder="请输入兑换码 " focus='{{name_focus}}' placeholder-style="color:#C2C7D1" cursor="margin-left:-60rpx" placeholder-class="placeholderStyle"  bindinput="handlenameChange" value="{{nickname}}"/>
+</view>
+
+<button class="buy" bindtap="generateOrder">立即兑换</button>
+
+<view></view>
+    <view class="rights_a">
+    <view class="h1">说明</view>
+    <view class="tex1">1、兑换码用于兑换艇有趣VIP会员</view>
+    <view class="tex1">2、每个兑换码，仅可兑换一次，重复使用无效</view>
+        <view class="tex1">3、兑换成功，当前账号VIP立即生效</view>
+</view>
+      <!-- <view class="h1 h2">退货无忧</view>
+    <view class="tex1">退货无忧服务（即退货运费补贴）是一种消费者保障服务。买家在商家发货后通过线上申请联系商家退货并填写物流单号，在商家确认收到退货后48小时内可享受运费补贴。仅退款的订单不享受此服务。注：为保障用户体验，买家需完善资料后才可使用该服务。</view>
+
+      <view class="h1 h2">专享功能</view>
+    <view class="tex1">更多专享功能请赞助获取VIP/ SVIP会员特权以下授权服务只针对ANK全能界面版的增值功能。</view>
+    
+          <view class="h1 h2">专属客服</view>
+    <view class="tex1">专属客服提供更优质的一对一接线服务，帮助买家更好的解决问题。</view>
+
+    </view> -->
+</view>

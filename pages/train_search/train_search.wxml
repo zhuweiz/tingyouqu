@@ -1,0 +1,44 @@
+<view class="head">
+  <view class="head-c">
+
+    <view class="nav">
+      <view class="icon">
+        <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+      </view>
+      <input class="nav_seek" placeholder="搜索航线游玩" value='{{name}}' bindconfirm='goSearch' focus='{{name_focus}}' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search" />
+    </view>
+  </view>
+
+</view>
+
+<view class="h2">
+
+  <navigator class="h2_list" hover-class="none" url="../train/train?id={{item.id}}" wx:for="{{products}}" wx:key="item">
+    <view class="lt iimmg">
+      <image class="listimg" src="{{HTTP}}{{item.images[0]}}"></image>
+    </view>
+    <view class="lt dye">
+      <view class="biaoti">{{item.name}}</view>
+      <view class="biaoti2">{{item.city}}</view>
+      <view class="biaoti3">
+        <view class="lt shou">已售{{item.sell}}</view>
+        <view class="rt">
+          <view>
+            <text class="vip">VIP享</text>
+            <text class="vipmn">¥{{item.member_price*1}}</text>
+          </view>
+          <view class="mmmd">
+            <text class=" mmnnd">¥ {{item.price*1}}</text> 起</view>
+
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="address" hidden="{{flag}}">
+  <view class="address_a">
+    <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+    <view class="img2">暂无该培训 ~</view>
+  </view>
+</view>

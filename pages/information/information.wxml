@@ -1,0 +1,86 @@
+<!-- 头部搜索 -->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<!-- 搜索 -->
+<view class="head" style='padding-top: {{height}}px;'>
+  <view class="head-c">
+    <navigator hover-class="none" url="../search2/search2?id={{current}}" class="nav" >
+      <view class="icon">
+        <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+      </view>
+      <input class="nav_seek" placeholder="运动艇评测"  placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+    </navigator>
+  </view>
+</view>
+
+<!-- 导航菜单 -->
+<scroll-view class="biaoti_h1" scroll-x='true' style=" white-space: nowrap; display: flex;">
+  <view class="remen-a">
+    <view class="{{current==item.id ? 'on' : 'biaoti'}}" data-idx="{{item.id}}" bindtap="onClickItem" wx:for="{{channel}}" wx:key="{{item}}">
+      <view class="btti">{{item.name}}</view>
+      <view class="heng" style="display:{{current==item.id? 'block' : 'none'}}"> </view>
+    </view>
+
+  </view>
+</scroll-view>
+<swiper class='u-wrp-bnr' style=" height: 350rpx;" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+  <block wx:for="{{bnrUrl}}" wx:key="key" wx:for-index="index">
+    <swiper-item bindtap='lunbo' data-id="{{item.id}}" >
+      <!-- <view hover-class="none" bindtap="browse" url="../gzh/gzh?id={{item.url}}" data-id="{{item.url}}" data-views="{{item.id}}"> -->
+      <image  class="u-img-slide" bindtap="browse" data-id="{{item.url}}" data-views="{{item.id}}" mode='aspectFill' src='{{HTTP}}{{item.images[0]}}' ></image>
+       <!-- </view> -->
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 轮播图 -->
+<!-- <view class="information" style="padding-bottom:110rpx;" > -->
+<view class="information" style="padding-bottom:120rpx;padding-top: 39rpx;">
+
+
+
+  <block wx:for="{{information}}" wx:key="{{item}}">
+    <view hover-class="none" bindtap="browse" class="hed" data-id="{{item.url}}" data-views="{{item.id}}">
+
+      <view class="title" wx:if="{{item.showtype == 3}}">{{item.title}}</view>
+      <view class="title" wx:if="{{item.showtype == 2}}">{{item.title}}</view>
+      <view class="title3" wx:if="{{item.showtype == 1}}">{{item.title}}</view>
+
+      <block wx:for="{{item.images}}" wx:for-index="key" wx:key="{{key}}" wx:for-item="value">
+        <view class="picture" wx:if="{{item.showtype == 3}}">
+          <image class="tp1" mode='aspectFill' src="{{HTTP}}{{value}}"></image>
+        </view>
+        <view class="pic" wx:elif="{{item.showtype == 2}}">
+          <image class="tpcc" mode='aspectFill' src="{{HTTP}}{{value}}"></image>
+        </view>
+        <view class="pic2" wx:elif="{{item.showtype == 1}}">
+          <image class="tp1" mode='aspectFill' src="{{HTTP}}{{value}}"></image>
+        </view>
+        <!-- <view class="pic" wx:else>
+      <image class="tp" src="{{HTTP}}{{value}}"></image>
+    </view> -->
+      </block>
+      <view class="browse" wx:if="{{item.showtype == 1}}"> <text class="source" wx:if="{{item.source != ''}}">{{item.source}}</text> <text>{{item.views}}浏览</text></view>
+      <view class="browse2" wx:if="{{item.showtype != 1}}"> <text class="source" wx:if="{{item.source != ''}}">{{item.source}}</text> <text>{{item.views}}浏览</text></view>
+    </view>
+  </block>
+</view>
+<!-- <import src="../../template/nav" /> -->
+<view class="flex fix_nav_wp" style="padding-bottom: {{getAppInfo}}rpx">
+  <!-- <block wx:for="{{navData}}" wx:key="item">
+    <template is="nav" data="{{...item}}" />
+  </block> -->
+    <block wx:for="{{navData}}" wx:key="item">
+    <view class="nav_link" bindtap="{{item.fn}}">
+      <button class="defalut_btn {{item.current== 0 ? '' : 'on_cor'}}">
+        <block wx:if="{{item.style == 0}}">
+          <image class="iconfont del_ico idx_ico imggg" src="{{item.ico}}"></image>
+          <text class="txt">{{item.name}}</text>
+        </block>
+        <block wx:if="{{item.style == 1}}">
+          <view class="plus_wp">
+            <image class="ppk" style=" width:144rpx;height:144rpx" src="{{clickImg9?' ../../img/ppk2.png ':'../../img/ppk.png '}}" class="plus_ico" />
+          </view>
+        </block>
+      </button>
+    </view>
+  </block>
+</view>

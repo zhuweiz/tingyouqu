@@ -1,0 +1,24 @@
+<!--pages/present/present.wxml-->
+<view class="present">
+  <navigator hover-class="none" wx:for="{{gift_list}}" wx:key="{{item}}" url="../Gift_details/Gift_details?id={{item.id}}" class="img">
+  <view class="imsg">
+    <image mode='aspectFill' src="{{HTTP}}{{item.images[0]}}"></image>
+    <view class="present_a">
+      <view class="tex1">{{item.name}}</view>
+      <!-- <text class="tex2"><text style="font-size: 18rpx;">￥</text>{{item.price}}</text> -->
+
+    </view>
+    <view class="nndes">
+      <view class="money2" style="float: left;">
+        <text class="shichang">市场价</text>
+        <text style="font-size: 18rpx;"> ￥</text>{{item.price*1}}
+      </view>
+      <view class="money" style="  float: left; margin-left: 20rpx;">
+        <text class="shichang">会员价</text>
+        <text style="font-size: 20rpx;"> ￥</text>{{item.member_price*1}}
+      </view>
+    </view>
+    <view class="tex3">{{item.dsescription}}</view>
+    </view>
+  </navigator>
+</view>

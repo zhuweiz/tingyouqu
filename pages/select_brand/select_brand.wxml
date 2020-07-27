@@ -1,0 +1,100 @@
+<!--pages/select_brand/select_brand.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+  <!-- 导航栏 -->
+    <scroll-view scroll-y="true" style="height:100%; " scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+<view class="classify" style='padding-top: {{height}}px;'>
+
+      <view class="head">
+      <view class="head-c">
+      <!-- 搜索 -->
+        <navigator class="nav"  hover-class="none" url="../search/search">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="品牌搜索" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+        </navigator>
+        </view>
+      </view>
+
+  <view class='warp'>
+  <view class="h1">热门品牌</view>
+  <view class="list">
+  <navigator hover-class="none" url="../select/select?id={{item.id}}&name={{item.name}}" class="list_a" wx:for="{{classify_hot}}"  wx:key="{{item}}" wx:if="{{index<8}}">
+     <image src="{{HTTP}}{{item.image}}" ></image>
+      <!-- <view class="namm">{{item.name}}</view> -->
+       <view class="ncme">{{item.country}}</view>
+  </navigator>
+  </view>
+</view>
+
+  <view class='list-city'>
+
+    <view class="hed">
+            <view class='item' wx:for="{{pinpai_list}}" wx:for-index="idx" wx:for-item="group" wx:key="key">
+        <view class='py' id="{{idx}}">{{idx}}</view>
+        <navigator hover-class="none" url="../select/select?id={{item.id}}&name={{item.name}}" class="fullname2" wx:for="{{group}}" wx:key="key">
+        <image class="bimg" src="{{HTTP}}{{item.image}}"></image>
+              <view class="p_name">{{item.name}}</view>
+              <view class="dizhi" wx:if="{{item.country != ''}}">{{item.country}}</view>
+              <!-- <view class="dizhi">{{item.country}}</view> -->
+               <view class="xian"></view>
+        </navigator>
+      </view>
+    </view>
+</view>
+  </view>
+   <view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+  </scroll-view>
+ 
+  <!-- 首字母 -->
+  <view class='city-py' bindtouchstart="tStart" bindtouchend="tEnd">
+      <view wx:for="{{pinpai_list}}" class="zm" wx:for-index="key" wx:key="key" bindtouchstart="getPy" id="{{key}}">{{key}}
+    </view>
+ 
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="showPy">{{showPy == 'hot' ? "#" : showPy}}</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+     <view class="classify">
+       <import src="/components/seek/seek.wxml"/>
+       <template is="head"></template>
+       
+ <view class='warp'>
+  <view class='list'> 
+
+   <view class="style {{current==0 ? 'on' : ''}}"  data-idx="0" bindtap="onClickItem">热门品牌</view>  
+    <view class="style {{current==1 ? 'on' : ''}}" data-idx="1" bindtap="onClickItem">其它品牌</view>  
+  </view>
+   <view class='content'>
+    <view hidden='{{current!=0}}' >
+        <navigator hover-class="none" url="../select/select?id={{item.id}}&name={{item.name}}"  class="img" wx:for="{{classify_hot}}" wx:key="{{item}}">
+            <image src="{{HTTP}}{{item.image}}"></image>
+            <view>{{item.name}}</view>
+        </navigator>
+   </view>  
+
+          <view hidden='{{current!=1}}' >
+        <navigator hover-class="none" url="../select/select?id={{item.id}}&name={{item.name}} " data-name="" class="img" wx:for="{{classify_list}}" wx:key="{{item}}">
+            <image src="{{HTTP}}{{item.image}}"></image>
+            <view>{{item.name}}</view>
+        </navigator>
+
+   </view>  
+
+   </view>
+  </view>
+  </view> -->

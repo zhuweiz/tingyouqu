@@ -1,0 +1,71 @@
+<!--pages/Ticket_details/Ticket_details.wxml-->
+<view class="Ticket">
+  <view class="hed">
+    <view class="hed_a">
+      <view class="h1">{{activity.name}}</view>
+
+      <view class="shijian top">
+        <image src="../../img/shijian.png"></image>
+        <view>{{activity.starttime}} ～ {{activity.endtime}} </view>
+     
+      </view>
+
+      <view class="shijian top2">
+        <image src="../../img/dizhi.png"></image>
+        <view bindtap="navigation">{{activity.province}}{{activity.city}}{{activity.address}}</view>
+            <image style="  width: 11rpx; height: 20rpx; display: inline-block;" src="../../img/ggdd.png"></image>
+      </view>
+    </view>
+    <view class="piaohao">票号 {{code}}</view>
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+      <swiper-item wx:for="{{ticket.coupon_code}}"  wx:key='{{key}}'  item-id='{{item.code}}&id={{key}}' wx:for-index="key" >
+        <!-- <view class="code"> -->
+          <canvas style="width: 150px; height: 150px; margin: auto;" canvas-id="{{item.code}}&id={{key}}"></canvas>
+          <!-- <canvas class='canvas' canvas-id='canvas'></canvas> -->
+        <!-- </view> -->
+      </swiper-item>
+      <!-- <swiper-item item-id='https://www.baidu.com/' >
+        <view class="code" >
+          <canvas style="width: 320rpx; height: 320rpx; margin: auto;" canvas-id="https://www.baidu.com/"></canvas>
+        </view>
+      </swiper-item> -->
+
+    </swiper>
+    <view class="yeshu">{{currentTab+1}}/{{ticket.coupon_code.length}}</view>
+  </view>
+  <view class="trunk">
+    <view class="trunk_a">
+      <view>姓名 :
+        <text>{{user.realname}}</text>
+      </view>
+      <view>电话 :
+        <text>{{user.phone}}</text>
+      </view>
+      <view>状态 :
+        <text class="piao" wx:if="{{ticket.coupon_code[currentTab].status == 0}}">未使用</text>
+        <text class="piao" wx:elif="{{ticket.coupon_code[currentTab].status == 1}}">已使用</text>
+        <text class="piao" wx:else>已过期</text>
+      </view>
+    </view>
+    <view class="trunk_b">
+      <view>
+      <text style="display: inline-block;   overflow: hidden;">票种 :</text>
+        <text class="piaoz">{{ticket.name}}</text>
+      </view>
+      <view>票价 :
+        <text>{{ticket.price}}元</text>
+      </view>
+      <view>实付 :
+        <text>{{ticket.pay}}.00元</text>
+      </view>
+    </view>
+  </view>
+  <view class="h2">
+    <view>票券说明</view>
+  </view>
+  <view class="h3 ">1.由于本活动各项资源需提前采购，一经售出不接受退款， 请确认购买；
+  </view>
+  <view class="h3">2.请不要把电子发票随意分享给他人，以免被盗用；</view>
+  <view class="h3">3.入场时，请提前打开电子票，调亮手机屏幕，以便扫码检 票入场，1人1票。
+  </view>
+</view>

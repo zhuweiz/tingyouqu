@@ -1,0 +1,70 @@
+<!--pages/training_details/training_details.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<previewImg id="previewComponent" previewImgList="{{imgs}}" previewImg="{{defImg}}" />
+<view class="hed">
+  <!-- 文字 -->
+  <view class="img">
+    <swiper class='u-wrp-bnr' style="border-radius:20rpx;height: 420rpx;" bindchange="bindChange" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+      <!-- && product.video_url == null -->
+      <view class="remen-a">
+        <swiper-item wx:for='{{imgs}}' wx:key='index' wx:if="{{index<5}}">
+          <image class="re_img" data-index='{{index}}' catchtap='openpreviewImg' src="{{HTTP}}{{item}}" />
+        </swiper-item>
+      </view>
+    </swiper>
+    <view class="shulian">
+      <image src="../../img/tpp.png"></image>
+      <text class="shuzi" catchtap='openpreviewImg'>共{{imgs.length}}张</text>
+    </view>
+  </view>
+  <view class="list">
+
+    <view class="h1">{{train_list.name}}</view>
+    <view class="h2">{{train_list.cname}}</view>
+    <view class="h3">
+      <view class="list_n mone">
+        <text class="jin">￥</text>{{train_list.price*1}}</view>
+      <view class="list_n xiang" wx:if="{{train_list.member_price}}">VIP享</view>
+      <view class="list_n huiname" wx:if="{{train_list.member_price}}">¥{{train_list.member_price*1}}</view>
+      <view class="list_n shou">已售{{train_list.sell}}</view>
+    </view>
+
+    <view class="main">
+      <view class="main_list">
+        <view class="main_d ma">开班时间</view>
+        <view class="main_d mb">{{train_list.startdate}}</view>
+      </view>
+      <view class="main_list2">
+        <view class="main_d ma fffc">培训类型</view>
+        <view class="main_d mb ffg" style="margin-left: 190rpx">{{train_list.tname}}</view>
+      </view>
+      <view class="main_list">
+        <view class="main_d ma">培训城市</view>
+        <view class="main_d mb">{{train_list.cname}}</view>
+      </view>
+      <view class="main_list">
+        <view class="main_d ma">培训时长</view>
+        <view class="main_d mb">{{train_list.days}}天</view>
+      </view>
+      <view class="main_list2">
+        <view class="main_d ma fffc">培训地址</view>
+        <view class="main_d mb ffg" style="margin-left: 190rpx">{{train_list.address}}</view>
+      </view>
+    </view>
+    <view>
+      <view class="jieshao">培训介绍</view>
+      <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>
+<view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+<!-- 底部 -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+  <view class="but_a">
+    <button class="buyc" bindtap="tel" wx:if="{{state != 2}}">客服咨询</button>
+    <button class="buy" bindtap="gotogoumai" wx:if="{{state != 2}}">立即报名</button>
+    <button class="buy2" wx:if="{{state == 2}}">以截止报名</button>
+  </view>
+</view>

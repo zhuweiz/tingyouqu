@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+    "navigationBarTitleText": "对比列表",
+    "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,33 @@
+/* pages/site/site.wxss */
+@import "/styles/border.wxss";
+.site{
+  width: 100%;
+  height: 100%;
+    font-family:PingFang SC;
+}
+.site_a{
+  width: 650rpx;
+  margin: auto;
+}
+.tex text{
+  width: 121rpx;
+}
+.tex input{
+  margin-left: 60rpx;
+    color:rgba(0,21,62,1);
+}
+.moren{
+   margin-left: 60rpx;
+  display: inline-block;
+}
+
+
+.quan2{
+    margin-top: -50rpx;
+}
+switch{
+  position: relative;
+    top: -8rpx;
+    zoom: .7;
+    color: #2F7DFE;
+}

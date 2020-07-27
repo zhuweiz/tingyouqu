@@ -1,0 +1,44 @@
+<!--pages/address/address.wxml-->
+<view wx:if="{{isHide}}">
+<view class="address">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">您还没有收货地址~</view>
+        <navigator hover-class="none" url="../newly/newly" class="enter" >+ 新增地址</navigator>
+  </view>
+</view>
+</view>
+
+<!--pages/address_a/ .wxml-->
+<!-- -->
+<view  wx:else >
+<view class="hed">
+    <view class="hd">
+    <view  class="hed_a  {{status != item.id ? '' :'active'}}" wx:for="{{address}}" wx:key="item">
+    <view class="content" bindtouchstart="touchS" bindtouchmove="touchM" data-index="{{index}}" data-id="{{item.id}}">
+    <view class="fl" bindtap="xiugai" data-id="{{item.id}}" data-name="{{item.name}}" data-name="{{item.name}}" data-phone="{{item.phone}}" data-city="{{item.city}}" data-region="{{item.region}}" data-street="{{item.street}}" data-address="{{item.address}}">
+        <view class="tex1">
+          <text class="name">{{item.name}}</text>
+          <text class="num">{{item.phone}}</text>
+          <text class="moren" wx:if="{{item.default}}">默认</text>
+        </view>
+        <view class="tex2">{{item.city}}{{item.region}}{{item.street}}{{item.address}}</view>
+    </view>
+     <navigator class="fr"  hover-class="none" url="../site/site?id={{item.id}}" data-id="{{item.id}}">
+     <image src="../../img/bj.png"></image>
+    </navigator>
+</view>
+       <view class="del-button" bindtap="remove" data-id="{{item.id}}">删除</view>
+    </view>
+ </view> 
+
+
+<view class="butt" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+    <navigator hover-class="none" url="../newly/newly" class="buy"  >+ 新增地址</navigator>
+    </view>
+  </view>
+
+</view>
+</view>
+

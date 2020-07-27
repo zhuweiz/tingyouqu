@@ -1,0 +1,40 @@
+
+<!-- 导航栏 -->
+<view class="bul">
+  <view class="head">
+    <!-- 搜索 -->
+    <!-- <view class="head-c">
+      <navigator class="nav" hover-class="none" url="../search/search">
+        <view class="icon">
+          <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+        </view>
+        <input class="nav_seek" placeholder="上万种航海产品，等你来搜！" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+      </navigator>
+   </view> -->
+
+
+
+  <view class="body">
+    <navigator hover-class="none" url="../activity/activity?id={{item.id}}" class="list" wx:for="{{productList}}" wx:key="{{item.id}}">
+      <view class="img">
+        <image mode='aspectFill' src="{{HTTP}}{{item.images[0]}}"></image>
+      </view>
+      <view class="h2">{{item.title}}</view>
+      <view class="h3">
+      <view class="weizhi">
+        <text>{{item.province}}</text>
+        <text>{{item.city}}</text>
+      </view>
+        
+         <view class="shijian">
+      <text>{{item.starttime}}</text>
+      <text>{{item.weekday}}</text>
+      </view>
+      </view>
+    </navigator>
+  </view>
+
+
+
+  </view>
+</view>

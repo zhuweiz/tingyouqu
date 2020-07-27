@@ -1,0 +1,28 @@
+<!--pages/select/select.wxml-->
+
+<view class="select" hidden="{{!flag}}">
+  <view class="h1">{{name}}</view>
+  <view class="select_a">
+
+
+    <view class="bode" wx:for="{{productList}}" data-id="{{item.id}}" wx:key="item" bindtap="duibi">
+      <view class="img_cc">
+        <image mode='aspectFill' src="{{HTTP}}{{item.productList_img}}"></image>
+      </view>
+      <view class="tex">
+        <view class="titel">{{item.name}}</view>
+
+        <view class="tex2" wx:if="{{item.price == '0.00'}}">面议</view>
+        <view class="tex2" wx:elif="{{item.price >= 10000}}">￥{{item.price/10000}}万</view>
+        <view class="tex2" wx:elif="{{item.price < 10000}}">￥{{item.price*1}}</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<view class="address" hidden="{{flag}}">
+  <view class="address_a">
+    <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+    <view class="img2">暂无数据~</view>
+  </view>
+</view>

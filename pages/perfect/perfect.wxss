@@ -1,0 +1,131 @@
+/* pages/perfect/perfect.wxss */
+.perfect{
+  width: 100%;
+  height: 100%;
+font-family:PingFang SC;
+color:rgba(0,21,62,1);
+}
+.hed{
+  width: 650rpx;
+  margin: auto;
+}
+.h1{
+  font-size:46rpx;
+font-weight:600;
+}
+.tex{
+  height: 120rpx;
+  /* line-height: 120rpx; */
+  border-bottom: 1rpx solid #DEE3F0;
+
+}
+.inn{
+float: left;
+
+}
+.qiye{
+  overflow: hidden;
+}
+.icc{
+  float: right;
+  width: 20rpx; 
+  height: 11rpx; 
+  margin-top: 54rpx;
+  /* display: inline-block; */
+}
+.but{
+  margin-top: 35rpx;
+}
+.but input{
+  margin-top: 35rpx;
+  font-size:30rpx;
+font-weight:400;
+  color:rgba(0,21,62,1);
+  height: 46rpx;
+  box-sizing:border-box;
+  width: 308rpx;
+  display: inline-block;
+      margin-left: 16rpx;
+}
+.but input:nth-child(1){
+  
+  border-right: 1rpx solid #DEE3F0;
+}
+.tex2{
+  line-height: 120rpx;
+    padding-left: 16rpx;
+    width: 634rpx;
+
+}
+.tex4{
+    overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap
+}
+.tex3{
+background: #ffffff;
+ border-bottom: 1rpx solid #DEE3F0;
+}
+.geren{
+  background:#F4F7FF;
+  display: none
+}
+.but2 input{
+/* line-height: 120rpx; */
+padding-top: 35rpx;
+    margin-left: 16rpx;
+}
+
+/* 底部 */
+.butt{
+  display: flex;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #DEE3F0;
+  background: #fff;
+}
+.but_a{
+  width: 650rpx;
+  margin: auto;
+}
+.buy{
+  margin-top: 5rpx;
+
+  height: 90rpx;
+  line-height: 90rpx;
+  background:linear-gradient(30deg,rgba(13,94,255,1),rgba(47,174,254,1));
+  border: none;
+  border-radius: 45rpx;
+  font-size:28rpx;
+  color: #fff;
+font-weight:500;
+}
+
+/*模态框*/
+.modal{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000;}
+.modal-cancel{position:absolute; z-index:2000; top:0; right:0; bottom: 0; left:0; background:rgba(0,0,0,0.3);}
+.bottom-dialog-body{width:100%; position:absolute; z-index:3000; bottom:0; left:0;background:#dfdede;}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.Mselect{
+  margin-bottom: 20rpx;
+}
+.Mselect view{
+  padding: 26rpx 0;
+  background: #fff;
+}
+.Mselect view:not(:last-of-type){
+  border-bottom: 1px solid #dfdede;
+}
+.Mcancel{
+  background: #fff;
+  padding: 26rpx 0;
+}

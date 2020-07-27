@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "previewImg": "../../components/previewImg/previewImg",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationBarTitleText": "商品详情",
+  "navigationBarTextStyle": "black"
+}

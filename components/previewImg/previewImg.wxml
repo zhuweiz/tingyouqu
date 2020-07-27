@@ -1,0 +1,17 @@
+<view class="preview_box" wx:if="{{previewHideStatus}}" style="top:{{preview_box_top}}" catchtouchmove='stopPageScroll'>
+  <view class="totalimg">{{imgindex}}/{{previewImgList.length}}</view>
+  <view class="preview_box1" style="left:{{left}}" bindtap="jingzhi">
+    <block wx:for="{{previewImgList}}" wx:key="key">
+      <view class="img_box">
+        <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+          <movable-area scale-area>
+            <movable-view direction="all" animation catchscale="onScale" scale scale-min="1" scale-max="5" scale-value="{{scale}}">
+              <image src="{{HTTP}}{{item}}" style="width:100%;" mode="widthFix"></image>
+
+            </movable-view>
+          </movable-area>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

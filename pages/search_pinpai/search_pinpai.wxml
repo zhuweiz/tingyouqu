@@ -1,0 +1,28 @@
+<!--pages/search_pinpai/search_pinpai.wxml-->
+ <!-- 导航栏 -->
+      <view class="head">
+      <view class="head-c">
+      <!-- 搜索 -->
+        <view class="nav">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="搜索品牌" value='{{keyWord}}' bindconfirm='goSearch' focus='{{name_focus}}' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search" />
+        </view>
+        </view>
+      </view> 
+
+     <view class="label" wx:if="{{sercherStorage2.length!==0}}">
+        <view class="label_a">
+       
+          <view class="label_b"> <text class="lishi">最近搜索:</text><text class="shanchu" bindtap="clearSearchStorage">删除</text></view>
+          <text class="label_c"  bindtap='this_value' wx:for="{{sercherStorage2}}" wx:if="{{index<10}}" wx:key="{{item}}" data-text="{{item}}">{{item}}</text>
+        </view> 
+      </view>
+
+        <view class="label">
+        <view class="label_a">
+          <view class="label_b">国家:</view>
+          <navigator hover-class="none" url="../Gjlist/Gjlist?id={{item.id}}&name={{item.name}}" class="label_c"   wx:for="{{hotword}}" wx:key="{{item}}" data-text="{{item.name}}">{{item.name}}</navigator>
+        </view> 
+      </view>

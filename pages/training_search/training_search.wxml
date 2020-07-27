@@ -1,0 +1,37 @@
+<view class="head">
+  <view class="head-c">
+
+    <view class="nav">
+      <view class="icon">
+        <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+      </view>
+      <input class="nav_seek" placeholder="搜索培训班" value='{{name}}' bindconfirm='goSearch' focus='{{name_focus}}' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search" />
+    </view>
+  </view>
+
+</view>
+
+<view class="h2"  style="padding-bottom:120rpx; padding-top: {{height}}px;">
+  <navigator class="h2_list" hover-class="none" url="../training_details/training_details?id={{item.id}}" wx:for="{{products}}" hidden="{{!flag}}" wx:key="item">
+    <image class="listimg" src="{{HTTP}}{{item.images[0]}}"></image>
+    <view class="h1_biao">{{item.name}}</view>
+    <view class="biaoti2">
+      <view class="lt ddz ov">{{item.city}}</view>
+      <view class="rt">
+        <text class="vip">VIP享</text>
+        <text class="vipmn">¥{{item.member_price}}</text>
+      </view>
+    </view>
+    <view class="biaoti3">
+      <view class="lt shij">{{item.startdate}}</view>
+      <view class="rt mmnnd">¥{{item.price}}</view>
+    </view>
+  </navigator>
+</view>
+
+<view class="address" hidden="{{flag}}">
+  <view class="address_a">
+    <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+    <view class="img2">暂无该培训 ~</view>
+  </view>
+</view>

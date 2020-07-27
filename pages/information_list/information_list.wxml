@@ -1,0 +1,48 @@
+  <view class="head">
+  <view class="head-c">
+    <view class="nav" >
+      <view class="icon">
+        <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+      </view>
+      <input class="nav_seek" placeholder="运动艇评测" value='{{name}}' bindconfirm='goSearch' focus='{{name_focus}}' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search" />
+    </view>
+  </view>
+</view>
+
+<view class="information" style="padding-bottom:120rpx; padding-top: {{height}}px;" hidden="{{!flag}}">
+
+
+
+
+  <block wx:for="{{information}}" wx:key="{{item}}">
+    <navigator hover-class="none" bindtap="browse" url="../gzh/gzh?id={{item.url}}" class="hed" data-id="{{item.url}}" data-views="{{item.id}}">
+
+      <view class="title" wx:if="{{item.showtype == 3}}">{{item.title}}</view>
+      <view class="title" wx:if="{{item.showtype == 2}}">{{item.title}}</view>
+      <view class="title3" wx:if="{{item.showtype == 1}}">{{item.title}}</view>
+
+      <block wx:for="{{item.images}}" wx:for-index="key" wx:key="{{key}}" wx:for-item="value">
+        <view class="picture" wx:if="{{item.showtype == 3}}">
+          <image class="tp1" src="{{HTTP}}{{value}}"></image>
+        </view>
+        <view class="pic" wx:elif="{{item.showtype == 2}}">
+          <image class="tp1" src="{{HTTP}}{{value}}"></image>
+        </view>
+        <view class="pic2" wx:elif="{{item.showtype == 1}}">
+          <image class="tp1" src="{{HTTP}}{{value}}"></image>
+        </view>
+        <!-- <view class="pic" wx:else>
+      <image class="tp" src="{{HTTP}}{{value}}"></image>
+    </view> -->
+      </block>
+      <view class="browse">{{item.views}}浏览</view>
+    </navigator>
+  </block>
+</view>
+
+   <view class="address" hidden="{{flag}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无该资讯 ~</view>
+  </view>
+  </view>

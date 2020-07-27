@@ -1,0 +1,43 @@
+<!--pages/confirm/confirm.wxml-->
+<view class="confirm">
+<view class="bottom">
+    <view class="h1">
+      <view class="fl img">
+        <image src="{{HTTP}}{{activity.images}}"></image>
+      </view>
+      <view class="fl img2">
+        <view class="tex1">{{activity.name}}</view>
+        <view class="tex2">
+        <text class="province">{{activity.province}}</text>
+          <text class="city_a">{{activity.city}}</text>
+          <text class="shij_a">{{activity.starttime}} {{activity.weekday}}</text>
+        </view>
+         <view class="tex3">¥ {{activity.price}} 起</view>
+      </view>
+    </view>
+  </view>
+      <view class="list">
+          <view class="fl">数量</view>
+          <view class="fr">{{num}}</view>
+      </view>
+       <view class="list">
+          <view class="fl">商品单价</view>
+          <view class="fr" style="color:#FF1E21">￥{{moni}}</view>
+      </view>
+
+      <view class="tuikuan">
+      <view> 退款说明</view>
+      <view>不接受退款，由于本活动各项资源需提前采购，一经售出不接 受退款，请确认购买。 </view>
+      </view>
+
+      <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+        <text class="hj">合计</text>
+        <text class="sc">¥ {{money}}</text>
+    <button class="buy" bindtap="generateOrder">提交订单</button>
+    </view>
+
+  </view>
+
+
+  </view>

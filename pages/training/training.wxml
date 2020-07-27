@@ -1,0 +1,150 @@
+<!--pages/training/training.wxml-->
+<view class="hhh">
+  <view class="pao">
+    <view class="ppxx">
+      <image class="peixun" src="../../img/peixun.png"></image>
+
+      <view class="fanhui" style='height: {{height}}px;' >
+        <view class="fh" bindtap="_navback" style=" margin-top:{{height/2+3}}px;display: inline-block;">
+          <image class="fanh" src="../../img/fanhui.png"></image>
+        </view>
+        <navigator class="nav" hover-class="none" url="../search_peixun/search_peixun?id={{from}}" style=" margin-top:{{height/2-5}}px;">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="你想报哪个培训班？" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+        </navigator>
+      </view>
+      <!-- <navigator class="nav" hover-class="none" url="../search_peixun/search_peixun?id={{from}}">
+        <view class="icon">
+          <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+        </view>
+        <input class="nav_seek" placeholder="你想报哪个培训班？" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+      </navigator> -->
+      <view class="dede">
+        <view class="{{from=='1'?'dedd2':'dedd'}}" data-num="1" bindtap="ShowState2">国内培训</view>
+        <view class="{{from=='2'?'dedd2':'dedd'}}" data-num="2" bindtap="ShowState2">海外培训</view>
+      </view>
+    </view>
+
+    <view class="lhes">
+      <view class="genre">
+        <view class="genre_a {{uhide==996?'dd':'cc'}}" bindtap="ShowState" data-num="996" style="color:{{uhide==996?'#0D5EFF':'#01163F'}}">
+          <view class="leimin">
+            <text class="ccd">{{types}}</text>
+            <image class="biao" src="{{uhide==996?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+        </view>
+
+        <view class="genre_a " data-num="99" bindtap="ShowState">
+          <view class="dd" style="color:{{uhide==99?'#0D5EFF':'#01163F'}}">
+            <text class="ccd">{{types_tiem}}</text>
+            <image class="biao" src="{{uhide==99?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+
+        </view>
+
+        <view class="genre_a" data-num="9999" bindtap="ShowState">
+          <view class="dd" style="color:{{uhide==9999?'#0D5EFF':'#01163F'}}">
+            <text class="ccd">价格</text>
+            <image class="biao" src="{{uhide==9999?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+
+        </view>
+      </view>
+      <!--  时间选择-->
+      <view class="form" style="display:{{uhide==99?'block':'none'}}">
+        <scroll-view scroll-y scroll-into-view='item2' class="tiem2">
+          <view class="form_a form_vv" bindtap="clickform_tiem" data-types_tiem="全部时间" data-startdate="{{id}}" style='{{key_tiem=="全部时间"?"background:#F4F7FF;":""}}'>
+            <view data-id="{{id}}" style='{{key_tiem=="全部时间"?"color:#0D5EFF;":"rgba(1,22,63,1)"}}'>全部时间</view>
+          </view>
+          <view class="form_a" bindtap="clickform_tiem" data-types_tiem="{{item.text}}" style='{{key_tiem==item.text?"background:#F4F7FF;":""}}' data-startdate="{{item.date}}" wx:for="{{dates}}" wx:key="{{item.id}}">
+            <view style='{{key_tiem==item.text?"color:#0D5EFF;":"color:rgba(1,22,63,1)"}}'>{{item.text}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <!--  -->
+      <!--  地区选择-->
+      <view class="form" style="display:{{uhide==996?'block':'none'}}">
+        <scroll-view scroll-y scroll-into-view='item2' class="tiem">
+          <view class="form_a form_vv" bindtap="clickform" data-types="全部地区" data-city="0" data-id="{{id}}" style='{{key=="全部地区"?"background:#F4F7FF;":""}}'>
+            <view data-id="{{id}}" style='{{key=="全部地区"?"color:#0D5EFF;":"color:rgba(1,22,63,1)"}}'>全部地区</view>
+          </view>
+          <view class="form_a" bindtap="clickform" data-types="{{item.name}}" data-city="{{item.id}}" style='{{key==item.name?"background:#F4F7FF;":""}}' data-id="{{item.id}}" wx:for="{{city_list}}" wx:key="{{item.id}}">
+            <view style='{{key==item.name?"color:#0D5EFF;":"color:rgba(1,22,63,1)"}}'>{{item.name}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <!--  -->
+      <scroll-view class="biaoti_h1" scroll-x='true' style=" white-space: nowrap; display: flex;">
+        <view class="remen-a">
+          <view class="{{current==idx ? 'on' : 'biaoti'}}" data-idx="0" bindtap="onClickItem">
+            全部
+          </view>
+          <view class="{{current==item.id ? 'on' : 'biaoti'}} biaot2" data-idx="{{item.id}}" bindtap="onClickItem" wx:for="{{channles}}" wx:key="{{item}}">
+            <view class="btti">{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- 价格 -->
+      <view class="pinlei_list" style="display:{{uhide==9999?'block':'none'}}">
+        <view class="pinlei">
+          <view class='buyMian-slide'>
+            <view class='buyMian-slide-title'>
+              <!-- <view class=""></view>
+                <view></view> -->
+              {{slider1Value}}-{{slider2Value}}元
+              <text wx:if="{{slider2Value == 5000}}">以上</text>
+            </view>
+            <view class='buyMian-slide-contain'>
+              <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor='#0D5EFF' activeColor='#f7f7f7' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+              <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' backgroundColor='#f7f7f7' activeColor='#0D5EFF' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2'></slider>
+            </view>
+            <view class='flex flexSb buyMian-slide-range'>
+              <view class='jg_w'>{{slider1Value}}元</view>
+              <view class='jg_w'>{{slider2Value}}元
+                <text wx:if="{{slider2Value == 5000}}">以上</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="pinlei2" bindtap="affirm">确认</view>
+      </view>
+
+      <!-- </view> -->
+
+    </view>
+  </view>
+
+  <view class="list">
+
+
+    <view class="h2" hidden="{{!flag}}">
+      <navigator class="h2_list" hover-class="none" url="../training_details/training_details?id={{item.id}}" wx:for="{{products}}" wx:key="item">
+        <image class="listimg" src="{{HTTP}}{{item.images[0]}}"></image>
+        <view class="h1_biao">{{item.name}}</view>
+        <view class="biaoti2" style="height: 40rpx;">
+          <view class="lt ddz ov">{{item.city}}</view>
+          <view class="rt" wx:if="{{item.member_price}}">
+            <text class="vip">VIP享</text>
+            <text class="vipmn">¥{{item.member_price}}</text>
+          </view>
+        </view>
+        <view class="biaoti3">
+          <view class="lt shij">{{item.startdate}}</view>
+          <view class="rt mmnnd">¥{{item.price}}</view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+</view>
+<!-- <view class="scroll-view-item" style='padding-top: {{height}}px;'></view> -->
+
+<view class="address" hidden="{{flag}}">
+  <view class="address_a">
+    <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+    <view class="img2">暂无数据~</view>
+  </view>
+</view>

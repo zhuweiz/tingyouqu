@@ -1,0 +1,138 @@
+/* pages/confirm/confirm.wxss */
+.confirm{
+    height: 100%;
+  width: 100%;
+  font-family:PingFang SC;
+  color:rgba(0,22,63,1);
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+
+.bottom{
+  width: 100%;
+  height: 190rpx;
+}
+.h1{
+   padding-top: 20rpx;
+    width: 650rpx;
+  height: 140rpx;
+  margin: auto;
+}
+.province{
+  overflow: hidden;
+width: 26rpx;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.city_a{
+  overflow: hidden;
+width: 26rpx;
+text-overflow: ellipsis;
+white-space: nowrap;
+margin-left: 5rpx;
+}
+.img image{
+  width: 240rpx;
+  height: 155rpx;
+}
+.img2{
+  width: 350rpx;
+  margin-left: 30rpx;
+}
+.tex1{
+margin-top: 5rpx;
+font-size:24rpx;
+
+font-weight:400;
+
+}
+.tex2{
+  margin-top: 10rpx;
+  font-size:20rpx;
+font-weight:400;
+color:rgba(76,91,120,1);
+}
+.shij_a{
+  margin-left: 30rpx;
+   margin-top: 5rpx;
+}
+.tex3{
+  margin-top: 10rpx;
+  font-size:36rpx;
+font-weight:500;
+color:rgba(255,31,35,1);
+}
+.list{
+  height: 115rpx;
+  width: 650rpx;
+  margin: auto;
+    font-size:28rpx;
+font-weight:400;
+color:rgba(0,22,63,1);
+border-bottom: 1rpx solid #DDE3F1;
+line-height: 115rpx;
+}
+.tuikuan{
+      font-size:28rpx;
+font-weight:400;
+color:rgba(0,22,63,1);
+  width: 650rpx;
+  margin: auto;
+  margin-top: 35rpx;
+}
+.tuikuan view:nth-child(2){
+  margin-top: 15rpx;
+  font-size:24rpx;
+font-weight:400;
+color:rgba(151,161,179,1);
+}
+/* 底部 */
+.but{
+  display: flex;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #DEE3F0;
+  background: #fff;
+}
+.but_a{
+  width: 650rpx;
+  margin: auto;
+}
+.but_a image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.hj{
+   float: left;
+  font-size:28rpx;
+font-weight:500;
+  margin-top: 25rpx;
+}
+.sc{
+   float: left;
+  /* padding-top: 10rpx; */
+   margin-top: 10rpx;
+  margin-left: 20rpx;
+font-size:46rpx;
+font-weight:500;
+color:rgba(255,62,42,1);
+}
+.buy{
+  margin-top: 5rpx;
+  float: right;
+  width: 310rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #FF3E2A;
+  border: none;
+  border-radius: 40rpx 40rpx;
+  font-size:28rpx;
+  color: #fff;
+font-weight:500;
+}

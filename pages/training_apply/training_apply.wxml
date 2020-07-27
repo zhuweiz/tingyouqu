@@ -1,0 +1,45 @@
+<!--pages/training_apply/training_apply.wxml-->
+<view class="hed">
+  <view class="h1">请填写学员信息</view>
+  <view class="ipt">
+    <input class="iptt iptd" placeholder-class="pla" placeholder="请输入用户名" bindinput="handlenameChange" value="{{nickname}}"></input>
+  </view>
+  <view class="ipt dd">
+    <input class="iptt" placeholder-class="pla" placeholder="请输入手机11位号码" maxlength='11' bindinput="handleContactChange" value="{{phone}}" type="number"></input>
+  </view>
+
+  <view class="list">
+    <view class="h2">{{train_list.name}}</view>
+    <view class="h3">
+      <view class="fl">学费</view>
+      <view class="fr">
+        <text>￥{{train_list.price}}</text>
+      </view>
+    </view>
+    <view class="h4">
+      <view class="zf">支付方式</view>
+
+      <view class="xj" data-num="2" bindtap="ShowState" style="color:{{uhide==2?'#336BFF':'#00153E'}}">
+        <text class="jin">现金支付</text>
+        <view class="xuan">
+           <image wx:if="{{uhide==2}}" src="../../img/gouxuan.png"></image>
+        </view>
+      </view>
+      <view class="wx" data-num="1" bindtap="ShowState" style="color:{{uhide==1?'#336BFF':'#00153E'}}">
+        <text class="jin">微信支付</text>
+        <view class="xuan">
+          <image wx:if="{{uhide==1}}" src="../../img/gouxuan.png"></image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+<view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+<!-- 底部 -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+  <view class="but_a">
+    <button class="buy" bindtap="generateOrder">提交报名</button>
+  </view>
+</view>

@@ -1,0 +1,409 @@
+<!--pages/list/list.wxml-->
+<!-- 导航栏 -->
+
+
+<view style="display: none2">
+  <view class="bul">
+    <view class="head">
+      <view class="head-c">
+        <!-- 搜索 -->
+        <navigator class="nav" hover-class="none" url="../search/search?id={{id}}&list=list">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="上万种航海产品，等你来搜！" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+        </navigator>
+
+        <view class="genre" wx:if="{{id == 'factory'}}">
+          <view class="genre_b {{uhide==5?'dd':'cc'}}" bindtap="ShowState" data-num="5" style="color:{{uhide==5?'#0D5EFF':'#01163F'}}">
+
+            <view class="leimin">{{types}}</view>
+            <!-- <view class="xiala">  -->
+            <image style="width: 14rpx; height: 8rpx;" src="{{uhide==5?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+            <!-- </view> -->
+
+          </view>
+          <view class="genre_b" bindtap="show">
+            品牌
+            <image src="../../img/pinpai.png"></image>
+          </view>
+
+          <view bindtap="show2" class="genre_b">
+            筛选
+            <image src="../../img/saixuan.png"></image>
+          </view>
+        </view>
+
+
+
+        <view class="genre" wx:if="{{id != 'factory'}}">
+          <view class="genre_a {{uhide==5?'dd':'cc'}}" bindtap="ShowState" data-num="5" style="color:{{uhide==5?'#0D5EFF':'#01163F'}}">
+
+            <view class="leimin">{{types}}</view>
+            <!-- <view class="xiala">  -->
+            <image style="width: 14rpx; height: 8rpx;" src="{{uhide==5?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+            <!-- </view> -->
+
+          </view>
+
+          <view class="genre_a " data-num="99" bindtap="ShowState">
+            <view class="dd" style="color:{{uhide==99?'#0D5EFF':'#01163F'}}">长度</view>
+            <image style="width: 14rpx; height: 8rpx;" src="{{uhide==99?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+
+          <view class="genre_a" data-num="9999" bindtap="ShowState">
+            <view class="dd" style="color:{{uhide==9999?'#0D5EFF':'#01163F'}}">价格</view>
+            <image style="width: 14rpx; height: 8rpx;" src="{{uhide==9999?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+
+          <view bindtap="show2" class="genre_a">
+            筛选
+            <image style="width: 14rpx; height: 8rpx;" src="../../img/xiala.png"></image>
+          </view>
+        </view>
+
+
+
+        <!-- 下拉菜单 -->
+        <view class="form" style="display:{{uhide==5?'block':'none'}}">
+          <view class="form_a" bindtap="clickform" data-types="全部类型" data-id="{{cid}}" style='{{key==cid?"background:#F4F7FF;":""}}'>
+            <view data-id="{{cid}}">全部类型</view>
+          </view>
+          <view class="form_a" bindtap="clickform" data-types="{{item.name}}" style='{{key==item.id?"background:#F4F7FF;":""}}' data-id="{{item.id}}" wx:for="{{channelList}}" wx:key="{{item.id}}">
+            <view>{{item.name}}</view>
+          </view>
+        </view>
+        <!--  -->
+
+        <!-- 长度 -->
+        <view wx:if="{{id != 'factory'}}">
+          <view class="pinlei_list" style="display:{{uhide==99?'block':'none'}}">
+            <view class="extent">
+              <view class="extent_a">
+                <view>最小</view>
+                <view>最大</view>
+              </view>
+              <view class="extent_m">
+                <input placeholder="输入最小值" bindinput="least_M" value="{{least_M}}"></input>
+                <input placeholder="输入最大值" bindinput="maximum_M" value="{{maximum_M}}"></input>
+                <text>m</text>
+              </view>
+
+              <view class="extent_m">
+                <input placeholder="输入最小值" bindinput="least_FT" value="{{least_FT}}"></input>
+                <input placeholder="输入最大值" bindinput="maximum_FT" value="{{maximum_FT}}"></input>
+                <text>ft</text>
+              </view>
+
+            </view>
+            <view class="pinlei2" bindtap="affirm">确认</view>
+          </view>
+
+          <!-- 价格 -->
+          <view class="pinlei_list" style="display:{{uhide==9999?'block':'none'}}">
+          <view class="huansuan">
+            <view class="inbok {{currency==1 ? 'bgd' : 'bgb'}}" data-idx="1" data-jin="¥" bindtap="onClickItem">人民币¥</view>
+            <view class="inbok {{currency==2 ? 'bgd' : 'bgb'}}" data-idx="2" data-jin="$" bindtap="onClickItem">美元$</view>
+            <view class="inbok {{currency==3 ? 'bgd' : 'bgb'}}" data-idx="3" data-jin="€" bindtap="onClickItem">欧元€</view>
+          </view>
+            <view class="pinlei">
+              <view class='buyMian-slide'>
+                <view class='buyMian-slide-title'>{{jin}}{{slider1Value}}-{{slider2Value}}万</view>
+                <view class='buyMian-slide-contain'>
+                  <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor='#0D5EFF' activeColor='#f7f7f7' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+                  <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' backgroundColor='#f7f7f7' activeColor='#0D5EFF' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2'></slider>
+                </view>
+                <view class='flex flexSb buyMian-slide-range'>
+                  <view class='jg_w'>{{jin}}{{slider1Value}}万</view>
+                  <view class='jg_w'>{{jin}}{{slider2Value}}万</view>
+                </view>
+              </view>
+            </view>
+            <view class="pinlei2" bindtap="affirm">确认</view>
+          </view>
+
+        </view>
+
+
+        <!-- 筛选 -->
+        <view class="screen" wx:if="{{id == 'factory'}}">
+          <view class="{{uhide==9999?'aaa':'ccc'}}" data-num="9999" bindtap="ShowState">
+            <view class="dd" style="color:{{uhide==9999?'#0D5EFF':'#01163F'}}">价格
+              <image src="{{uhide==9999?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+            </view>
+          </view>
+
+          <block wx:for="{{paramsList}}" wx:key="{{item.id}}" wx:if="{{index<3}}">
+            <view class="{{uhide==item.id?'aaa':'ccc'}}" data-num="{{item.id}}" bindtap="ShowState">
+              <view class="dd" style="color:{{uhide==item.id?'#0D5EFF':'#01163F'}}">{{item.name}}
+                <image src="{{uhide==item.id?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+              </view>
+            </view>
+          </block>
+        </view>
+
+        <view class="screen" wx:if="{{id != 'factory'}}">
+          <view class="ccc {{item.isSelect?'zhikan':''}}" wx:for="{{jobList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="affirmXIAN" wx:if="{{id != 'factory'}}">
+            <view class="dd" style="color:{{item.isSelect?'#FFF':'#01163F'}}">{{item.name}}</view>
+          </view>
+
+          <!-- <view class="ccc {{uhide_XIAN==2?'zhikan':''}}" data-num="2" bindtap="affirm" wx:if="{{id != 'factory'}}">
+            <view class="dd" style="color:{{uhide_XIAN==2?'#FFF':'#01163F'}}">只看现艇</view>
+          </view> -->
+
+        </view>
+
+
+        <!-- 品类渲染赛选 -->
+        <block wx:for="{{paramsList}}" wx:key="{{item.id}}" wx:for-index="pindex">
+          <view class="pinlei_list" style="display:{{uhide==item.id?'block':'none'}}">
+            <view class="pinlei">
+              <view class="cet">
+                <view class=" {{value.checked?'pl_a':'pl'}}" data-dd="{{value.checked}}" bindtap="eec" wx:for="{{item.options}}" data-id="{{value.id}}" data-index="{{index}}" data-pindex="{{pindex}}" wx:for-index="index" wx:key="{{key}}" wx:for-item="value">{{value.name}}</view>
+              </view>
+            </view>
+            <view class="pinlei2" data-pindex="{{pindex}}" data-index="{{index}}" bindtap="affirm">确认</view>
+          </view>
+        </block>
+        <view wx:if="{{id == 'factory'}}">
+          <!-- 长度 -->
+          <view class="pinlei_list" style="display:{{uhide==99?'block':'none'}}">
+            <view class="extent">
+              <view class="extent_a">
+                <view>最小</view>
+                <view>最大</view>
+              </view>
+              <view class="extent_m">
+                <input placeholder="输入最小值" bindinput="least_M" value="{{least_M}}"></input>
+                <input placeholder="输入最大值" bindinput="maximum_M" value="{{maximum_M}}"></input>
+                <text>m</text>
+              </view>
+
+              <view class="extent_m">
+                <input placeholder="输入最小值" bindinput="least_FT" value="{{least_FT}}"></input>
+                <input placeholder="输入最大值" bindinput="maximum_FT" value="{{maximum_FT}}"></input>
+                <text>ft</text>
+              </view>
+
+            </view>
+            <view class="pinlei2" bindtap="affirm">确认</view>
+          </view>
+
+          <!-- 价格 -->
+          <view class="pinlei_list" style="display:{{uhide==9999?'block':'none'}}">
+            <view class="pinlei">
+              <view class='buyMian-slide'>
+                <view class='buyMian-slide-title'>{{slider1Value}}-{{slider2Value}}万</view>
+                <view class='buyMian-slide-contain'>
+                  <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor='#0D5EFF' activeColor='#f7f7f7' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+                  <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' backgroundColor='#f7f7f7' activeColor='#0D5EFF' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2'></slider>
+                </view>
+                <view class='flex flexSb buyMian-slide-range'>
+                  <view class='jg_w'>{{slider1Value}}万</view>
+                  <view class='jg_w'>{{slider2Value}}万</view>
+                </view>
+              </view>
+            </view>
+            <view class="pinlei2" bindtap="affirm">确认</view>
+          </view>
+        </view>
+
+      </view>
+      <!-- 提示图 -->
+
+
+      <view class="address" wx:if="{{!isHide}}">
+        <view class="address_a">
+          <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+          <view class="img2">暂无该产品~</view>
+        </view>
+      </view>
+
+
+      <!-- <scroll-view scroll-y style="height: 100%;"> -->
+      <view class="list" wx:if="{{isHide}}">
+        <view class="list_a">
+          <navigator hover-class="none" wx:for="{{productList}}" wx:key="{{item}}" url="../list_particulars/list_particulars?id={{item.id}}&cid={{id}}&name={{name}}&currency={{currency}}" class="commodity ">
+            <image class="bb ripple" mode='aspectFill' src="{{HTTP}}{{item.images[0]}}"></image>
+            <view class="h1 let">{{item.name}}</view>
+            <view class="bra let" wx:if="{{item.brandName != null}}">{{item.brandName}}</view>
+            <view class="bra let" wx:if="{{item.brandName == null}}"></view>
+            <view class="intext let">
+              <view style="height: 80rpx;" wx:if="{{item.price != 0 && item.member_price != 0}}">
+                <view class="money2" style="" wx:if="{{item.price != 0}}">
+                  <text class="shichang">市场价</text>
+                  <text style="font-size: 18rpx;" wx:if="{{item.price >= 10000}}"> {{jin}}</text>{{item.price/10000}}万
+                </view>
+                <view class="money" wx:if="{{item.member_price != 0}}">
+                  <text class="shichang">会员价</text>
+                  <text style="font-size: 20rpx;" wx:if="{{item.member_price >= 10000}}"> {{jin}}</text>{{item.member_price/10000}}万
+                </view>
+              </view>
+              <view class="mone" wx:elif="{{item.price == 0 && item.member_price == 0}}">面议</view>
+
+              <view style="height: 80rpx; line-height: 80rpx;" wx:else>
+                <view class="money" wx:if="{{item.price != 0}}">
+                  <text class="shichang">价格</text>
+                  <text wx:if="{{item.price >= 10000}}"><text style="font-size: 20rpx;"> {{jin}}</text>{{item.price/10000}}万</text>
+                  <text wx:if="{{item.price < 10000}}"><text style="font-size: 20rpx;"> {{jin}}</text>{{item.price*1}}元</text>
+                </view>
+                <view class="money" wx:if="{{item.member_price != 0}}">
+                  <text class="shichang">价格</text>
+                  <text wx:if="{{item.member_price >= 10000}}"><text style="font-size: 20rpx;"> {{jin}}</text>{{item.member_price/10000}}万</text>
+                  <text wx:if="{{item.member_price < 10000}}"><text style="font-size: 20rpx;"> {{jin}}</text>{{item.price*1}}元</text>
+                </view>
+              </view>
+            </view>
+            
+            <view style="">
+              <image class="cc" src="{{HTTP}}{{item.brandImage}}"></image>
+            </view>
+
+            <image class="xian" src="../../img/xian.png" wx:if="{{item.spot == 1}}"></image>
+          </navigator>
+
+        </view>
+      </view>
+
+      <!-- </scroll-view> -->
+
+
+    </view>
+  </view>
+
+</view>
+<view class="filtrate {{filtrate? 'bock':'none'}}">
+  <view class="f_box" bindtap="none"></view>
+  <view class="f_con">
+    <view class='list-city'>
+      <scroll-view scroll-y="true" style="height:100%; " scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+        <view class="hed">
+          <view class='item' wx:for="{{pinpai_list}}" wx:for-index="idx" wx:for-item="group" wx:key="key">
+            <view class='py' id="{{idx}}">{{idx}}</view>
+
+            <view class="fullname2" wx:for="{{group}}" wx:key="key">
+              <checkbox-group bindchange="checkboxChange" id="{{item.id}}">
+                <label class="checkbox">
+                  <checkbox checked="{{checked}}" data-index="{{item.id}}" value="{{item.id}}" />
+                  <text class="p_name">{{item.name}}</text>
+                </label>
+              </checkbox-group>
+
+            </view>
+          </view>
+
+
+        </view>
+      </scroll-view>
+
+      <!-- 首字母 -->
+      <view class='city-py' bindtouchstart="tStart" bindtouchend="tEnd">
+        <view wx:for="{{pinpai_list}}" class="zm" wx:for-index="key" wx:key="key" bindtouchstart="getPy" id="{{key}}">{{key}}
+        </view>
+      </view>
+    </view>
+    <!--选择显示-->
+    <view hidden="{{hidden}}" class="showPy">{{showPy == 'hot' ? "#" : showPy}}</view>
+
+    <!-- butt -->
+    <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+      <view class="but_a">
+        <button class="buy" bindtap="deletelist">重置</button>
+        <button class="buy2" bindtap="affirm" data-saixuan2="2">确认</button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 筛选弹出页面 -->
+<view class="filtrate2 {{filtrate2? '':'none'}}">
+  <view class="bicsd" bindtap="none2"></view>
+  <view class="screen_a ">
+
+    <view class="body" wx:for="{{paramsList}}" wx:key="{{item}}" wx:for-index="pindex">
+      <view class="body_a2" bindtap="ShowState5" data-pindex="{{pindex}}" data-id="{{item.id}}">
+        <view class="fl tex">{{item.name}}</view>
+        <view class="fr img">
+          <image src="{{item.checked?'../../img/xiala2.png':'../../img/xiala.png'}}"></image>
+        </view>
+      </view>
+
+      <view class="category" style="display:{{item.checked?'block':'none'}}">
+        <view class="{{value.checked?'mag2':'mag'}}" bindtap="eec" wx:for="{{item.options}}" data-id="{{value.id}}" data-index="{{index}}" wx:for-index="index" data-pindex="{{pindex}}" wx:key="{{key}}" wx:for-item="value">{{value.name}}</view>
+      </view>
+    </view>
+
+
+
+
+    <view class="body" wx:if="{{id != 'factory'}}">
+      <view class="body_a" bindtap="ShowState2" data-id="2">
+        <view class="fl tex">长度</view>
+        <view class="fr img">
+          <image src="{{uhide==2?'../../img/xiala2.png':'../../img/xiala.png'}}"></image>
+        </view>
+      </view>
+
+      <view class="extent2" style="display:{{uhide==2?'block':'none'}}">
+        <view class="extent_a2">
+          <view>最小</view>
+          <view>最大</view>
+        </view>
+        <view class="extent_m2">
+          <input placeholder="输入最小值" bindinput="least_M" value="{{least_M}}"></input>
+          <input placeholder="输入最大值" bindinput="maximum_M" value="{{maximum_M}}"></input>
+          <text>m</text>
+        </view>
+
+        <view class="extent_m2">
+          <input placeholder="输入最小值" bindinput="least_FT" value="{{least_FT}}"></input>
+          <input placeholder="输入最大值" bindinput="maximum_FT" value="{{maximum_FT}}"></input>
+          <text>ft</text>
+        </view>
+      </view>
+
+    </view>
+
+
+
+    <view class="body">
+      <view class="body_a" bindtap="ShowState3" data-id="9999">
+        <view class="fl tex">价格</view>
+        <view class="fr img">
+          <image src="{{uhide2==9999?'../../img/xiala2.png':'../../img/xiala.png'}}"></image>
+        </view>
+      </view>
+
+      <view class="pinlei_list" style="display:{{uhide2==9999?'block':'none'}}">
+        <view class="pinlei">
+          <view class='buyMian-slide'>
+            <view class='buyMian-slide-title'>{{slider1Value}}-{{slider2Value}}万</view>
+            <view class='buyMian-slide-contain'>
+              <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor='#0D5EFF' activeColor='#f7f7f7' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+              <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' backgroundColor='#f7f7f7' activeColor='#0D5EFF' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2'></slider>
+            </view>
+            <view class='flex flexSb buyMian-slide-range'>
+              <view class='jg_w'>{{slider1Value}}万</view>
+              <view class='jg_w'>{{slider2Value}}万</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+
+    </view>
+
+
+
+    <view style="height: 100rpx;"></view>
+    <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+      <view class="but_a">
+        <button class="buy" bindtap="reset">重置</button>
+        <button class="buy2" bindtap="affirm" data-saixuan="2">确认</button>
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

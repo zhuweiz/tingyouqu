@@ -1,0 +1,56 @@
+<!--pages/ Active_line/ Active_line.wxml-->
+<view class="Active_line">
+  <!-- 轮播图 -->
+  <swiper class='u-wrp-bnr' style=" height: 240rpx;" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+    <block wx:for="{{bnrUrl}}" wx:key="key" wx:for-index="index">
+      <swiper-item bindtap='lunbo' data-id="{{item.id}}">
+        <image style="width: 100%;" src='{{HTTP}}{{item.images}}' mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="body">
+    <view class="h1">热门活动</view>
+    <navigator hover-class="none" url="../activity/activity?id={{item.id}}" class="list" wx:for="{{hotList}}" wx:key="{{item.id}}" wx:if="{{index<12}}">
+      <view class="img">
+        <image mode='aspectFill' src="{{HTTP}}{{item.images}}"></image>
+      </view>
+      <view class="h2">{{item.title}}</view>
+      <view class="h3">
+      <view class="weizhi">
+        <text>{{item.province}}</text>
+        <text>{{item.city}}</text>
+      </view>
+        
+         <view class="shijian">
+      <text>{{item.starttime}}</text>
+      <text>{{item.weekday}}</text>
+      </view>
+      </view>
+    </navigator>
+  </view>
+  
+  <view style="width: 650rpx;margin: auto;">
+    <view class="h1_a">猜你喜欢</view>
+  </view>
+
+  <navigator hover-class="none" url="../activity/activity?id={{item.id}}" class="love_list" wx:for="{{guessList}}" wx:key="{{item.id}}" >
+    <view class="fl">
+      <image mode='aspectFill' src="{{HTTP}}{{item.images}}"></image>
+    </view>
+    <view class="fr">
+    <view class="fr_a">{{item.title}}</view>
+    <view class="fr_b">
+    <view class="weizhi2">
+      <text>{{item.province}}</text>
+       <text>{{item.city}}</text>
+    </view>
+      
+      <view class="shijian2">
+      <text>{{item.starttime}}</text>
+      <text>{{item.weekday}}</text>
+      </view>
+    </view>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,67 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <image class="fenge" src="../../img/fenge.png"></image>
+  <view class="bt">
+    <navigator hover-class="none" url="../address/address?order=order" class="hed">
+      <view class="fc">
+      <image class="dinwei" src="../../img/dizhi.png"></image>
+      <text wx:if="{{isHide}}">{{site}}</text>
+      <text wx:else>{{address}}</text>
+      </view>
+      <view class="fr"><image class="genduo" src="../../img/genduo.png"></image></view>
+    </navigator>
+  </view>
+
+  <view class="bottomc">
+    <view class="h1">
+      <view class="fl img">
+        <image src="{{HTTP}}{{product.images[0]}}"></image>
+      </view>
+      <view class="fr img2">
+        <view class="tex1">{{product.name}}</view>
+        <view class="tex2">{{product.dsescription}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="quantity">
+    <view class="fl nmm">数量</view>
+    <view class="fr inventory">
+      <text class='{{minusStatus}} del fl' type='number' bindtap='bindMinus'>-</text>
+      <text class="fl itt">{{num}}</text>
+      <text class="add fr" bindtap='bindPlus'>+</text>
+    </view>
+  </view>
+
+   <view class="quantity">
+    <view class="fl nmm">商品单价</view>
+    <view class="fr mone">￥{{product.price}}</view>
+  </view>
+  <!--  -->
+   <view class="quantity">
+    <view class="fl nmm">退换无忧</view>
+    <view class="fr mone">
+         + ￥0 
+    </view>
+  </view>
+
+   <view class="quantity">
+    <view class="fl nmm">运费（包邮）</view>
+    <view class="fr mone">
+       + ￥0 
+    </view>
+  </view>
+
+<view class="remark">
+   <textarea  placeholder="备注（200个字符以内）"  bindinput="handlecontentChange" maxlength="200"></textarea>
+</view> 
+ 
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+        <text class="hj">合计</text>
+        <text class="sc">￥{{product.price*num}}</text>
+    <button class="buy" bindtap="generateOrder">提交订单</button>
+    </view>
+  </view>
+
+</view>

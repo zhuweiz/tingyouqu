@@ -1,0 +1,29 @@
+<!--pages/address_a/ .wxml-->
+<view class="hed">
+    <view class="hd">
+    <view class="hed_a">
+        <view class="tex1">
+          <text class="name">张三</text>
+          <text class="num">13728864616</text>
+          <text class="moren">默认</text>
+        </view>
+        <view class="tex2">深圳市南山区新湖大道南路68号新慧大厦 </view>
+    </view>
+
+    <view class="hed_a">
+        <view class="tex1">
+          <text class="name">张三</text>
+          <text class="num">13728864616</text>
+          <text class="moren">默认</text>
+        </view>
+        <view class="tex2">深圳市南山区新湖大道南路68号新慧大厦 </view>
+    </view>
+</view>
+
+<view class="butt" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+    <button class="buy"  bindtap='aaaaaaa'>+ 新增地址</button>
+    </view>
+  </view>
+
+</view>

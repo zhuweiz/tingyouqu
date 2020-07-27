@@ -1,0 +1,60 @@
+<!--pages/ma_ticket/ma_ticket.wxml-->
+<view class="ma_ticket"  >
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">有效票</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">无效票</view>   
+</view>  
+  
+
+    <!-- 有效票 -->  
+    <view hidden='{{currentTab!=0}}' class="swiper-box">  
+     <navigator hover-class="none" url="../Ticket_details/Ticket_details?orderno={{item.orderno}}" class="chanpin2" wx:for="{{validlist}}" wx:key="{{item}}" wx:if="{{!isHide}}">
+        <view class="fc"><image src="{{HTTP}}{{item.List_img}}"></image></view>
+        <view class="fr_huo">
+          <view class="y_h">{{item.activity_name}}</view>
+         <view class="shijian">
+          <view class="sheng">{{item.province}}</view>  <view class="shi">{{item.city}}</view>
+           <view class="sjj">{{item.starttime}} {{item.weekday}}</view>
+           </view>
+          <view class="pric">¥ {{item.price}} </view>
+        </view>
+         <view class="aoto"></view>
+      </navigator>   
+       
+    
+        <view class="address"  wx:if="{{isHide}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无票券~</view>
+  </view>
+</view>
+
+    </view>  
+
+    <!-- 无效票 -->  
+    <view hidden='{{currentTab!=1}}' class="swiper-box"> 
+
+        <view class="chanpin2" wx:for="{{pastlist}}" wx:key="{{item}}" wx:if="{{!isHide2}}">
+        <view class="fc"><image src="{{HTTP}}{{item.List_img}}"></image></view>
+        <view class="fr_huo">
+          <view class="y_h">{{item.activity_name}}</view>
+          <view class="shijian">
+          <view class="sheng">{{item.province}}</view>  <view class="shi">{{item.city}}</view>
+           <view class="sjj">{{item.starttime}} {{item.weekday}}</view>
+           </view>
+          <view class="pric">¥ {{item.price}} </view>
+        </view>
+         <view class="fr_img" data-orderno="{{item.orderno}}" bindtap="remove"><image src="../../img/shanchu.png"></image></view>
+            <view class="aoto"></view>
+      </view>  
+     
+
+
+<view class="address" wx:if="{{isHide2}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无票券~</view>
+  </view>
+</view>
+    </view>  
+</view>

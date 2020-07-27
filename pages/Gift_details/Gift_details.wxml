@@ -1,0 +1,82 @@
+<!--pages/Gift_details/Gift_details.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="Gift_details">
+  <view class="hed">
+    <view class="img">
+      <!-- <scroll-view scroll-x='true' style=" white-space: nowrap; display: flex;">
+        <view class="remen-a"  wx:for='{{product.images}}' wx:key='index'>
+          <image mode='aspectFill' data-index='{{index}}' bindtap='previewImg' src="{{HTTP}}{{item}}" />
+        </view>
+      </scroll-view> -->
+            <swiper class='u-wrp-bnr' style="border-radius:20rpx;"  indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+        <!-- && product.video_url == null -->
+        <view class="remen-a">
+          <swiper-item wx:for='{{product.images}}' wx:key='index' wx:if="{{index<5}}">
+            <image mode='aspectFill' data-index='{{index}}' bindtap='previewImg' src="{{HTTP}}{{item}}" />
+          </swiper-item>
+        </view>
+      </swiper>
+    </view>
+    <!-- 文字 -->
+    <view class="tex">
+      <view class="tex1">{{product.name}}</view>
+      <view class="tex2">由商家发货, 并提供售后服务</view>
+               <view class="nndes">
+          <view class="money2" style="float: left;">
+            <text class="shichang">市场价</text>
+            <text style="font-size: 18rpx;"> ￥</text>{{product.price}}
+          </view>
+          <view class="money" style="  float: left; margin-left: 20rpx;">
+            <text class="shichang">会员价</text>
+            <text style="font-size: 20rpx;"> ￥</text>{{product.member_price}}
+          </view>
+        </view>
+    </view>
+  </view>
+  <!-- 礼品参数 -->
+  <view class="parameter" wx:if="{{!isss}}">
+    <view class="paa">
+      <view class="pat1">礼品参数</view>
+      <view class="pat2" wx:for="{{params}}" wx:for-index="key" wx:key="*this">
+        <text class="pat2_a">{{key}}</text>
+        <text class="pat2_b">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 产品介绍 -->
+  <view class="introduce">
+    <view class="int">
+      <view class="pat1">产品介绍</view>
+         <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <!-- 猜你喜欢 -->
+  <view class="love" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="love_a">
+      <view class="pat1">猜你喜欢</view>
+      <navigator hover-class="none" url="../Gift_details/Gift_details?id={{item.id}}" class="let" wx:for="{{guess_love}}" wx:key="{{item}}">
+      <image src="{{HTTP}}{{item.images[0]}}"></image>
+      <view class="love_cc">{{item.name}}</view>
+      <view class="love_dd">¥ {{item.price}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+      <view class="bt">
+  <image src="{{collection?'../../img/xin.png':'../../img/xin1.png'}}" bindtap="haveSave"></image>
+        <view class="sc">收藏</view>
+      </view>
+    <button class="buy" bindtap="gotogoumai">立即购买</button>
+    </view>
+  </view>
+</view>

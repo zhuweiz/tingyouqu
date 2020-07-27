@@ -1,0 +1,14 @@
+<!--pages/authorization/authorization.wxml-->
+
+<view wx:if="{{canIUse}}" >
+<view class="reg">
+  <view class="img"><image class="ddll" src="http://m.qpic.cn/psb?/V13t2G4i0uprYL/Qh5Gk5KnTVOp.mf6zPIYr6K.xozsBTUWEbYEeNtfM7U!/b/dFIBAAAAAAAA&bo=rwF8AQAAAAADB*E!&rf=viewer_4"></image></view>
+  <view class="text">登录或进行微信授权</view>
+  <button class="enter" open-type="getUserInfo" lang="zh_CN"
+         bindgetuserinfo="bindgetuserinfo" >微信用户一键登录</button >
+          <!-- <button class="enter" open-type="getPhoneNumber" lang="zh_CN"
+         bindgetphonenumber="getPhoneNumber">微信用户一键登录</button > -->
+  <!-- <view class="login">手机号登录/注册</view> -->
+</view>
+</view>
+<view wx:else>请升级微信版本</view>

@@ -1,0 +1,75 @@
+<!--pages/activity/activity.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="activity">
+  <view class="hed">
+    <image mode='aspectFill' src="{{HTTP}}{{activity.images[0]}}"></image>
+    <view class="h1">{{activity.name}}</view>
+    <view class="browse">
+      <text>浏览 {{activity.views}}</text>
+      <text>收藏 {{activity.collectionNum}}</text>
+    </view>
+
+    <view class="mone" wx:if="{{activity.price != null && activity.member_price != null}}">
+      <!-- <text wx:if="{{activity.price == null}}">暂无报价</text> -->
+      <view class="money2" style=" float: left;padding-right: 20rpx;" wx:if="{{activity.price != 0}}">
+        <text class="shichang">市场价</text>
+        <text><text style="font-size: 18rpx;"> ￥</text>{{activity.price*1}}元</text>
+      </view>
+      <view class="money" style=" float: left;" wx:if="{{activity.member_price != 0}}">
+        <text class="shichang">会员价</text>
+        <text><text style="font-size: 18rpx;"> ￥</text>{{activity.member_price*1}}元</text>
+      </view>
+    </view>
+    <view class="mone" wx:else>面议</view>
+    <view class="shijian top">
+      <image style=" width: 26rpx; height: 26rpx; display: inline-block;" src="../../img/shijian.png"></image>
+      <view>
+        <text>{{activity.starttime}}</text> ～
+        <text>{{activity.endtime}}</text>
+      </view>
+    </view>
+    <!-- 地址导航 -->
+    <view class="shijian top2">
+      <image style="  width: 27rpx; height: 33rpx; display: inline-block;" src="../../img/dizhi.png"></image>
+      <view bindtap="navigation">{{activity.address}}</view>
+      <image style="  width: 11rpx; height: 20rpx; display: inline-block;" src="../../img/ggdd.png"></image>
+    </view>
+  </view>
+
+  <view class="xiangqin">
+    <view>活动详情</view>
+  </view>
+
+  <view class="rich">
+    <!-- <rich-text nodes="{{train_content}}"></rich-text> -->
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+  <!-- 底部 -->
+  <view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+      <view class="bt" bindtap="gotoindex">
+        <image src="../../img/shouye_2.png"></image>
+        <view class="sc">首页</view>
+      </view>
+      <view class="bt bt2" bindtap="haveSave">
+        <image src="{{collection?'../../img/xin.png':'../../img/xin1.png'}}"></image>
+        <view class="sc">收藏</view>
+      </view>
+      <view class="bt bt2">
+        <!-- <image src="../../img/fenxiang.png"></image> -->
+        <!-- <view class="sc"></view> -->
+        <button open-type="share" style="  height: 80rpx;" class="fenxiang" style='border:0;background-color:#fff;font-size:20rpx;'>
+          <image src="../../img/fenxiang.png"></image>
+
+          <view class="fx">分享</view>
+        </button>
+      </view>
+
+      <button class="buy" bindtap="baoming" data-id="{{activity.id}}">立即报名</button>
+    </view>
+  </view>
+
+</view>

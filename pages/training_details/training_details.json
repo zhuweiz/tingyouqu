@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "previewImg": "../../components/previewImg/previewImg"
+  },
+  "navigationBarTitleText": "培训详情",
+  "navigationBarTextStyle": "black"
+}

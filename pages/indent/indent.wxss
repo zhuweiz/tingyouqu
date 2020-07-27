@@ -1,0 +1,137 @@
+/* pages/indent/indent.wxss */
+page{
+    background: rgba(244, 247, 255, 1);
+}
+.indent {
+  width: 100%;
+  height: 100%;
+  background: rgba(244, 247, 255, 1);
+  font-family: PingFang SC;
+}
+
+.indent_a {
+  background: #fff;
+
+}
+
+.chanpin {
+  width: 650rpx;
+  margin: auto;
+  height: 170rpx;
+
+}
+
+/* .chanpin:last-child {
+  border: none;
+} */
+
+.fl image {
+  margin-top: 50rpx;
+  float: left;
+  width: 186rpx;
+  height: 120rpx;
+  border-radius: 5rpx;
+}
+
+.fr {
+    display:-webkit-box;
+   overflow:hidden;
+   text-overflow:ellipsis;
+   -webkit-line-clamp:2;
+   -webkit-box-orient:vertical;
+  height: 85rpx;
+  width: 428rpx;
+  margin-top: 52rpx;
+  float: left;
+  margin-left: 29rpx;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+
+.fr view:nth-child(1) {
+  font-size: 28rpx;
+}
+
+.mone {
+  width: 100%;
+  background: #fff;
+  height: 82rpx;
+  line-height: 82rpx;
+}
+
+.fr_a {
+  width: 650rpx;
+  height: 81rpx;
+  margin: auto;
+  font-size: 24rpx;
+  font-weight: 500;
+  border-bottom: 1rpx solid #dee3f0;
+}
+
+.fr_a text:nth-child(1) {
+  margin-left: 339rpx;
+  display: inline-block;
+}
+
+.fr_a text:nth-child(2) {
+  margin-left: 17rpx;
+  display: inline-block;
+}
+.consult{
+  height: 100rpx;
+  background: #fff;
+  border-bottom: 30rpx solid #F4F7FF;
+}
+.consult_a{
+  width: 650rpx;
+  margin: auto;
+}
+.butt{
+  margin-top: 23rpx;
+  float: right;
+  width:149rpx;
+height:54rpx;
+border:1px solid rgba(13,94,255,1);
+border-radius:27px;
+font-size:24rpx;
+font-weight:500;
+color:rgba(13,94,255,1);
+line-height: 54rpx;
+text-align: center;
+}
+
+
+/* pages/address/address.wxss */
+.address{
+  width: 100%;
+  height: 100%;
+  font-family:PingFang SC;
+  color:rgba(0,21,62,1);
+}
+.img{
+   background-repeat: no-repeat;
+  /* background-size: 100% 100%;  */
+  background-size: cover;
+  margin: auto;
+  margin-top: 150rpx;
+}
+.img2{
+  font-size:38rpx;
+font-weight:400;
+margin-top: 65rpx;
+text-align: center;
+
+}
+.enter{
+    margin-top: 188rpx;
+  width: 650rpx;
+  height: 100rpx;
+  border-radius: 50rpx 50rpx;
+  font-size: rpx;
+  background: #f9f9f9;
+  color: #fff;
+  font-weight:500;
+ line-height: 100rpx;
+ text-align: center;
+   background-image: linear-gradient(to right, #0055ff , #8dd2fe);
+}

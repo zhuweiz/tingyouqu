@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nav-bar": "../../components/navbar2/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black"
+
+}

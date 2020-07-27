@@ -1,0 +1,49 @@
+<!--pages/train_order/train_order.wxml-->
+<view class="hed">
+
+  <view class="list">
+    <view class="h2">{{list_ting.name}}</view>
+    <view class="h3" style="margin-top: 25rpx;border-top:none">
+      <view class="fl">套餐服务</view>
+      <!-- <view class="fr">全民套餐</view> -->
+    </view>
+    <view class="h3">
+      <view class="fl">价格</view>
+
+      <view class="fr">￥{{list_ting.price*1}}</view>
+    </view>
+    <view class="h4">
+      <view class="fl">出行日期</view>
+      <view class="fr_c">{{shijian}}</view>
+    </view>
+    <view class="h5">
+      <view class="fl">购买数量</view>
+      <view class="fr_c">
+        <view class="inventory">
+          <text class='{{minusStatus}} del fl_l' type='number' bindtap='bindMinus'>-</text>
+          <text class="fl_l itt">{{num}}</text>
+          <text class="add fr_r" bindtap='bindPlus'>+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="list2">
+    <input class="nav_seek" style="margin-top: 20rpx;" placeholder="请输入您的姓名" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" bindinput="handlenameChange" value="{{nickname}}" />
+    <view class="xian"></view>
+    <input class="nav_seek" placeholder="请输入11位手机号码" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" maxlength='11' bindinput="handleContactChange" value="{{phone}}" type="number" />
+  </view>
+
+</view>
+
+<!-- 底部 -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+  <view class="but_a">
+    <view class="bt">
+      <text class="cc_mone">总价</text>
+      <text class="dd_mone">￥{{list_ting.price * num}}</text>
+    </view>
+    <button class="buy" bindtap="generateOrder">提交订单</button>
+  </view>
+</view>

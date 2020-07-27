@@ -1,0 +1,39 @@
+<!--pages/map/map.wxml-->
+    <view class='list-city'>
+        <scroll-view scroll-y="true" style="height:100%; " scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+        <view class="hed">
+          
+            <view class='cctt'>
+                <view class='fullname'>当前/历史</view>
+                <view class="weiz"><image class="zdw" src="../../img/zdw.png"></image>  <text class="zdw2">{{citySelected}}</text></view>
+                <view class="weiz2" wx:for="{{sercherStorage}}" wx:key="key" v-if="index<3" bindtap='selectCity' data-name="{{item}}" data-fullname="{{item}}">{{item}}</view>
+               </view>
+              <view class='cctt2'>
+                <view class='fullname fullname2'>热门城市</view>
+                <view class="vid">
+                <!-- <view class="weiz2" wx:for="{{sercherStorage}}" wx:key="key" v-if="index<12">{{item}}</view> -->
+                <view class="weiz2" wx:for="{{recommend}}" wx:key="key" v-if="index<12" bindtap='selectCity' data-name="{{item.name}}" data-fullname="{{item.name}}">{{item.name}}</view>
+                </view>
+                
+               </view>
+            <!-- 全部 -->
+         
+            <view class='item' wx:for="{{map_list}}" wx:for-index="idx"  wx:for-item="group" wx:key="key">
+                <view class='py' id="{{idx}}">{{idx}}</view>
+                <view  class="fullname2" wx:for="{{group}}" wx:key="key" data-fullname="{{item.name}}" data-lat="{{item.location.lat}}" data-lng="{{item.location.lng}}" bindtap='selectCity'  data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}
+                </view>
+
+            </view>
+</view>
+        </scroll-view>
+
+        <!-- 首字母 -->
+        <view class='city-py' bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+            <view wx:for="{{map_list}}" class="zm" wx:for-index="key" wx:key="key" bindtouchstart="getPy" bindtouchend="setPy" id="{{key}}">{{key}}
+            </view>
+        </view>
+    </view>
+
+
+<!--选择显示-->
+<view hidden="{{hidden}}" class="showPy">{{showPy == 'hot' ? "#" : showPy}}</view>

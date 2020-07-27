@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nav-bar": "../../components/navbar/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
+}

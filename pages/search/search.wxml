@@ -1,0 +1,29 @@
+<!--pages/search/search.js.wxml-->
+     <!-- 导航栏 -->
+      <view class="head">
+      <view class="head-c">
+      <!-- 搜索 -->
+        <view class="nav">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="上万种航海产品，等你来搜！" value='{{keyWord}}' bindconfirm='goSearch' focus='{{name_focus}}' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search"  />
+        </view>
+        </view>
+      </view> 
+
+     <view class="label" wx:if="{{sercherStorage.length!==0}}">
+        <view class="label_a">
+       
+          <view class="label_b"> <text class="lishi">最近搜索:</text><text class="shanchu" bindtap="clearSearchStorage">删除</text></view>
+          <text class="label_c"  bindtap='this_value' wx:for="{{sercherStorage}}" wx:if="{{index<10}}" wx:key="{{item}}" data-text="{{item}}">{{item}}</text>
+        </view> 
+      </view>
+
+      <view class="label">
+        <view class="label_a">
+          <view class="label_b">热门搜索:</view>
+          <text class="label_c"  bindtap='this_value' wx:for="{{hotword}}" wx:key="{{item}}" data-text="{{item}}">{{item}}</text>
+        </view> 
+      </view>
+     

@@ -1,0 +1,42 @@
+<!--pages/site/site.wxml-->
+<view class="site">
+  <view class="site_a">
+
+    <view class="tex">
+    <text>收件人</text>
+    <input placeholder="请输入姓名" value="{{name}}" bindinput="handlenameChange" maxlength='6' placeholder-style=" color:#99A1B2;"></input>
+    </view>
+
+     <view class="tex">
+    <text>手机号码</text>
+   <input placeholder="请输入11位手机号码" value="{{phone}}" type="number" bindinput="handlephoneChange" maxlength='11' placeholder-style=" color:#99A1B2;"></input>
+    </view>
+                    
+     <view class="tex">
+    <text>地区信息</text>
+     <picker mode="region" value="{{region}}" custom-item="{{customItem}}"  bindchange="bindRegionChange">{{city}}，{{region}}，{{street}}</picker>
+    </view>
+
+     <view class="tex">
+    <text>详细地址</text>
+      <input placeholder="街道门牌信息" value="{{address}}" bindinput="handleaddressChange" maxlength='25' placeholder-style=" color:#99A1B2;"></input>
+    </view>
+
+     <view class="tex" style="border:none;">
+    <text>设为默认</text>
+    <view class="moren">
+  <switch class="quan2" color="#2F7DFE"  checked="{{switch1Checked}}" bindchange="switch1Change"/>
+    </view>
+    </view>
+  
+    <!-- butt -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a" >
+   <button class="buy" style="color: #df3448;" bindtap="remove">删除</button>
+    <button class="buy2" bindtap="handleSubmit">保存</button>
+    </view>
+  </view>
+
+  </view>
+</view>
+

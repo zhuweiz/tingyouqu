@@ -1,0 +1,84 @@
+<!--pages/member/member.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<!-- <scroll-view scroll-y style="height: 100%;"> -->
+
+  <view class="scroll-view-item" style='padding-top: {{height}}px;'>
+    <view class="backgroundimg" style="background-image: url('http://a1.qpic.cn/psc?/V13t2G4i0uprYL/6srbhn710T4Nam1Tpgw9AzgiyX3M8dlfGpdxI39*adQvZOME6j0x96cDgK9pAaktXPsdPQgopmQfCKbqIuNXTw!!/b&ek=1&kp=1&pt=0&bo=7gLbAQAAAAADFwQ!&tl=1&vuin=1428635858&tm=1590757200&sce=60-2-2&rf=viewer_4'); width: 100%;height: 520rpx;"></view>
+    <!-- 导航栏 -->
+  </view>
+
+  <view class='u-wrp-bnr'>
+
+    <view class="touxian">
+      <!-- <text> 超级VIP年卡</text> -->
+      <text wx:if="{{name_list.ismember == '1'}}">超级VIP会员</text>
+      <text wx:else>普通会员</text>
+    </view>
+    <view class="name">
+      <!-- <text>您的会员将在 2020-09-20 到期</text> -->
+       <text wx:if="{{name_list.ismember == '1'}}">您的会员将在 {{name_list.memberexpires}} 到期</text>
+      <text wx:else>开通超级VIP会员  立享VIP权益</text>
+    </view>
+    <navigator hover-class="none" url="../rights/rights" class="vip">
+      <!-- <text>立即续费</text> -->
+      兑换码兑换VIP
+    </navigator>
+    <view class='u-img-slide' style="width: 100%;height: 100%;"></view>
+  </view>
+  <view class="hed">
+
+    <view class="list" style="margin-top:62rpx;">
+      <view class="fl">VIP套餐</view>
+    </view>
+  </view>
+  <view class="list_c">
+
+
+    <view class="list_a" bindtap="clickTAO" data-num="{{index}}" style="background:{{from==index?'#ECBC69':'#fff'}}" wx:for="{{vip_list}}" wx:key="{{item}}" data-id="{{item.id}}" wx:if="{{index<3}}">
+      <!-- <image src="../../img/huiyuan4.png"></image> -->
+      <view class="shijian" style="color:{{from==index?'#fff':'#00153E'}}">{{item.desc}}</view>
+      <view class="moni" style="color:{{from==index?'#fff':'#00153E'}}"><text class="jin">￥</text>{{item.price}}</view> 
+      <view class="tian" style="color:{{from==index?'#fff':'#00153E'}}">每天仅<text class="qian" style="color:{{from==index?'#FFF331':'#FF5746'}}">{{item.averageprice}}</text>元</view> 
+      <view class="gou" >
+        <image wx:if="{{from==index}}" class="ggxx" src="../../img/ggxx.png"></image>
+      </view>
+    </view>
+
+        <!-- <view class="list_a" bindtap="clickTAO" data-num="2" style="background:{{from=='2'?'#0D5EFF':'#fff'}}">
+      <view class="shijian" style="color:{{from=='2'?'#fff':'#00153E'}}">2年VIP</view>
+      <view class="moni" style="color:{{from=='2'?'#fff':'#00153E'}}"><text class="jin">￥</text>598</view> 
+      <view class="tian" style="color:{{from=='2'?'#fff':'#00153E'}}">每天<text class="qian" style="color:{{from=='2'?'#FFF331':'#FF5746'}}">0.63</text>仅元</view> 
+      <view class="gou" >
+        <image wx:if="{{from=='2'}}" class="ggxx" src="../../img/ggxx.png"></image>
+      </view>
+    </view>
+
+        <view class="list_a" bindtap="clickTAO" data-num="3" style="background:{{from=='3'?'#0D5EFF':'#fff'}}">
+      <view class="shijian" style="color:{{from=='3'?'#fff':'#00153E'}}">1年VIP</view>
+      <view class="moni" style="color:{{from=='3'?'#fff':'#00153E'}}"><text class="jin">￥</text>398</view> 
+      <view class="tian" style="color:{{from=='3'?'#fff':'#00153E'}}">每天<text class="qian" style="color:{{from=='3'?'#FFF331':'#FF5746'}}">0.63</text>仅元</view> 
+      <view class="gou" >
+        <image wx:if="{{from=='3'}}" class="ggxx" src="../../img/ggxx.png"></image>
+      </view>
+    </view> -->
+
+  </view>
+
+  <!-- 新品推荐 -->
+  <view class="buut">
+    <view class="hot-a">
+      VIP权益介绍
+    </view>
+    <view class="sd">{{equity}}</view>
+  </view>
+
+<!-- </scroll-view> -->
+
+<view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+<!-- 底部 -->
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+  <view class="but_a">
+    <button class="buy" bindtap="generateOrder" wx:if="{{name_list.ismember == '1'}}">立即续费</button>
+    <button class="buy" bindtap="generateOrder" wx:else>立即开通</button>
+  </view>
+</view>

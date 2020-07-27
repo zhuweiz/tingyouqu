@@ -1,0 +1,49 @@
+<!--pages/dealer/dealer.wxml-->
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+<view class="dealer">
+  <view class="hed">
+  <view class="dddwe">
+    <!-- <view class="h1">经销商查询</view> -->
+    <view class="dinwei">
+    
+    <view hover-class="none" url="../map/map?id={{brandId}}&city={{city}}" class="city" style="box-shadow:{{uhide==99?'':'0rpx 6rpx 20rpx 0rpx rgba(180,200,231,0.26)'}}">
+      <navigator hover-class="none" url="../pinpai/pinpai?id={{brandId}}&city={{city}}" class="cd"><text class="cname">{{cname=='null'?'全部品牌':cname}}</text><image class="idg" src="../../img/xiala.png"></image></navigator>
+      <navigator hover-class="none" url="../map/map?id={{brandId}}&city={{city}}" class="cd">{{city}}<image class="idg" src="../../img/xiala.png"></image></navigator>
+      <view class="cd" bindtap="ShowState" data-num="99" style="color:{{uhide==99?'#0D5EFF':'#01163F'}}">{{name}}<image class="idg" src="{{uhide==99?'../../img/xiala3.png':'../../img/xiala.png'}}"></image></view>
+    </view>
+    </view>
+    </view>
+        <view class="xiala" style="display:{{uhide==99?'block':'none'}}">
+        <view class="paix" bindtap="clickform" data-name="默认排序">默认排序</view>
+        <view class="paix" bindtap="clickform" data-name="距离最近">距离最近</view>
+        <view class="bicsd" bindtap="none2"></view>
+    </view>
+    <view class="shop" wx:for="{{list}}" wx:key="{{key}}"  hidden="{{!flag}}">
+         <view class="tex1">
+         <image class="imsg" src="{{HTTP}}{{item.brandImage}}"></image>
+         <view class="h4">{{item.name}}</view>
+         </view>
+         <view class="tex2">
+          <view class="leet" bindtap="click" data-latitude="{{item.latitude}}" data-name="{{item.city}}{{item.address}}" data-longitude="{{item.longitude}}">
+            <view class="hname"><view class="nman">{{item.city}}{{item.address}}</view><image class="dg" src="../../img/ggdd.png"></image></view>
+            <view class="hname2"><image class="im" src="../../img/ddww.png"></image>
+            <text style=" margin-left: 5rpx;" wx:if="{{item.distance<1}}">{{item.distance*1000}}m</text>
+             <text style=" margin-left: 5rpx;" wx:if="{{item.distance > 1}}">{{filters.toFix(item.distance)}}km</text>
+            </view>
+          </view>
+          <view class="leet2"  bindtap="advisory" data-phone="{{item.phone}}">
+            <view class="dh1"><image class="ddhh" src="../../img/ddhh.png"></image></view>
+            <view class="dh2">免费咨询</view>
+          </view>
+         </view>
+    </view>
+
+   <view class="address" hidden="{{flag}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无数据~</view>
+  </view>
+  </view>
+
+  </view>
+</view>

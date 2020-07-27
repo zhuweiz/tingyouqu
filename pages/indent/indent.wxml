@@ -1,0 +1,34 @@
+<!--pages/indent/indent.wxml-->
+<view class="indent" wx:if="{{!isHide}}">
+  <view class="indent_a" wx:for="{{list}}" wx:key="{{item}}">
+<navigator hover-class="none" url="../Orderdetail/Orderdetail?id={{item.id}}&orderno={{item.orderno}}">
+  <view class="chanpin" >
+        <view class="fl"><image src="{{HTTP}}{{item.List_img}}"></image></view>
+        <view class="fr">
+          <view>{{item.name}}</view>
+        </view>
+      </view>  
+      <view class="mone">
+           <view class="fr_a">
+               <text>共{{item.number}}件商品 </text>
+           <text>共计 : ¥{{item.number * item.price }} </text>
+        </view>
+      </view> 
+</navigator> 
+          <view class="consult">
+            <view class="consult_a">
+                <view class="butt" bindtap="tel">客服咨询</view>
+            </view>
+          </view>
+
+   </view>
+</view> 
+
+ <view  wx:else >
+<view class="address" >
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无数据~</view>
+  </view>
+</view>
+</view> 

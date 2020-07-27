@@ -1,0 +1,66 @@
+<!--pages/enquiry/enquiry.wxml-->
+<view class="enquiry" hidden="{{!flag}}">
+  <view class="enquiry_a"> 
+    <view class="h1">请填写表格以便完成询价</view>
+
+    <view class="bode">
+  <view class="img"><image mode='aspectFill' src="{{HTTP}}{{enquiry_list.images[0]}}"></image></view>
+  <view class="tex">
+  <view class="texx">{{enquiry_list.name}} </view>
+   <view class="img2"><image src="{{HTTP}}{{enquiry_list.brandImage}}"></image></view>
+  </view>
+  </view>
+
+  <view class="center">
+    <input style="  margin-top: 50rpx;" placeholder="请输入您的称呼" maxlength='6'  bindinput="handlenameChange"></input>
+    <text bindtap="ShowState"  data-num="1" data-gender="男" class="{{uhide==1?'bai':'hei'}}">先生</text>
+    <text bindtap="ShowState"  data-num="2" data-gender="女" class="{{uhide==2?'bai':'hei'}}">女士</text>
+  </view>
+
+   <view class="center">
+    <input placeholder="请输入11位手机号码" maxlength='11' bindinput="handleContactChange" type="number"></input>
+  </view>
+
+  <view class="center2">
+    <textarea  placeholder="请描述你的需求（200个字符以内）"  bindinput="handlecontentChange" maxlength="200"></textarea>
+  </view>
+
+    <view class="datum">
+    <checkbox-group id='1' bindchange="checkboxChange">
+    <label >
+    <checkbox value="1" data-id="1" bindtap="eec" checked="{{checked}}"></checkbox>
+    </label>
+      </checkbox-group>
+    <text class="zil">发送产品资料</text>
+
+    </view>
+    <view class="inquire">
+        <checkbox-group id='2' bindchange="checkboxChange">
+            <label >
+     <checkbox value="2" data-id="2" bindtap="eec" checked="{{checked}}"></checkbox>
+         </label>
+            </checkbox-group>
+     <text class="zil"> 询盘报价、价格查询</text>
+
+    </view>
+
+  </view>
+
+  <view class="butt" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+    <button class="buy" bindtap="handleSubmit">发送</button>
+    </view>
+  </view>
+
+</view>
+
+<view class="mask" hidden="{{flag}}">
+  <view class="fs_img">
+    <image src="../../img/fas.png"></image>
+    <view>您的询价已成功发送给供应商~</view>
+  </view>
+  <view class="closeImg" bindtap="closeMask">
+    <button class="guanbi">关闭</button>
+  </view>
+</view>
+

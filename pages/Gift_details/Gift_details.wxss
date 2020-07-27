@@ -1,0 +1,243 @@
+/* pages/Gift_details/Gift_details.wxss */
+page{
+  background: #F4F7FF;
+}
+.money2{
+  font-size:28rpx;
+font-weight:400;
+color:rgba(5,21,62,1);
+opacity:0.7;
+line-height: 55rpx;
+
+}
+.money{
+color:rgba(229,99,80,1);
+font-size:28rpx;
+font-family:PingFang SC;
+font-weight:bold;
+line-height: 55rpx;
+}
+.Gift_details{
+  /* width: 650rpx; */
+  height: 100%;
+  font-family:PingFang SC;
+  color: #00153E;
+  /* margin: auto */
+  background: #F4F7FF;
+}
+.wxParse-p{
+  width: 650rpx;
+}
+.wxParse-p image{
+width: 650rpx !important;
+}
+
+.shichang {
+font-size: 22rpx;
+font-weight: 400;
+}
+.hed{
+    padding-bottom: 30rpx;
+    background: #fff;
+    overflow: hidden;
+}
+.img{
+  /* margin-left: 50rpx; */
+width: 100%;
+position: relative;
+
+}
+.u-wrp-bnr{
+    height: 420rpx;
+}
+.remen-a{
+  width: 100%;
+  display: inline-block;
+}
+.re_img{
+  height: 420rpx;
+  width: 100%;
+}
+/* .remen-a{
+  margin-left: 30rpx;
+} */
+.remen-a image{
+ height: 420rpx;
+width: 100%;
+
+}
+
+.tex{
+  width: 650rpx;
+  margin: auto;
+}
+.tex1{
+  font-size:32rpx;
+font-weight:600;
+margin-top: 12rpx;
+}
+.tex2{
+  font-size:22rpx;
+font-weight:400;
+margin-top: 15rpx;
+}
+.tex3{
+  margin-top: 25rpx;
+  font-size:36rpx;
+font-weight:500;
+color:rgba(255,63,43,1);
+}
+/* 礼品参数 */
+.parameter{
+  /* width: 650rpx; */
+  border-top: 30rpx solid #F4F7FF;
+  margin-top: 30rpx;
+
+  padding-bottom: 70rpx;
+  margin: auto;
+  background: #fff;
+ 
+}
+.paa{
+  width: 650rpx;
+  margin: auto;
+}
+.pat1{
+  font-size: 36rpx;
+font-weight: 700;
+/* 
+  font-size:28rpx;
+  font-weight:500; */
+  padding-top: 55rpx;
+  padding-bottom: 40rpx;
+}
+.pat2{
+  font-size:26rpx;
+  font-weight:400;
+  margin-top: 50rpx;
+}
+.pat2_a{
+  color: #99A1B2;
+  width: 135rpx;
+  display: inline-block;
+}
+.pat2_b{
+color:rgba(0,21,62,1);
+margin-left: 49rpx;
+}
+/* 产品介绍 */
+.introduce{
+  margin-top: 30rpx;
+  /* height: 1572rpx; */
+  background: #fff;
+  padding-bottom: 70rpx;
+}
+.int{
+  width: 650rpx;
+  margin: auto;
+}
+.int image{
+  height: 360rpx;
+  width: 650rpx;
+  border-radius:10rpx;
+  margin-bottom: 40rpx;
+}
+.int_a{
+  font-size:28rpx;
+font-weight:400;
+line-height: 56rpx;
+/* margin-top: 35rpx; */
+}
+.int_b{
+  margin-top: 26rpx;
+}
+/* 猜你喜欢 */
+.love{
+overflow: hidden;
+  margin-top: 30rpx;
+  background: #fff;
+}
+.love_a{
+  overflow: hidden;
+    padding-bottom: 100rpx;
+  width: 650rpx;
+  margin: auto;
+}
+.love_a image{
+ width: 310rpx;
+ height: 172rpx;
+ margin-top: 45rpx;
+ border-radius:5rpx
+}
+.let{
+  float: left;
+}
+.love_a .let:nth-child(3){
+  margin-left: 30rpx;
+}
+.love_a .let:nth-child(5){
+  margin-left: 30rpx;
+}
+.ret{
+  float: right;
+}
+.love_cc{
+  width: 310rpx;
+  font-size:24rpx;
+font-weight:400;
+margin-top: 10rpx;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.love_dd{
+  font-size:24rpx;
+font-weight:400;
+color:rgba(255,63,43,1);
+margin-top: 10rpx;
+}
+/* 底部 */
+.but{
+  display: flex;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #DEE3F0;
+  background: #fff;
+}
+.but_a{
+  width: 650rpx;
+  margin: auto;
+}
+.but_a image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.bt{
+  width: 40rpx;
+  height: 80rpx;
+  text-align: center;
+  float: left;
+  margin-top: 10rpx;
+}
+.sc{
+  line-height: 20rpx;
+font-size:20rpx;
+font-weight:400;
+color:rgba(76,91,120,1)
+}
+.buy{
+  margin-top: 5rpx;
+  float: right;
+  width: 540rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #FF3E2A;
+  border: none;
+  border-radius: 40rpx 40rpx;
+  font-size:28rpx;
+  color: #fff;
+font-weight:500;
+}
+

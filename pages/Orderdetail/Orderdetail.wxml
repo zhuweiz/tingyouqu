@@ -1,0 +1,63 @@
+<!--pages/Orderdetail/Orderdetail.wxml-->
+<view class="order">
+  <image class="fenge" src="../../img/fenge.png"></image>
+  <view class="bt" wx:if="{{product.from == 1}}">
+    <view class="hed">
+ <view class="fc">
+      <image class="dinwei" src="../../img/dizhi.png"></image>
+      <text>{{address.city}}{{address.region}}{{address.street}}{{address.address}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom" style="padding-top:{{product.from != 1?'30rpx':'50rpx'}}">
+    <view class="h1">
+      <view class="fl img">
+        <image src="{{HTTP}}{{product.images[0]}}"></image>
+      </view>
+      <view class="fl img2">
+        <view class="tex1">{{product.name}}</view>
+        <view class="tex2">{{product.dsescription}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="quantity" style=" margin-top: 10rpx;">
+    <view class="fl nmm">数量</view>
+    <view class="fr">
+      <view class="fl">{{product.number}}</view>
+    </view>
+  </view>
+
+   <view class="quantity">
+    <view class="fl nmm">商品单价</view>
+    <view class="fr mone">
+         ￥{{product.price}} 
+    </view>
+  </view>
+  <!--  -->
+   <view class="quantity">
+    <view class="fl nmm">退换无忧</view>
+    <view class="fr mone">
+         + ￥0 
+    </view>
+  </view>
+
+   <view class="quantity">
+    <view class="fl nmm">运费（包邮）</view>
+    <view class="fr mone">
+       + ￥0 
+    </view>
+  </view>
+
+<view class="remark_a">{{product.content}}</view> 
+ <view style=" height: 30rpx;"></view>
+<view class="but" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+        <text class="hj">合计</text>
+        <text class="sc">¥ {{product.price * product.number}}.00</text>
+    <button class="buu" bindtap="tel">客服咨询</button>
+    </view>
+  </view>
+
+</view>

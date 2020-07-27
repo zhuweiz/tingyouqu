@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "zy-slider": "../../components/huadong/zyslider"
+  },
+    "navigationBarTitleText": "游艇列表",
+    "navigationBarTextStyle": "black"
+}

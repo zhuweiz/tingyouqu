@@ -1,0 +1,149 @@
+<!-- <view class="information" style="padding-bottom:110rpx;" > -->
+<view class="hhh">
+  <view class="pao">
+    <view class="ppxx">
+      <image class="peixun" src="../../img/peixun.png"></image>
+
+      <view class="fanhui" style='height: {{height}}px;' >
+        <view class="fh" bindtap="_navback" style=" margin-top:{{height/2+3}}px;display: inline-block;" >
+          <image class="fanh" src="../../img/fanhui.png"></image>
+        </view>
+        <navigator class="nav" hover-class="none" url="../search_youwan/search_youwan?id={{from}}" style=" margin-top:{{height/2-5}}px;">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="你想去哪儿？" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+        </navigator>
+      </view>
+      <!-- <view class="navvc" style='height: {{height}}px;'>
+      <navigator class="nav" hover-class="none" url="../search_youwan/search_youwan?id={{from}}" style='margin-top: {{height-34}}px;'>
+        <view class="icon">
+          <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+        </view>
+        <input class="nav_seek" placeholder="你想去哪儿？" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+      </navigator>
+      </view> -->
+      <view class="dede">
+        <view class="{{from=='1'?'dedd2':'dedd'}}" data-num="1" bindtap="ShowState2">国内航线</view>
+        <view class="{{from=='2'?'dedd2':'dedd'}}" data-num="2" bindtap="ShowState2">海外航线</view>
+      </view>
+    </view>
+
+    <view class="lhes">
+      <view class="genre">
+        <view class="genre_a {{uhide==5?'dd':'cc'}}" bindtap="ShowState" data-num="5" style="color:{{uhide==5?'#0D5EFF':'#01163F'}}">
+          <view class="leimin">
+            <text class="ccd">{{types}}</text>
+            <image class="biao" src="{{uhide==5?'../../img/xiala3.png':'../../img/xiala.png'}}"></image>
+          </view>
+        </view>
+
+        <view class="genre_a " data-num="999" bindtap="ShowState_J">
+          <view class="dd" style="color:{{uhide_j_j==1?'#0D5EFF':'#01163F'}}">
+            <text class="ccd">价格</text>
+            <text class="ssxx ">
+                <text class="jiao"style="border-bottom:{{uhide_j==999?'8rpx solid #3E60FF':'8rpx solid #00153E'}}"></text>
+            <text class="jiao2" style="border-top:{{uhide_j==888?'8rpx solid #3E60FF':'8rpx solid #00153E'}}"></text>
+            </text>
+          </view>
+
+        </view>
+
+        <view class="genre_a" data-num="99" bindtap="ShowState_X">
+          <!--  -->
+          <view class="dd" style="color:{{uhide_x_x==1?'#0D5EFF':'#01163F'}}">
+            <text class="ccd">销量</text>
+            <text class="ssxx ">
+                <text class="jiao"style="border-bottom:{{uhide_x==99?'8rpx solid #3E60FF':'8rpx solid #00153E'}}"></text>
+            <text class="jiao2" style="border-top:{{uhide_x==997?'8rpx solid #3E60FF':'8rpx solid #00153E'}}"></text>
+            </text>
+          </view>
+
+        </view>
+        <view class="genre_a" data-num="996" bindtap="ShowState_A">
+          <view class="dd" style="color:{{uhide_A==996?'#0D5EFF':'#01163F'}}">
+            <text class="ccd">筛选</text>
+            <image class="biao2" src="{{uhide_A==996?'../../img/saixuan2.png':'../../img/saixuan.png'}}"></image>
+          </view>
+
+        </view>
+      </view>
+      <!-- 筛选 -->
+      <!-- style="display:{{uhide_A==996?'block':'none'}}" -->
+      <view class="pinlei_list" style="display:{{uhide_A==996?'block':'none'}}">
+        <view class="pinlei">
+          <view class='buyMian-slide'>
+            <view class="jg_mone">价格</view>
+            <view class='buyMian-slide-contain'>
+              <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor='#0D5EFF' activeColor='#f7f7f7' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+              <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' backgroundColor='#f7f7f7' activeColor='#0D5EFF' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2'></slider>
+            </view>
+            <view class='flex flexSb buyMian-slide-range'>
+              <view class='jg_w'>{{slider1Value}}元</view>
+              <view class='jg_w'>{{slider2Value}}元
+                <text wx:if="{{slider2Value == 5000}}">以上</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="jg_h1">
+          <view class=" {{pic==1?'jg_h2_a':'jg_h2'}}" data-min_price="0" data-max_price="400" data-pic="1" bindtap="picJiage">¥400以下</view>
+          <view class=" {{pic==2?'jg_h2_a':'jg_h2'}}" data-min_price="400" data-max_price="550" data-pic="2" bindtap="picJiage">¥400-550</view>
+          <view class=" {{pic==3?'jg_h2_a':'jg_h2'}}" data-min_price="550" data-max_price="750" data-pic="3" bindtap="picJiage">¥550-750</view>
+          <view class=" {{pic==4?'jg_h2_a':'jg_h2'}}" data-min_price="750" data-max_price="1000" data-pic="4" bindtap="picJiage">¥750-1000</view>
+          <view class=" {{pic==5?'jg_h2_a':'jg_h2'}}" data-min_price="1000" data-max_price="1500" data-pic="5" bindtap="picJiage">¥1000-1500</view>
+          <view class=" {{pic==6?'jg_h2_a':'jg_h2'}}" data-min_price="1500" data-max_price="10000000000" data-pic="6" bindtap="picJiage">¥1500以上</view>
+        </view>
+        <view class="chengshi"> 城市</view>
+        <view class="jg_h1">
+          <view class="{{city_id==item.id?'jg_h2_a':'jg_h2'}}" wx:for="{{city_list}}" wx:key="{{item}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="CSclick">{{item.name}}</view>
+        </view>
+
+        <view class="pinlei2">
+          <view class="chongz" bindtap="chongzi"> 重置</view>
+          <view class="chongz2" bindtap="affirm"> 确认</view>
+        </view>
+      </view>
+      <!-- 筛选 -->
+
+      <!--  -->
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="h2" hidden="{{!flag}}">
+
+      <navigator class="h2_list" hover-class="none" url="../train/train?id={{item.id}}" wx:for="{{products}}" wx:key="item">
+        <view class="lt iimmg">
+          <image class="listimg" src="{{HTTP}}{{item.images[0]}}"></image>
+        </view>
+        <view class="lt dye">
+          <view class="biaoti">{{item.name}}</view>
+          <view class="biaoti2">{{item.city}}</view>
+          <view class="biaoti3">
+            <view class="lt shou">已售{{item.sell}}</view>
+            <view class="rt">
+              <view style="height: 40rpx;">
+          <text class="vip" wx:if="{{item.member_price}}">VIP享</text>
+                <text class="vipmn" wx:if="{{item.member_price}}">¥{{item.member_price*1}}</text>
+              </view>
+              <view class="mmmd">
+                <text class=" mmnnd">¥ {{item.price*1}}</text> 起</view>
+
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+
+
+  </view>
+</view>
+
+<view class="address" hidden="{{flag}}">
+  <view class="address_a">
+    <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+    <view class="img2">暂无数据~</view>
+  </view>
+</view>

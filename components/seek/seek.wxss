@@ -1,0 +1,53 @@
+.scroll-view-item{
+  position: relative
+}
+.head {
+  position: relative;
+  width: 100%;
+  height: 122rpx;
+  font-size: 28rpx;
+}
+.on{
+   color: #0D5EFF;
+}
+.head-c{
+    position: fixed;
+  width: 100%;
+  height: 97rpx;
+  background-position: 10rpx 10rpx;
+  background-size: 100% 100%;
+  border-bottom: 1rpx solid #DEE3F0;
+}
+
+.nav {
+  position: fixed;
+  height: 72rpx;
+  left: 5%;
+  margin: auto;
+  width: 90%;
+  background: #F4F7FF;
+  border-radius: 22rpx;
+  /* margin-top: 25rpx; */
+}
+
+.icon {
+  position: absolute;
+  width: 20%;
+  display: inline-block;
+  height: 100%;
+}
+
+.icon image {
+  position: absolute;
+  top: 25rpx;
+  left: 20rpx;
+}
+
+.nav_seek {
+  position: absolute;
+  width: 80%;
+  left: 67rpx;
+  opacity: 1;
+  height: 100%;
+  display: inline-block;
+}

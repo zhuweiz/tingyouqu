@@ -1,0 +1,13 @@
+      <template name="head">
+      <view class="head">
+      <view class="head-c">
+      <!-- 搜索 -->
+        <navigator class="nav"  hover-class="none" url="../search/search">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="上万种航海产品，等你来搜！" disabled="true" placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" />
+        </navigator>
+        </view>
+      </view>
+      </template>

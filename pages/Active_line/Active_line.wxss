@@ -1,0 +1,132 @@
+/* pages/ Active_line/ Active_line.wxss */
+page{
+    background: #F4F7FF;
+}
+.Active_line{
+  width: 100%;
+  height: 100%;
+  font-family:PingFang SC;
+  background: #F4F7FF;
+  color:rgba(0,22,63,1)
+}
+.body{
+    overflow: hidden;
+  width: 650rpx;
+  margin: auto;
+  padding-bottom: 55rpx;
+}
+.h1{
+  font-size:28rpx;
+font-weight:500;
+margin-top: 45rpx;
+
+}
+.h1_a{
+    font-size:28rpx;
+font-weight:500;
+border-bottom: 40rpx solid #F4F7FF;
+
+}
+
+.list{
+  overflow: hidden;
+  float: left;
+  margin-top: 40rpx;
+  /* height: 316rpx; */
+  padding-bottom: 20rpx;
+   width: 310rpx;
+   background: #fff;
+   border-radius:5rpx
+}
+.body .list:nth-child(odd){
+  margin-left: 30rpx;
+}
+.list image{
+  width: 310rpx;
+  height: 200rpx;
+}
+.h2{
+  height: 70rpx;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+
+  font-size:24rpx;
+font-weight:400;
+margin-left: 22rpx;
+margin-top: 8rpx;
+width: 278rpx;
+overflow: hidden;
+}
+.h3{
+  margin-top: 20rpx;
+  font-size:20rpx;
+font-weight:400;
+color:rgba(76,91,120,1);
+margin-left: 22rpx;
+}
+.weizhi{
+  display: inline-block;
+    overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 90rpx;
+}
+.shijian{
+  margin-left: 85rpx;
+    display: inline-block;
+}
+
+
+.love_list{
+  /* margin-top: 40rpx; */
+  width:750rpx;
+height:236rpx;
+background:rgba(255,255,255,1);
+   border-bottom: 20rpx solid #F4F7FF;
+}
+.fl{
+  float: left;
+}
+.love_list image{
+  width: 240rpx;
+  height: 155rpx;
+  margin-left: 50rpx;
+  margin-top: 40rpx;
+}
+.fr{
+  float: left;
+  font-weight:400;
+}
+.fr_a{
+  width: 350rpx;
+  font-size:24rpx;
+margin-top: 45rpx;
+  margin-left: 31rpx;
+  height: 95rpx;
+}
+.fr_b{
+  margin-top: 26rpx;
+   margin-left: 31rpx;
+  font-size:20rpx;
+color:rgba(76,91,120,1);
+}
+.weizhi2{
+  /* display: inline-block; */
+     float: left;
+         overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 130rpx;
+}
+.weizhi text:nth-child(2){
+  margin-left: 8rpx;
+}
+.weizhi2 text:nth-child(2){
+  margin-left: 8rpx;
+}
+.shijian2{
+  /* margin-left: 169rpx; */
+    float: right;
+    /* display: inline-block; */
+}

@@ -1,0 +1,49 @@
+<!--pages/perfect/perfect.wxml-->
+<view class="perfect">
+<view class="hed">
+    <view class="h1">{{nameh}}</view>
+    <view class="tex but">
+      <input placeholder="请输入姓名" maxlength='6'  bindinput="handlenameChange"></input>
+      <input placeholder="请输入电话" maxlength='11' bindinput="handleContactChange" type="number"></input>
+    </view>
+    <view  class="tex tex2 tex4"bindtap="handleAddressClick">{{address}}</view>
+     <!-- <button open-type="openSetting" class="tex tex2 tex4"bindtap="handleAddressClick">{{address}}</button> -->
+     <view class="qiye tex3"  >
+     <view class=" tex2  inn" bindtap="showModal" style="width: 600rpx;">{{value}}</view>
+      <image class="icc"  src="../../img/xxll.png"></image>
+     </view>
+   
+      <view class="tex but2" style="display:{{value=='个人'?'none':'block'}}">
+        <input placeholder="请输入企业名称" bindinput="handlecontentChange" maxlength="20"></input>
+      </view>
+      <view class="tex but2" style="display:{{value=='个人'?'none':'block'}}">
+        <input placeholder="网址（非必填）"  bindinput="handlewebsite"></input>
+      </view>
+      </view>
+
+<view class="butt" style="padding-bottom: {{getAppInfo}}rpx">
+    <view class="but_a">
+    <button class="buy" bindtap="handleSubmit">保存</button>
+    </view>
+  </view>
+
+ <!-- modal  -->
+  <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+      <!--  -->
+      <view class='Mselect'>
+        <view wx:for="{{optionList}}" wx:key="unique" data-value='{{item}}' bindtap='getOption'>
+          {{item}}
+        </view>
+      </view>
+      <view></view>
+      <view class='Mcancel' bindtap='mCancel'>
+        <text>取消</text>
+      </view>
+ 
+    </view>
+  </view>
+
+
+</view>
