@@ -31,6 +31,21 @@ Page({
       phoneNumber: '18688984787',
     })
   },
+  //地图导航
+  navigation: function (e) {
+    var _this = this
+    var longitude = Number(_this.data.train_list.longitude)
+    var latitude = Number(_this.data.train_list.latitude)
+    var name = _this.data.train_list.address
+    console.log(latitude)
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 15,
+      name: name,
+      // address: '(常兴店)'
+    })
+  },
   previewImg: function (e) { //点击全屏预览图片
     console.log(e.currentTarget.dataset.index);
     var index = e.currentTarget.dataset.index;

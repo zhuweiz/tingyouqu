@@ -83,6 +83,6 @@
      <view class="address" hidden="{{flag}}">
   <view class="address_a">
       <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
-      <view class="img2">暂无该国家产品~</view>
+      <view class="img2">暂无该产品~</view>
   </view>
   </view>

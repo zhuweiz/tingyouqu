@@ -20,10 +20,10 @@
         </view> 
       </view>
 
-      <view class="label">
+      <!-- <view class="label">
         <view class="label_a">
           <view class="label_b">热门搜索:</view>
           <text class="label_c"  bindtap='this_value' wx:for="{{hotword}}" wx:key="{{item}}" data-text="{{item}}">{{item}}</text>
         </view> 
-      </view>
+      </view> -->
      

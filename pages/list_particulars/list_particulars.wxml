@@ -3,12 +3,13 @@
 <!-- <view class="list_particulars"> -->
        <previewImg id="previewComponent" previewImgList="{{product.images}}" previewImg="{{defImg}}" />
        <!-- <previewImg id="previewComponent2" previewImgList="{{defImg}}" previewImg="{{defImg}}" /> -->
-<view class="list_particulars {{filtrate == false ? '':'none'}}">
+       <!-- {{filtrate == false ? '':'none'}} -->
+<view class="list_particulars ">
 
   <view class="hed">
     <!-- 文字 -->
     <view class="img">
-      <swiper class='u-wrp-bnr' style="border-radius:20rpx;" bindchange="bindChange" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+      <swiper class='u-wrp-bnr' style="border-radius:20rpx;" bindchange="bindChange" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true' autoplay='true' interval='5000' duration='1000'>
         <!-- && product.video_url == null -->
         <view class="remen-a">
           <swiper-item wx:for='{{product.images}}' wx:key='index' wx:if="{{index<5}}">
@@ -188,8 +189,9 @@
 </view>
 
 
-<view class="vid {{filtrate != false ? '':'none'}}" style="display:{{filtrate != false ? 'flex':'none'}}">
-  <view class="v1" style="height: 32%; width: 100%;" catchtap="vido"></view>
+<view class="vid {{filtrate != false ? '':'none'}}" style="display:{{filtrate != false ? 'block':'none'}}">
+<!-- flex -->
+  <!-- <view class="v1" style="height: 32%; width: 100%;" catchtap="vido"></view> -->
   <!-- style="height:{{videoHeight+'rpx'}}" -->
   <video id="myVideo"  src="{{product.video_url}}" enable-danmu controls show-center-play-btn="{{false}}" auto-pause-if-navigate auto-pause-if-open-native enable-play-gesture="true" show-play-btn object-fit="fill" bindpause="bindpause" bindended="bindended">
     <cover-view class="video_cover" wx:if="{{isShow}}">
@@ -198,7 +200,7 @@
 
     </cover-view>
   </video>
-  <view class="v2" style="height: 32%; width: 100%;" catchtap="vido"></view>
+  <!-- <view class="v2" style="height: 32%; width: 100%;" catchtap="vido"></view> -->
 </view>
 
 <van-dialog use-slot title="" show="{{ show }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo">

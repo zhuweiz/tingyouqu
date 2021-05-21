@@ -55,6 +55,19 @@ Page({
     }
 
   },
+  tiaozhuan(e){
+    console.log(e)
+    if (e.currentTarget.dataset.text == '其他国家'){
+      wx.navigateBack({
+        delta: 1
+      })
+    }else{
+      wx.redirectTo({
+        url: '../guojia_list/guojia_list?id=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.text
+      })
+    }
+  
+  },
   openLocationsercher: function () {//获取搜索缓存
     console.log(wx.getStorageSync('pinpai'))
     this.setData({

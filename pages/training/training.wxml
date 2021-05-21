@@ -76,16 +76,7 @@
         </scroll-view>
       </view>
       <!--  -->
-      <scroll-view class="biaoti_h1" scroll-x='true' style=" white-space: nowrap; display: flex;">
-        <view class="remen-a">
-          <view class="{{current==idx ? 'on' : 'biaoti'}}" data-idx="0" bindtap="onClickItem">
-            全部
-          </view>
-          <view class="{{current==item.id ? 'on' : 'biaoti'}} biaot2" data-idx="{{item.id}}" bindtap="onClickItem" wx:for="{{channles}}" wx:key="{{item}}">
-            <view class="btti">{{item.name}}</view>
-          </view>
-        </view>
-      </scroll-view>
+
 
       <!-- 价格 -->
       <view class="pinlei_list" style="display:{{uhide==9999?'block':'none'}}">
@@ -117,12 +108,25 @@
     </view>
   </view>
 
+      <scroll-view class="biaoti_h1" scroll-x='true' style="white-space:nowrap;">
+        <!-- <view class="remen-a"> -->
+          <view class="{{current==idx ? 'on' : 'biaoti'}} biaot2" data-idx="0" bindtap="onClickItem">
+            全部
+          </view>
+          <view class="{{current==item.id ? 'on' : 'biaoti'}} biaot2" data-idx="{{item.id}}" bindtap="onClickItem" wx:for="{{channles}}" wx:key="{{item}}">
+            <view class="btti">{{item.name}}</view>
+          </view>
+        <!-- </view> -->
+      </scroll-view>
+
+
+
   <view class="list">
 
 
     <view class="h2" hidden="{{!flag}}">
       <navigator class="h2_list" hover-class="none" url="../training_details/training_details?id={{item.id}}" wx:for="{{products}}" wx:key="item">
-        <image class="listimg" src="{{HTTP}}{{item.images[0]}}"></image>
+        <image class="listimg" mode='aspectFill' src="{{HTTP}}{{item.images[0]}}"></image>
         <view class="h1_biao">{{item.name}}</view>
         <view class="biaoti2" style="height: 40rpx;">
           <view class="lt ddz ov">{{item.city}}</view>

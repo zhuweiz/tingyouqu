@@ -121,12 +121,12 @@ border-radius:2rpx;
 .information{
   color: #00153E;
   font-family:PingFang SC;
-  width: 650rpx;
+  width: 700rpx;
    margin: auto;
 }
 .hed{
   overflow: hidden;
-  width: 650rpx;
+  width: 700rpx;
   /* height: 330rpx; */
   display: inline-block;
   /* border-bottom: 1rpx #DEE3F0 solid; */
@@ -219,7 +219,7 @@ display:-webkit-box;
 -webkit-box-orient:vertical;
 -webkit-line-clamp:2; 
   float: left;
-  width:360rpx;
+  width:385rpx;
 height:85rpx;
 font-size:32rpx;
 font-family:PingFang SC;

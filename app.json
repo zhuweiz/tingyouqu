@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/launch/launch",
+      "pages/launch/launch",
     "pages/index/index",
-    
-    
+    "pages/guojia_list/guojia_list",
+
     "pages/pinpai/pinpai",
     "pages/Gjlist/Gjlist",
     "pages/infoxiangqin/infoxiangqin",

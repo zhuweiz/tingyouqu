@@ -1,8 +1,9 @@
 <!--pages/activity/activity.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="activity">
+    <image mode='aspectFill' class="imgsc" src="{{HTTP}}{{activity.images[0]}}"></image>
   <view class="hed">
-    <image mode='aspectFill' src="{{HTTP}}{{activity.images[0]}}"></image>
+
     <view class="h1">{{activity.name}}</view>
     <view class="browse">
       <text>浏览 {{activity.views}}</text>

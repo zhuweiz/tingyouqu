@@ -30,7 +30,7 @@ Page({
       },
       method: "get",
       success: function(res) {
-        console.log(res.data.data)
+        // console.log(res.data.data)
         if (res.data.data ==''){
           wx.switchTab({
             url: '/pages/index/index'

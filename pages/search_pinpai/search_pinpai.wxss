@@ -101,6 +101,7 @@ text{
   line-height: 40rpx;
 
 }
+
 .label_c:nth-child(n+2){
   margin-left: 20rpx;
 }

@@ -23,6 +23,8 @@
         <view class="label">
         <view class="label_a">
           <view class="label_b">国家:</view>
-          <navigator hover-class="none" url="../Gjlist/Gjlist?id={{item.id}}&name={{item.name}}" class="label_c"   wx:for="{{hotword}}" wx:key="{{item}}" data-text="{{item.name}}">{{item.name}}</navigator>
+          <!-- ../Gjlist/Gjlist?id={{item.id}}&name={{item.name} -->
+          <!-- open-type="redirectTo" hover-class="none" url="../guojia_list/guojia_list?id={{item.id}}&name={{item.name}}" -->
+          <view   bindtap="tiaozhuan"  class="label_c" style="width: 112rpx;"  wx:if="{{index<8}}"  wx:for="{{hotword}}" wx:key="{{item}}" data-id="{{item.id}}" data-text="{{item.name}}">{{item.name}}</view>
         </view> 
       </view>

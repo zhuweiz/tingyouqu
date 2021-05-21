@@ -49,6 +49,9 @@ width: 650rpx !important;
 .tra{
   transform: rotate(180deg);
 }
+.wxParse-p{
+  display: flex;
+}
 .xiala{
   width: 100%;
   position: absolute;

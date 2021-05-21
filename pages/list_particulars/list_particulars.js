@@ -26,6 +26,7 @@ Page({
     params: [], //产品规格型号
     brandName_id: [],
     currentTab: '',
+    name:'',
     id: [], //收藏
     compare: [], //对比
     list: [],
@@ -137,6 +138,9 @@ Page({
   // 监听暂停播放时触发
   bindpause() {
     console.log('pause')
+    this.setData({
+      filtrate: false
+    })
   },
 
   bindChange: function(e) {
@@ -586,6 +590,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var that = this;
+    return {
+      title: that.data.product.name,
+      path: '/pages/list_particulars/list_particulars?id=' + that.data.id + "&cid=" + that.data.id + "&name=" + that.data.name + "&currency=" + that.data.currency,
+    }
   }
 })

@@ -73,7 +73,7 @@ font-weight:400;
 }
 .list{
   position: relative;
-  top: 220rpx;
+  top: 130rpx;
   width: 100%;
   background: #F4F7FF;
   font-size:24rpx;
@@ -81,7 +81,7 @@ font-weight:400;
 }
 .list_a{
 
-  width: 650rpx;
+  width: 690rpx;
   margin: auto;
     padding-top: 30rpx;
 }
@@ -94,9 +94,9 @@ font-weight:400;
     text-overflow:ellipsis;
 }
 .list_a .commodity {
-  width: 310rpx;
+  width: 335rpx;
     float: left;
-height: 568rpx;
+height: 580rpx;
   background: #fff;
   /* border-radius:10px; */
   border-bottom: 20rpx solid #F4F7FF;
@@ -104,7 +104,7 @@ height: 568rpx;
 
 }
 .list_a .commodity:nth-child(2n){
-  margin-left: 30rpx;
+  margin-left: 21rpx;
 }
 .list_a .commodity .bra{
   margin-top: 10rpx;
@@ -115,8 +115,8 @@ font-weight:400;
 color: #FF3E2A;
 }
 .list_a .commodity .bb{
-  width: 310rpx;
-  height: 280rpx;
+  width: 335rpx;
+  height: 298rpx;
     border-radius: 10rpx 10rpx 0 0;
 }
 .list_a .commodity .cc{

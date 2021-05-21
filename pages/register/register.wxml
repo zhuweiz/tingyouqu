@@ -40,7 +40,7 @@
       </view>
 
     </view>
-    <view class="body_b">备注：{{item.dsescriptions}}</view>
+    <view class="body_b" wx:if="{{uhide==item.id}}">备注：{{item.dsescriptions}}</view>
     <image class="body_img" style="display:{{uhide==item.id?'block':'none'}}" src="../../img/gou.png"></image>
   </view>
 

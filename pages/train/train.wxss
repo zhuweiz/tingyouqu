@@ -244,6 +244,13 @@ opacity:0.5;
 /* h5标签 */
 .wxParse-p{
   width: 650rpx !important;
+   
+}
+.wxParse-span{
+  display: inline;
+}
+.wxParse-inline{
+  display: inline;
 }
 .wxParse{
   width: 650rpx !important;
@@ -254,6 +261,7 @@ opacity:0.5;
 }
 .wxParse-p image{
 width: 650rpx !important;
+ display: flex;
 }
 .wxParse-img{
   width: 650rpx !important;

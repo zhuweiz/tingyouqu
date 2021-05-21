@@ -27,9 +27,17 @@ line-height: 55rpx;
 }
 .wxParse-p{
   width: 650rpx;
+
+}
+.wxParse-span{
+  display: inline;
+}
+.wxParse-inline{
+  display: inline;
 }
 .wxParse-p image{
 width: 650rpx !important;
+    display: flex;
 }
 
 .shichang {

@@ -332,13 +332,13 @@ font-weight:400;
 }
 .list_a{
 
-  width: 650rpx;
+  width: 690rpx;
   margin: auto;
     padding-top: 30rpx;
 }
 /* 超出时出现省略号 */
 .list_a .h1{
-  width: 240rpx;
+  width: 290rpx;
   margin-top: 20rpx;
   overflow: hidden;
     white-space: nowrap;
@@ -346,8 +346,8 @@ font-weight:400;
 }
 .list_a .commodity {
   position: relative;
-  height: 568rpx;
-  width: 310rpx;
+  height: 580rpx;
+  width: 335rpx;
   /* height: 510rpx; */
   /* padding-bottom: 25rpx; */
     float: left;
@@ -371,7 +371,7 @@ font-weight:400;
   margin-top: 20rpx;
 }
 .list_a .commodity:nth-child(2n){
-  margin-left: 30rpx;
+  margin-left: 21rpx;
 }
 .let{
   margin-left: 20rpx;
@@ -398,6 +398,9 @@ font-weight:400;
 .list_a .commodity .bra {
   margin-top: 10rpx;
   height: 32rpx;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .list_a .commodity .mone{
@@ -411,8 +414,8 @@ display: inline-block;
 }
 .list_a .commodity .bb{
   border-radius: 10rpx 10rpx 0 0;
-  width: 310rpx;
-  height: 280rpx;
+  width: 335rpx;
+  height: 298rpx;
 }
 
 .list_a .commodity .cc{

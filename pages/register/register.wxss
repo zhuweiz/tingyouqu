@@ -16,7 +16,7 @@ page{
   float: right;
 }
 .aaa{
-  height: 239rpx;
+  /* height: 239rpx; */
   border: 1rpx solid #0D5EFF;
 }
 .bottomd{
@@ -69,13 +69,17 @@ color:rgba(255,31,35,1);
 .body{
   position: relative;
   margin-top: 30rpx;
-  height: 237rpx;
+  /* height: 237rpx; */
+  overflow: hidden;
   background: #fff;
+
 }
 .body_a{
+  padding-bottom: 35rpx;
+  overflow: hidden;
    margin-left: 50rpx;
-  height: 161rpx;
-  border-bottom: 1rpx solid #DDE3F1;
+  /* height: 161rpx; */
+
 }
 .body_img{
   position: absolute;
@@ -85,6 +89,7 @@ color:rgba(255,31,35,1);
   height: 50rpx;
 }
 .piao1{
+  width: 400rpx;
 float: left;
 }
 .piao1 view:nth-child(1){
@@ -103,15 +108,17 @@ color:rgba(255,31,35,1);
   margin-right: 50rpx;
 }
 .body_b{
-  margin-top: 22rpx;
+    padding-bottom: 22rpx;
+    border-top: 1rpx solid #DDE3F1;
+  padding-top: 22rpx;
   margin-left: 50rpx;
   font-size:24rpx;
 font-family:PingFang SC;
 font-weight:400;
-  overflow: hidden;
-width: 600rpx;
-text-overflow: ellipsis;
-white-space: nowrap;
+  /* overflow: hidden; */
+width: 650rpx;
+/* text-overflow: ellipsis;
+white-space: nowrap; */
 }
 .province{
   overflow: hidden;

@@ -80,14 +80,15 @@
       <view class="remen">最新活动
         <image class="juxin" src="../../img/juxin.png"></image>
       </view>
-      <navigator hover-class="none" url="../Hot_activity/Hot_activity" class="genduo">查看全部</navigator>
+      <navigator hover-class="none" url="../Hot_activity/Hot_activity" class="genduo"> <text class="genduo3">更多</text>
+        <image class="genduo2" src="../../img/ggdd.png"></image></navigator>
     </view>
     <!-- 左右滑动 -->
     <scroll-view scroll-x='true' style="white-space: nowrap; display: flex;overflow: hidden;">
 
-        <navigator hover-class="none" style="border-radius:10rpx 26rpx 10rpx 26rpx;" url="../activity/activity?id={{item.id}}" class="remen-a" wx:for="{{hotList}}" wx:key="{{item.id}}" wx:if="{{index<6}}">
-          <image mode='aspectFill' style="border-radius: 6rpx 26rpx 6rpx 26rpx;" class="listjx" src="{{HTTP}}{{item.images}}" />
-          <view>{{item.title}}</view>
+        <navigator hover-class="none" style="border-radius:26rpx 26rpx 26rpx 26rpx;" url="../activity/activity?id={{item.id}}" class="remen-a" wx:for="{{hotList}}" wx:key="{{item.id}}" wx:if="{{index<6}}">
+          <image mode='aspectFill' style="border-radius: 26rpx 26rpx 26rpx 26rpx;" class="listjx" src="{{HTTP}}{{item.images}}" />
+          <!-- <view>{{item.title}}</view> -->
         </navigator>
     </scroll-view>
 
@@ -96,12 +97,15 @@
       <div class="remen">文化礼品周边
         <image class="juxin" src="../../img/juxin.png"></image>
       </div>
-      <navigator hover-class="none" url="../Gift/Gift" class="genduo">查看全部</navigator>
+      <navigator hover-class="none" url="../Gift/Gift" class="genduo">
+      <text class="genduo3">更多</text>
+        <image class="genduo2" src="../../img/ggdd.png"></image>
+      </navigator>
     </view>
     <!-- 左右滑动 -->
 
 
-    <navigator hover-class="none" class="remen-b" url="../Gift_details/Gift_details?id={{item.id}}" wx:for="{{giftList}}" wx:key="{{item.id}}" wx:if="{{index<1}}">
+    <!-- <navigator hover-class="none" class="remen-b" url="../Gift_details/Gift_details?id={{item.id}}" wx:for="{{giftList}}" wx:key="{{item.id}}" wx:if="{{index<6}}">
       <image class="liping_img" style="border-radius: 6rpx 52rpx 6rpx 52rpx" mode='aspectFill' src="{{HTTP}}{{item.giftList_img}}" />
       <view class="lipin">
         <view class="zhoubian">{{item.name}}</view>
@@ -117,10 +121,25 @@
           </view>
         </view>
       </view>
-
-    </navigator>
-
-    <view class="lipin_aa" wx:if="{{giftList.length != 1}}">
+    </navigator> -->
+    <view class="lipin_aa">
+   <navigator hover-class="none" class="lipin_cc" wx:for="{{giftList}}" wx:key="{{item.id}}" url="../Gift_details/Gift_details?id={{item.id}}" wx:if="{{index<6}}">
+        <image mode='aspectFill' style="border-radius: 6rpx 26rpx 6rpx 26rpx" src="{{HTTP}}{{item.giftList_img}}" />
+        <view class="lipin">
+          <view class="zhoubian">{{item.name}}</view>
+          <view class="jianjie2">{{item.dsescription}}</view>
+          <view class="money2" style="">
+            <text class="shichang">市场价</text>
+            <text style="font-size: 18rpx;"> ￥</text>{{item.price}}
+          </view>
+          <view class="money">
+            <text class="shichang">会员价</text>
+            <text style="font-size: 20rpx;"> ￥</text>{{item.member_price}}
+          </view>
+        </view>
+      </navigator>
+      </view>
+    <!-- <view class="lipin_aa" wx:if="{{giftList.length != 1}}">
       <navigator hover-class="none" class="lipin_cc" url="../Gift_details/Gift_details?id={{giftList2.id}}" wx:if="{{giftList.length == 2}}">
         <image mode='aspectFill' style="border-radius: 6rpx 26rpx 6rpx 26rpx" src="{{HTTP}}{{giftList2.giftList_img}}" />
         <view class="lipin">
@@ -151,14 +170,14 @@
           </view>
         </view>
       </navigator>
-    </view>
+    </view> -->
 
   </view>
 </view>
 
 <!-- 热门推荐 -->
 <!-- <view id="navbar" class="hot-r {{isFixedTop?'fixed':''}}">  wx:if="{{!isFixedTop}}"-->
-<view id="navbar" class="hot-r">
+<view id="navbar" class="hot-r childnode">
   <view class="rm {{current==0 ? 'on' : ''}}" data-idx="0" bindtap="onClickItem">
     热门推荐
     <image style="display:{{current==0 ? 'block' : 'none'}}" class="juxin" src="../../img/juxin.png"></image>
@@ -171,7 +190,7 @@
 <!-- <view class="hot-r" wx:if="{{isFixedTop}}">
 </view> -->
 
-<view class="hot-r fixed" style="margin-top:{{height}}px; display:{{isFixedTop?'block':'none'}}">
+<!-- <view class="hot-r fixed" style="margin-top:{{height}}px; display:{{isFixedTop?'block':'none'}}">
   <view class="rm {{current==0 ? 'on' : ''}}" data-idx="0" bindtap="onClickItem">
     热门推荐
     <image style="display:{{current==0 ? 'block' : 'none'}}" class="juxin" src="../../img/juxin.png"></image>
@@ -179,11 +198,11 @@
   <view class="xinpin {{current==1 ? 'on' : ''}}" data-idx="1" bindtap="onClickItem">新品推荐
     <image style="display:{{current==1 ? 'block' : 'none'}}" class="juxin2" src="../../img/juxin.png"></image>
   </view>
-</view>
+</view> -->
 
 <view class="hot-remen" style="padding-bottom:110rpx;">
   <!-- 列表1 -->
-  <view hidden='{{current!=0}}'>
+  <view hidden='{{current!=0}}' class="dddc">
     <view class="tuijian">
       <navigator hover-class="none" url="../list_particulars/list_particulars?id={{item.id}}" class="remen-c" wx:for="{{productList}}" wx:key="{{item.id}}">
         <image mode='aspectFill' style="border-radius: 6rpx 26rpx 6rpx 26rpx" src="{{HTTP}}{{item.images[0]}}" />
@@ -200,7 +219,7 @@
   </view>
 
   <!-- 列表2 -->
-  <view hidden='{{current!=1}}'>
+  <view hidden='{{current!=1}}' class="dddc">
     <view class="tuijian">
       <navigator hover-class="none" url="../list_particulars/list_particulars?id={{item.id}}" class="remen-c" wx:for="{{newList}}" wx:key="{{item.id}}">
         <image mode='aspectFill' style="border-radius: 6rpx 26rpx 6rpx 26rpx" src="{{HTTP}}{{item.images[0]}}" />

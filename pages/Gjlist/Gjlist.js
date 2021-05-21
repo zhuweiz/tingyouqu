@@ -59,7 +59,7 @@ Page({
 
     var id = _this.data.id
     wx.request({ //列表渲染
-      url: https + '/product/country?id=' + id, //写自己的服务器
+      url: https + '/product/brand?id=' + id, //写自己的服务器
       data: {
         page: _this.data.page,
         pagenum: _this.data.pagenum, //每页显示条数

@@ -7,12 +7,15 @@
 color:rgba(0,21,62,1);
 box-sizing:border-box;
 } 
+.remen-a{
+  height: 80rpx;
+}
 .pao{
   top: 0;
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
   background: #fff;
-  padding-bottom: 20rpx;
+  padding-bottom: 10rpx;
 }
 /* .fanhui{ */
 .fanhui {
@@ -198,7 +201,12 @@ width: 750rpx;
   overflow: hidden;
 }
 .biaoti_h1{
-  margin-left: 50rpx;
+   z-index: 999;
+  position: fixed;
+  /* margin-left: 50rpx; */
+  background: #fff;
+  height: 85rpx;
+  top: 487rpx;
 }
  .genre_a {
      /* display: flex;

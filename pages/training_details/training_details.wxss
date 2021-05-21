@@ -42,19 +42,34 @@ page {
 
 .wxParse-p {
   width: 650rpx !important;
+    /* display: flex; */
 }
-
+.wxParse-strong view{
+  font-weight:bold !important;
+}
 .wxParse {
   width: 650rpx !important;
   margin-top: 35rpx;
 }
-
+.wxParse-span{
+  display: inline;
+}
+.wxParse-inline{
+  display: inline;
+}
+.wxParse-span view {
+  display: inline-block !important;
+}
+.wxParse-span{
+  display: inline-block !important;
+}
 .wxParse-section {
   width: 650rpx !important;
 }
 
 .wxParse-p image {
   width: 650rpx !important;
+  display: flex;
 }
 
 .wxParse-img {
@@ -110,9 +125,9 @@ page {
   font-weight: 500;
   margin-top: 40rpx;
   color: rgba(0, 21, 62, 1);
-  overflow: hidden;
+  /* overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 
 .h2 {

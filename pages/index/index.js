@@ -21,7 +21,7 @@ Page({
     getAppInfo: app.globalData.bottom, //判断手机 底部高度
     current: 0, // tab切换  
     page: 1,
-    navbarInitTop: 0, //导航栏初始化距顶部的距离
+    navbarInitTop: 1400, //导航栏初始化距顶部的距离
     isFixedTop: false, //是否固定顶部
     navData: [{
       name: "首页", //文本
@@ -108,7 +108,6 @@ Page({
 
 
   onClickItem(e) { //点击切换
-    console.log(e.currentTarget.dataset.idx) //获取自定义的值
     let idx = e.currentTarget.dataset.idx
     if (this.current !== idx) {
       this.setData({
@@ -128,7 +127,6 @@ Page({
       keyWord: value,
     })
     var formData = e.currentTarget.dataset.text;
-    console.log(formData)
 
     if (formData) { // 搜索
       wx.navigateTo({
@@ -148,13 +146,9 @@ Page({
   //轮播图
   lunbo: function(e) {
     var that = this;
-    console.log(e)
-    console.log(e.currentTarget.dataset.from)
     var fiom = e.currentTarget.dataset.from
     var goosid = e.currentTarget.dataset.goosid
     var url = e.currentTarget.dataset.url
-
-    console.log(e)
     if (fiom == '1') {
       wx.navigateTo({
         url: '../list_particulars/list_particulars?id=' + goosid
@@ -184,19 +178,15 @@ Page({
       },
       method: "get",
       success: function(res) {
-        console.log(res)
         var newList = res.data.data.newList //新品推荐
         var giftList = res.data.data.giftList //礼物周边
         var giftList2 = res.data.data.giftList[1]
         var giftList3 = res.data.data.giftList[2]
-        console.log(giftList)
-        console.log(giftList3)
         var productList = res.data.data.productList
         var b = []
         for (var i = 0; i < giftList.length; i++) {
           b = giftList[i].images[0]
           giftList[i]['giftList_img'] = b
-          // console.log(a)
         }
         _this.setData({
           bnrUrl: res.data.data.bannerList, //轮播图
@@ -230,7 +220,6 @@ Page({
       },
       method: "get",
       success: function(res) {
-        console.log(res)
         var hotList = res.data.data.hotList //新品推荐
         _this.setData({
           hotList: res.data.data.hotList, //最新活动
@@ -259,7 +248,6 @@ Page({
       },
       method: "get",
       success: function(res) {
-        // console.log(res)
         _this.setData({
           hotword: res.data.data
         })
@@ -280,8 +268,8 @@ Page({
     _this.index_list()
     _this.index_activity()
     _this.hot_list()
-
-
+    
+    // this.getData()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -290,25 +278,22 @@ Page({
     var that = this;
     //获取节点距离顶部的距离
     setTimeout(() => {
-      wx.createSelectorQuery().select('#navbar').boundingClientRect(function(rect) {
-        console.log(rect)
-        if (rect && rect.top > 0) {
-          var navbarInitTop = parseInt(rect.top);
-          that.setData({
-            navbarInitTop: navbarInitTop - 150
-          });
-        }
-      }).exec();
-    }, 1200)
+      let query = wx.createSelectorQuery()//创建节点查询器
+      query.selectAll('.childnode').boundingClientRect(function (rect) {
+        that.setData({
+          navbarInitTop: parseInt(rect[0].top) - 150
+        })
+      }).exec()     
+    }, 1000)
   },
   onReady: function() {
-    this.getData()
+  
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    
   
   },
   // 页面滚动监听
@@ -354,7 +339,6 @@ Page({
         },
         method: "get",
         success: function(res) {
-          console.log(res.data.data)
           var productList = res.data.data.list
           if (productList.length < 1) {
             wx.showToast({
@@ -389,7 +373,6 @@ Page({
         },
         method: "get",
         success: function(res) {
-          console.log(res)
           var newList = res.data.data.list //新品推荐
           var arr2 = _this.data.newList;
           if (newList.length < 1) {

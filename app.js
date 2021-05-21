@@ -55,9 +55,9 @@ App({
     // 登录
     wx.login({
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         var code = res.code;
-        console.log(code)
+        // console.log(code)
         if (res.code) {
           // that.code = res.code;
           // 获取openId并缓存
@@ -75,8 +75,8 @@ App({
               "skey": wx.getStorageSync('skey'),
             },
             success: function (res){
-              console.log(res)
-              console.log(res.data)
+              // console.log(res)
+              // console.log(res.data)
               // that.openid=res.data.openid
               //1.存用户信息到本地存储
               wx.setStorageSync('memberexpires', res.data.memberexpires)
@@ -117,21 +117,21 @@ App({
     })
     // this.share()
   },
-  // share: function () { // 全局分享
-  //   wx.onAppRoute(res => {
-  //     const pages = getCurrentPages()
-  //     const view = pages[pages.length - 1]
-  //     wx.showShareMenu({
-  //       withShareTicket: true
-  //     })
-  //     view.onShareAppMessage = function () {
-  //       return {
-  //         // title: '',
-  //         path: view.route
-  //       }
-  //     }
-  //   })
-  // },
+  share: function () { // 全局分享
+    wx.onAppRoute(res => {
+      const pages = getCurrentPages()
+      const view = pages[pages.length - 1]
+      wx.showShareMenu({
+        withShareTicket: true
+      })
+      view.onShareAppMessage = function () {
+        return {
+          title: ' ',
+          path: view.route
+        }
+      }
+    })
+  },
   globalData: {
     share: false,  // 分享默认为false
     height: 0,

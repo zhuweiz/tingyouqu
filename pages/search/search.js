@@ -118,25 +118,24 @@ Page({
       list: options.list
     })
     //搜索热词
-    wx.request({
-      url: https+ '/search/hot', //写自己的服务器
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        'openid': wx.getStorageInfoSync("openid"),
-        'skey': wx.getStorageInfoSync("skey"),
-      },
-      method: "get",
-      success: function (res) {
-        // console.log(res)
-        _this.setData({
-          hotword: res.data.data
-        })
-      },
-      fail: function () {
-        console.log("fail")
-      }
+    // wx.request({
+    //   url: https+ '/search/hot', //写自己的服务器
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //     'openid': wx.getStorageInfoSync("openid"),
+    //     'skey': wx.getStorageInfoSync("skey"),
+    //   },
+    //   method: "get",
+    //   success: function (res) {
+    //     _this.setData({
+    //       hotword: res.data.data
+    //     })
+    //   },
+    //   fail: function () {
+    //     console.log("fail")
+    //   }
 
-    })
+    // })
   },
 
   /**

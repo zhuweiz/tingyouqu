@@ -8,7 +8,7 @@
           <image mode='aspectFill' data-index='{{index}}' bindtap='previewImg' src="{{HTTP}}{{item}}" />
         </view>
       </scroll-view> -->
-            <swiper class='u-wrp-bnr' style="border-radius:20rpx;"  indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'>
+            <swiper class='u-wrp-bnr' style="border-radius:20rpx;"  indicator-color='rgba(255,255,255,0.5)' indicator-active-color='rgba(255,255,255,1)' indicator-dots='true'  autoplay='true' interval='5000' duration='1000'>
         <!-- && product.video_url == null -->
         <view class="remen-a">
           <swiper-item wx:for='{{product.images}}' wx:key='index' wx:if="{{index<5}}">

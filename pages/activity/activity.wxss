@@ -24,6 +24,13 @@ font-weight:400;
 }
 .wxParse-p{
   width: 650rpx !important;
+
+}
+.wxParse-span{
+  display: inline;
+}
+.wxParse-inline{
+  display: inline;
 }
 .wxParse{
   width: 650rpx !important;
@@ -33,6 +40,7 @@ font-weight:400;
 }
 .wxParse-p image{
 width: 650rpx !important;
+  display: flex;
 }
 .wxParse-img{
   width: 650rpx !important;
@@ -44,14 +52,17 @@ width: 650rpx !important;
   padding-bottom: 45rpx;
 
 }
-
+.imgsc{
+  width: 100%;
+  height: 420rpx;
+}
 .rich{
   width: 650rpx;
   margin: auto;
 }
 .hed image{
   height: 410rpx;
-  width: 650rpx;
+  width: 100%;
   border-radius:20rpx;
 }
 
@@ -105,14 +116,18 @@ font-weight:400;
 .xiangqin{
     border-top: 30rpx solid #F3F7FF;
   height: 130rpx;
+  font-size: 36rpx;
+font-weight: 700;
+
 }
 .xiangqin view{
   height: 130rpx;
   margin-top: 60rpx;
   width: 650rpx;
   margin-left: 50rpx;
-  font-size:28rpx;
-font-weight:500;
+font-size: 36rpx;
+font-weight: 700;
+
 }
 .shanyao{
   width: 100%;

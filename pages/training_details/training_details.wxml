@@ -48,7 +48,10 @@
       </view>
       <view class="main_list2">
         <view class="main_d ma fffc">培训地址</view>
-        <view class="main_d mb ffg" style="margin-left: 190rpx">{{train_list.address}}</view>
+        <view class="main_d mb ffg" bindtap="navigation" style="margin-left: 190rpx">
+        {{train_list.address}}
+        <image style="  width: 11rpx; height: 20rpx; display: inline-block;" src="../../img/ggdd.png"></image>
+        </view>
       </view>
     </view>
     <view>

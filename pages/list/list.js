@@ -121,7 +121,6 @@ Page({
     }
   },
   changed: function(e) {
-    console.log(e)
     if (this.data.slider1Value === this.data.slider2Value && this.data.slider2Value === this.data.max) {
       this.setData({
         change: true
@@ -130,27 +129,19 @@ Page({
   },
   least_M(e) { //最小长度M
     this.data.least_M = e.detail.value;
-    console.log(this.data.least_M)
   },
   maximum_M(e) { //最大长度M
     this.data.maximum_M = e.detail.value;
-    console.log(this.data.maximum_M)
   },
   least_FT(e) { //最小长度FT
     this.data.least_FT = e.detail.value;
-    console.log(this.data.least_FT)
   },
   maximum_FT(e) { //最小长度FT
     this.data.maximum_FT = e.detail.value;
-    console.log(this.data.maximum_FT)
   },
   reset(e) { //重置品类筛选}
-    console.log(this.data.paramsList)
     for (let i = 0; i < this.data.paramsList.length; i++) {
-      console.log(this.data.paramsList[i])
       for (var j in this.data.paramsList[i].options) {
-
-        // console.log(this.data.paramsList[i].options[j])
         this.data.paramsList[i].options[j].checked = false;
       }
     }
@@ -188,7 +179,6 @@ Page({
     if (this.data.paramsList[pindex].options[index].checked) {
       //app_id.push(id)
       // 记录用户选择的参数
-      console.log(this.data.paramsList[pindex]);
 
       var selectPindex = String(this.data.paramsList[pindex].id);
 
@@ -196,7 +186,6 @@ Page({
         this.data.selectedParams['params_' + selectPindex] = [];
       }
       this.data.selectedParams['params_' + selectPindex].push(this.data.paramsList[pindex].options[index].id);
-      console.log(this.data.selectedParams['params_' + selectPindex]);
     } else {
       // 删除指定参数
       var selectPindex = String(this.data.paramsList[pindex].id);
@@ -204,13 +193,11 @@ Page({
       if (arrIndex > -1) {
         this.data.selectedParams['params_' + selectPindex].splice(arrIndex, 1);
       }
-      console.log(this.data.selectedParams['params_' + selectPindex]);
+      // console.log(this.data.selectedParams['params_' + selectPindex]);
     }
     _this.setData({
       paramsList: this.data.paramsList,
     })
-    console.log(this.data.selectedParams)
-    console.log(this.data.paramsList)
   },
 
 
@@ -253,7 +240,6 @@ Page({
     for (let i in this.data.selectedParams) {
       params += i + '=' + this.data.selectedParams[i].join(',') + '&';
     }
-    console.log(params)
     wx.request({
       url: https + '/product/screen?' + params,
       data: {
@@ -278,7 +264,6 @@ Page({
 
       method: "get",
       success: function(res) {
-        console.log(res)
         wx.hideLoading() //隐藏 loading 提示框
         if (res.data.data.length > 0) {
           _this.setData({
@@ -313,7 +298,6 @@ Page({
     var uhide_XIAN = this.data.uhide_XIAN;
     var index = e.currentTarget.dataset.index
     var item = this.data.jobList[index];
-    console.log(item)
     item.isSelect = !item.isSelect;
     if (item.isSelect) {
       uhide_XIAN.push(item.id)
@@ -341,7 +325,6 @@ Page({
     for (let i in this.data.selectedParams) {
       params += i + '=' + this.data.selectedParams[i].join(',') + '&';
     }
-    console.log(params)
     wx.request({
       url: https + '/product/screen?' + params,
       data: {
@@ -366,7 +349,6 @@ Page({
 
       method: "get",
       success: function(res) {
-        console.log(res)
         wx.hideLoading() //隐藏 loading 提示框
         if (res.data.data.length > 0) {
           _this.setData({
@@ -436,7 +418,6 @@ Page({
       },
       method: "get",
       success: function(res) {
-        console.log(res.data.data)
         if (res.data.data.length < 1) {
           wx.showToast({
             title: '暂无数据~',
@@ -480,15 +461,12 @@ Page({
         uhide2: '99'
       })
     }
-    console.log(that.data.uhide)
   },
 
   ShowState5: function(e) {
-    console.log(e)
     let id = e.currentTarget.dataset.id
     let pindex = e.currentTarget.dataset.pindex
     var paramsList_id = this.data.paramsList_id
-    console.log(id)
     for (let i = 0; i < this.data.paramsList.length; i++) {
       if (this.data.paramsList[i].id == id) {
         if (this.data.paramsList[i].checked == true) {
@@ -506,7 +484,6 @@ Page({
     var that = this;
     var toggleBtnVal = that.data.uhide
     var id = e.currentTarget.dataset.id
-    console.log(id)
     if (toggleBtnVal == id) {
       that.setData({
         uhide: 0
@@ -521,7 +498,6 @@ Page({
     var that = this;
     var toggleBtnVal2 = that.data.uhide2
     var id = e.currentTarget.dataset.id
-    console.log(id)
     if (toggleBtnVal2 == id) {
       that.setData({
         uhide2: 0
@@ -559,7 +535,7 @@ Page({
       success: function(res) {
         var contentlistTem = _this.data.productList;
         var productList = res.data.data.productList; //列表页
-        console.log(productList)
+
 
         wx.hideNavigationBarLoading() //在当前页面隐藏导航条加载动画
         wx.hideLoading() //隐藏 loading 提示框
@@ -623,7 +599,6 @@ Page({
   },
   //获取文字信息
   getPy: function(e) { //点击跳转指定位置
-    console.log(e)
     this.setData({
       hidden: false,
       showPy: e.target.id,
@@ -645,7 +620,6 @@ Page({
   },
   checkboxChange: function(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-    console.log(e)
     var _this = this
     var app_id2 = _this.data.app_id2
     var id = e.currentTarget.id
@@ -658,7 +632,6 @@ Page({
         }
       }
     }
-    console.log(app_id2)
   },
   deletelist(e) { //重置
     var checked = this.data.checked
@@ -729,7 +702,6 @@ Page({
     const _this = this;
     var id = options.id
     var name = options.name
-    console.log(options)
     _this.setData({
       id: id,
       cid:id,
@@ -787,7 +759,6 @@ Page({
   onReachBottom: function() {
     var that = this;
     var page = that.data.page + 1; //获取当前页数并+1
-    console.log(page)
     that.setData({
       page: page, //更新当前页数
     })
@@ -797,9 +768,6 @@ Page({
     } else {
       uhide_XIAN = this.data.uhide_XIAN
     }
-    console.log(uhide_XIAN)
-
-    console.log(this.data.id)
     var https = config.http_url;
     var _this = this
     //最低价格
@@ -810,7 +778,6 @@ Page({
     for (let i in this.data.selectedParams) {
       params += i + '=' + this.data.selectedParams[i].join(',') + '&';
     }
-    console.log(params)
     wx.request({
       url: https + '/product/screen?' + params,
       data: {
@@ -836,7 +803,6 @@ Page({
 
       method: "get",
       success: function(res) {
-        console.log(res)
         var arr1 = _this.data.productList; //从data获取当前datalist数组
 
         if (res.data.data.length < 1) {
@@ -848,7 +814,6 @@ Page({
         }
         var productList = res.data.data
         arr1 = arr1.concat(productList); //合并数组
-        console.log(arr1)
         _this.setData({
           productList: arr1 //合并后更新productList
         })

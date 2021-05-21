@@ -1,0 +1,50 @@
+<!--pages/classify/classify.wxml-->
+  <!-- 导航栏 -->
+    <scroll-view scroll-y="true" style="height:100%; " scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" enable-back-to-top="true">
+<view class="classify" style='padding-top: {{height}}px;'>
+
+      <!-- <view class="head">
+      <view class="head-c">
+
+        <view class="nav">
+          <view class="icon">
+            <image style='width:25rpx;display:inline-block;height:25rpx;' src="../../img/shousuo2.png" />
+          </view>
+          <input class="nav_seek" placeholder="品牌搜索" bindconfirm='goSearch' placeholder-style="color:#D2D9EC" cursor="margin-left:-20rpx" confirm-type="search" />
+        </view>
+        </view>
+      </view> -->
+
+
+  <view class='list-city' hidden="{{!flag}}">
+    <view class="hed">
+            <view class='item' wx:for="{{pinpai_list}}" wx:for-index="idx" wx:for-item="group" wx:key="key">
+        <view class='py' id="{{idx}}">{{idx}}</view>
+        <navigator hover-class="none" url="../Gjlist/Gjlist?id={{item.id}}&name={{item.name}}"  bindtap="selectCity" class="fullname2" wx:for="{{group}}" wx:key="key" data-cname="{{item.name}}" data-id="{{item.id}}">
+        <image class="bimg" src="{{HTTP}}{{item.image}}"></image>
+              <view class="p_name">{{item.name}}</view>
+               <view class="xian"></view>
+        </navigator>
+      </view>
+    </view>
+</view>
+  </view>
+
+     <view class="address" hidden="{{flag}}">
+  <view class="address_a">
+      <view class="img" style="background-image: url('http://m.qpic.cn/psb?/V13t2G4i0uprYL/uYo8U.oo0vWONsW93wC*ppXK6ZFdHOgOlSEiEbXukxY!/b/dFIBAAAAAAAA&bo=OQKmAQAAAAADB74!&rf=viewer_4'); width: 569rpx;height: 422rpx;"></view>
+      <view class="img2">暂无该国家品牌~</view>
+  </view>
+  </view>
+   <view style="height: 110rpx;background: #fff; padding-bottom: {{getAppInfo}}rpx"></view>
+  </scroll-view>
+ 
+  <!-- 首字母 -->
+  <view class='city-py' bindtouchstart="tStart" bindtouchend="tEnd">
+      <view wx:for="{{pinpai_list}}" class="zm" wx:for-index="key" wx:key="key" bindtouchstart="getPy" id="{{key}}">{{key}}
+    </view>
+ 
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="showPy">{{showPy == 'hot' ? "#" : showPy}}</view>
+
